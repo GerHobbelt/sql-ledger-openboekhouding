@@ -1,32 +1,13 @@
-\documentclass{scrartcl}
-\usepackage[latin1]{inputenc}
-\usepackage{tabularx}
-\usepackage[top=2cm,bottom=-1cm,left=2cm,right=1cm]{geometry}
-\usepackage{graphicx}
-\setlength{\parindent}{0pt}
+<%include preamble.tex%>
 
 \begin{document}
 
-\pagestyle{empty}
+\pagestyle{myheadings}
+\thispagestyle{empty}
 
 \fontfamily{cmss}\fontsize{10pt}{12pt}\selectfont
 
-\parbox{\textwidth}{%
-  \parbox[b]{.42\textwidth}{%
-    <%company%>
-   
-    <%address%>
-  }
-  \parbox[b]{.2\textwidth}{
-    \includegraphics[scale=0.3]{sql-ledger}
-  }\hfill
-  \begin{tabular}[b]{rr@{}}
-  Tel: & <%tel%>\\
-  Fax: & <%fax%>
-  \end{tabular}
-
-  \rule[1.5em]{\textwidth}{0.5pt}
-}
+<%include letterhead.tex%>
 
 \centerline{\textbf{A R} \hspace{0.3cm} \textbf{T R A N S A C T I O N}}
 
@@ -41,7 +22,7 @@
 
 <%city%>
 <%if state%>
-, <%state%>
+\hspace{-0.1cm}, <%state%>
 <%end state%>
 <%zipcode%>
 
@@ -51,9 +32,8 @@
 
 <%if contact%>
 <%contact%>
-<%end contact%>
-
 \vspace{0.2cm}
+<%end contact%>
 
 <%if customerphone%>
 Tel: <%customerphone%>
@@ -85,7 +65,7 @@ Tax Number: <%customertaxnumber%>
 
 \vspace{1cm}
 
-\begin{tabularx}{\textwidth}[t]{@{}llrX@{\hspace{1cm}}l@{}}
+\begin{tabular}[t]{@{}llrl@{\hspace{1cm}}l@{}}
 <%foreach amount%>
   <%accno%> & <%account%> & <%amount%> & <%description%> & <%projectnumber%> \\
 <%end amount%>
@@ -97,7 +77,7 @@ Tax Number: <%customertaxnumber%>
 
   \multicolumn{2}{r}{\textbf{Total}} & <%invtotal%> & \\
   
-\end{tabularx}
+\end{tabular}
 
 \vspace{0.3cm}
 
@@ -111,13 +91,13 @@ Tax Number: <%customertaxnumber%>
 \vspace{0.3cm}
 
 <%if paid_1%>
-\begin{tabular}{@{}lllr@{}}
+\begin{tabular}{@{}llllr@{}}
   \multicolumn{5}{c}{\textbf{Payments}} \\
   \hline
-  \textbf{Date} & & \textbf{Source} & \textbf{Amount} \\
+  \textbf{Date} & & \textbf{Source} & \textbf{Memo} & \textbf{Amount} \\
 <%end paid_1%>
 <%foreach payment%>
-  <%paymentdate%> & <%paymentaccount%> & <%paymentsource%> & <%payment%> \\
+  <%paymentdate%> & <%paymentaccount%> & <%paymentsource%> & <%paymentmemo%> & <%payment%> \\
 <%end payment%>
 <%if paid_1%>
 \end{tabular}
@@ -129,5 +109,14 @@ Tax Number: <%customertaxnumber%>
 \textbf{\scriptsize <%taxdescription%> Registration <%taxnumber%>} \\
 <%end tax%>
   
+<%if taxincluded%>
+\vspace{0.5cm}
+Taxes shown are included in price.
+<%end taxincluded%>
+
+<%if cd_amount%>
+If payment is received within <%discountterms%> days a discount of <%cashdiscount%> \% applies for a total of <%cd_amount%>.
+<%end cd_amount%>
+
 \end{document}
 

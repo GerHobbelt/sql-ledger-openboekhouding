@@ -3,7 +3,7 @@
 
 Till: <%till align=left width=3%>         Phone#: <%tel%>
 Cashier: <%employee%>
-Inv No/Date: <%invnumber%> / <%invdate%>
+Inv #/Date: <%invnumber%> / <%invdate%>
 Printed: <%dateprinted%>
 
   Qty Description                 Amount
@@ -12,10 +12,10 @@ Printed: <%dateprinted%>
       <%number%> @ <%sellprice%>/<%unit%>
 <%end number%>
 
-Number of items: <%rowcount%>
+Number of items: <%totalqty%>
 <%if taxincluded%>
                          ---------------
-                   Amount Due: <%invtotal align=right width=9%>
+                        Total: <%invtotal align=right width=9%>
 <%end taxincluded%>
 <%if not taxincluded%>
                             ------------
@@ -24,9 +24,8 @@ Number of items: <%rowcount%>
 <%foreach tax%>
 <%taxdescription align=right width=23%> @ <%taxrate align=right width=2%>%: <%tax align=right width=9%>
 <%end tax%>
-                   Amount Due: <%invtotal align=right width=9%>
 <%foreach payment%>
-<%paymentaccount align=right width=29%>: <%payment align=right width=9%> <%currency%>
+                         Paid: <%payment align=right width=9%> <%currency%>
 <%end payment%>
 <%if change%>
                        Change: <%change align=right width=9%>
@@ -44,7 +43,3 @@ Number of items: <%rowcount%>
 <%if taxincluded%>
 Taxes are included in price.
 <%end taxincluded%>
-
-
-
-

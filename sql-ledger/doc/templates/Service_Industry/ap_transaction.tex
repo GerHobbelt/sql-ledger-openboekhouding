@@ -1,32 +1,13 @@
-\documentclass{scrartcl}
-\usepackage[latin1]{inputenc}
-\usepackage{tabularx}
-\usepackage[top=2cm,bottom=-1cm,left=2cm,right=1cm]{geometry}
-\usepackage{graphicx}
-\setlength{\parindent}{0pt}
+<%include preamble.tex%>
 
 \begin{document}
 
-\pagestyle{empty}
+\pagestyle{myheadings}
+\thispagestyle{empty}
 
 \fontfamily{cmss}\fontsize{10pt}{12pt}\selectfont
 
-\parbox{\textwidth}{%
-  \parbox[b]{.42\textwidth}{%
-    <%company%>
-   
-    <%address%>
-  }
-  \parbox[b]{.2\textwidth}{
-    \includegraphics[scale=0.3]{sql-ledger}
-  }\hfill
-  \begin{tabular}[b]{rr@{}}
-  Tel: & <%tel%>\\
-  Fax: & <%fax%>
-  \end{tabular}
-
-  \rule[1.5em]{\textwidth}{0.5pt}
-}
+<%include letterhead.tex%>
 
 \centerline{\textbf{A P} \hspace{0.3cm} \textbf{T R A N S A C T I O N}}
 
@@ -41,7 +22,7 @@
 
 <%city%>
 <%if state>
-, <%state%>
+\hspace{-0.1cm}, <%state%>
 <%end state%> <%zipcode%>
 
 <%country%>
@@ -50,9 +31,8 @@
 
 <%if contact%>
 <%contact%>
-<%end contact%>
-
 \vspace{0.2cm}
+<%end contact%>
 
 <%if vendorphone%>
 Tel: <%vendorphone%>
@@ -84,7 +64,7 @@ Tax Number: <%vendortaxnumber%>
 
 \vspace{1cm}
 
-\begin{tabularx}{\textwidth}[t]{@{}llrX@{\hspace{1cm}}l@{}}
+\begin{tabular}[t]{@{}llrl@{\hspace{1cm}}l@{}}
 <%foreach amount%>
   <%accno%> & <%account%> & <%amount%> & <%description%> & <%projectnumber%> \\
 <%end amount%>
@@ -96,7 +76,7 @@ Tax Number: <%vendortaxnumber%>
 
   \multicolumn{2}{r}{\textbf{Total}} & <%invtotal%> & \\
   
-\end{tabularx}
+\end{tabular}
 
 \vspace{0.3cm}
 

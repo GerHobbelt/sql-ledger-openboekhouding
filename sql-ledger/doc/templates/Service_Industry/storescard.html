@@ -3,12 +3,12 @@
 <table width=100%>
 
   <%include letterhead.html%>
-  
+
   <tr>
     <td width=10>&nbsp;</td>
 
     <th colspan=3>
-      <h4>T I M E &nbsp;&nbsp; C A R D</h4>
+      <h4>S T O R E S &nbsp;&nbsp; C A R D</h4>
     </th>
   </tr>
 
@@ -21,11 +21,11 @@
 	  <td>
 	    <table>
 	      <tr>
-		<th align=left>Employee</th>
+		<th align=right>Employee</th>
 		<td><%employee%></td>
 	      </tr>
 	      <tr>
-		<th align=left>ID</th>
+		<th align=right>ID</th>
 		<td><%employee_id%></td>
 	      </tr>
 	    </table>
@@ -34,24 +34,12 @@
 	  <td align=right>
 	    <table>
 	      <tr>
-		<th align=left nowrap>Card ID</th>
+		<th align=right nowrap>Card ID</th>
 		<td><%id%></td>
 	      </tr>
 	      <tr>
-		<th align=left nowrap>Date</th>
+		<th align=right nowrap>Date</th>
 		<td><%transdate%></td>
-	      </tr>
-	      <tr>
-		<th align=left nowrap>In</th>
-		<td><%checkedin%></td>
-	      </tr>
-              <tr>
-                <th align=left>Out</th>
-		<td><%checkedout%></td>
-	      </tr>
-	      <tr>
-		<th align=left nowrap>Hours</th>
-		<td><%qty%></td>
 	      </tr>
 	    </table>
 	  </td>
@@ -67,36 +55,39 @@
   
     <td>
       <table width=100%>
-        <tr valign=bottom>
+        <tr>
 	  <td>
-	    <table>
-	      <tr valign=top>
-	        <th align=left>Job/Project #</th>
+	    <table width=100%>
+	      <tr>
+	        <th align=left>Job #</th>
+	        <th align=left>Description</th>
+	      </tr>
+	      <tr>
 		<td><%projectnumber%></td>
-	      </tr>
-	      <tr>
-	        <th align=left>Description</th>
 		<td><%projectdescription%></td>
-	      </tr>
-	      <tr valign=top>
-	        <th align=left>Labor/Service Code</th>
-		<td><%partnumber%></td>
-	      </tr>
-	      <tr>
-	        <th align=left>Description</th>
-		<td><%description%></td>
 	      </tr>
 	    </table>
 	  </td>
-	  <td align=right>
-	    <table>
+	</tr>
+	
+	<tr height=15></tr>
+
+	<tr>
+          <td>
+            <table width=100% border=1>
 	      <tr>
-	        <th align=right>Rate</th>
-		<td><%sellprice%></td>
+	        <th align=left>Part Number</th>
+	        <th align=left width=50%>Description</th>
+		<th align=right width=10%>Qty</th>
+	        <th align=right width=10%>Cost</th>
+		<th align=right width=10%>Total</th>
 	      </tr>
 	      <tr>
-		<th align=right>Total</th>
-		<td><%total%></td>
+		<td><%partnumber%></td>
+		<td><%description%></td>
+		<td align=right><%qty%></td>
+		<td align=right><%sellprice%></td>
+		<td align=right><%total%></td>
 	      </tr>
 	    </table>
 	  </td>
@@ -105,7 +96,7 @@
     </td>
   </tr>
 
-  <%if notes%>
+<%if notes%>
   <tr height=5></tr>
   
   <tr>
@@ -115,10 +106,9 @@
       <%notes%>
     </td>
   </tr>
-  <%end notes%>
+<%end notes%>
 
 </table>
 
 </body>
 </html>
-
