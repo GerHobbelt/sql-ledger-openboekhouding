@@ -1,2 +1,4 @@
-# sql-ledger-openboekhouding
-SQLedger patches for openboekhouding.nl
+# SQLedger
+
+A clone of [the original SQLedger](https://www.sql-ledger.com/) distro, with patches for openboekhouding.nl
+
