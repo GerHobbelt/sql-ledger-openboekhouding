@@ -24,10 +24,10 @@
 
             <td align="right">
               <h4>
-			  Tel: <%tel%>
-			  <br>
+              Tel: <%tel%>
+              <br>
               Fax: <%fax%>
-			  </h4>
+              </h4>
             </td>
           </tr>
 
@@ -50,35 +50,42 @@
           </tr>
           <tr valign="top">
             <td>
-			<%shiptoname%>
-			<br>
+            <%shiptoname%>
+            <br>
             <%shiptoaddress1%> 
-			<%if shiptoaddress2%>
-			<br>
+
+<%if shiptoaddress2%>
+            <br>
             <%shiptoaddress2%> 
-			<%end shiptoaddress2%>
-			<br>
+<%end shiptoaddress2%>
+
+            <br>
             <%shiptocity%> <%shiptostate%> <%shiptozipcode%> 
-			<%if shiptocountry%>
-			<br>
+
+<%if shiptocountry%>
+            <br>
             <%shiptocountry%> 
-			<%end shiptocountry%>
-			</td>
+<%end shiptocountry%>
+            </td>
+
             <td>
-			<%if shiptocontact%>
-			<br>
+<%if shiptocontact%>
+            <br>
             Attn: <%shiptocontact%> 
-			<%end shiptocontact%> 
-			<%if shiptophone%>
-			<br>
+<%end shiptocontact%> 
+
+<%if shiptophone%>
+            <br>
             Tel: <%shiptophone%> 
-			<%end shiptophone%> 
-			<%if shiptofax%>
-			<br>
+<%end shiptophone%> 
+
+<%if shiptofax%>
+            <br>
             Fax: <%shiptofax%> 
-			<%end shiptofax%> 
-			<%shiptoemail%>
-			</td>
+<%end shiptofax%> 
+
+            <%shiptoemail%>
+            </td>
           </tr>
         </table>
       </td>
