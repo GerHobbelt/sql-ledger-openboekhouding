@@ -65,6 +65,7 @@
               , <%state%> 
 <%end state%> 
               <%zipcode%> 
+
 <%if country%>
               <br>
               <%country%> 
@@ -98,10 +99,15 @@
             <%shiptoaddress2%> 
 <%end shiptoaddress2%>
             <br>
-            <%shiptocity%> <%shiptostate%> <%shiptozipcode%> 
+			<%shiptocity%> 
+<%if shiptostate%>
+			, <%shiptostate%>
+<%end shiptostate%>
+			<%shiptozipcode%>
+
 <%if shiptocountry%>
             <br>
-            <%shiptocountry%> 
+            <%shiptocountry%>
 <%end shiptocountry%>
             <br>
 <%if shiptocontact%>

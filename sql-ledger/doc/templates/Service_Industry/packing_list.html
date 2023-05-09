@@ -54,6 +54,7 @@
                 <tr class="blackbar">
                   <th align="left">Ship To:</th>
                 </tr>
+
                 <tr>
                   <td>
                     <%shiptoname%>
@@ -65,15 +66,12 @@
                     <%shiptoaddress2%>
 <%end shiptoaddress2%>
 
-<%if shiptoaddress3%>
-                    <br>
-                    <%shiptoaddress3%>
-<%end shiptoaddress3%>
-
-<%if shiptoaddress4%>
-                    <br>
-                    <%shiptoaddress4%> 
-<%end shiptoaddress4%>
+					<br>
+		            <%shiptocity%> 
+<%if shiptostate%> 
+					, <%shiptostate%> 
+<%end shiptostate%> 
+					<%shiptozipcode%> 
 
 <%if shiptocountry%>
 					<br>
