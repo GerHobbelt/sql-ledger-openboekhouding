@@ -184,9 +184,7 @@
 
   <p>
     All amounts in <%currency%> 
-<%if currency ne 'CAD'%> 
-    converted at <%exchangerate%> 
-<%end currency ne 'CAD'%>
+    <%if currency ne 'CAD'%> converted at <%exchangerate%><%end currency ne 'CAD'%>.
   </p>
 </body>
 </html>
