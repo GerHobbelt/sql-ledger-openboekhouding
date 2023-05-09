@@ -2,18 +2,32 @@
 <html>
 <head>
   <title>REMITTANCE VOUCHER</title>
-  <link rel="stylesheet" href="<%templates%>/<%language_code%>/sqledger.css">
+  <link rel="stylesheet" href="<%templates%>/<%language_code%>/sqledger.css" />
 </head>
 <body>
   <h4>Remittance Voucher</h4>
+
   <p><%currency%> <%total%></p>
+
   <p>IBAN: <%bankiban%> BIC: <%bankbic%> Bank: <%bankname%></p>
+
   <p><%company%> <%address%></p>
-  <p><%name%><br>
-  <%address1%><br>
-  <%address2%><br>
-  <%city%> <%if state%> , <%state%> <%end state%><br>
-  <%zipcode%><br>
-  <%country%></p>
+
+  <p>
+  <%name%>
+  <br>
+  <%address1%>
+  <br>
+  <%address2%>
+  <br>
+  <%city%> 
+<%if state%> 
+  , <%state%> 
+<%end state%>
+  <br>
+  <%zipcode%>
+  <br>
+  <%country%>
+  </p>
 </body>
 </html>

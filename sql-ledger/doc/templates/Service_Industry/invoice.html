@@ -161,16 +161,16 @@
 
       <td>
         <table width="100%">
-          <tr class="c2">
-            <th align="right"><span class="c1">Item</span></th>
-            <th align="left"><span class="c1">Number</span></th>
-            <th align="left"><span class="c1">Description</span></th>
+          <tr class="blackbar">
+            <th align="right" nowrap>Item</th>
+            <th align="left" nowrap>Number</th>
+            <th align="left" nowrap>Description</th>
             <th></th>
-            <th align="right"><span class="c1">Qt'y</span></th>
+            <th align="right" nowrap>Qt'y</th>
             <th></th>
-            <th align="right"><span class="c1">Unit Price</span></th>
-            <th align="right"><span class="c1">Disc %</span></th>
-            <th align="right"><span class="c1">Extended</span></th>
+            <th align="right" nowrap>Unit Price</th>
+            <th align="right" nowrap>Disc %</th>
+            <th align="right" nowrap>Extended</th>
           </tr>
 
 <%foreach number%>
@@ -308,7 +308,16 @@
       <td>
         <table width="100%">
           <tr valign="top">
-            <td width="60%"><span class="payment-conditions">Payment due by <%duedate%>. Items returned are subject to a 10% restocking charge. A return authorization must be obtained from <%company%> before goods are returned. Returns must be shipped prepaid and properly insured. <%company%> will not be responsible for damages during transit.</span></td>
+            <td width="60%">
+			  <span class="payment-conditions">
+			    Payment due by <%duedate%>. 
+				Items returned are subject to a 10% restocking charge. 
+				A return authorization must be obtained from <%company%> before goods are returned. 
+				Returns must be shipped prepaid and properly insured. 
+				<%company%> will not be responsible for damages during transit.
+			  </span>
+			</td>
+
             <td width="40%">
               <br>
               <hr noshade>
@@ -322,7 +331,7 @@
     <tr>
       <td></td>
 
-      <th colspan="9" align="left"><span class="c4"><%taxdescription%> Registration <%taxnumber%></span></th>
+      <th colspan="9" align="left"><span class="smallprint"><%taxdescription%> Registration <%taxnumber%></span></th>
     </tr>
 <%end tax%>
 
@@ -332,7 +341,7 @@
     </tr>
 
     <tr>
-      <th colspan="8" align="left"><span class="c4">Taxes shown are included in price.</span></th>
+      <th colspan="8" align="left"><span class="smallprint">Taxes shown are included in price.</span></th>
     </tr>
 <%end taxincluded%>
   </table>

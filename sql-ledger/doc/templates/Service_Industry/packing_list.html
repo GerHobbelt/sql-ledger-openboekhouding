@@ -101,12 +101,15 @@
           <tr>
             <td><%invnumber%></td>
             <td><%ordnumber%></td>
+
 <%if shippingdate%>
             <td><%shippingdate%></td>
 <%end shippingdate%>
+
 <%if not shippingdate%>
             <td><%transdate%></td>
 <%end shippingdate%>
+
             <td><%employee%></td>
 <%if warehouse%>
             <td><%warehouse%></td>

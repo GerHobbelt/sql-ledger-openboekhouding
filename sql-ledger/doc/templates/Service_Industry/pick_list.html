@@ -9,13 +9,14 @@
 
   <%include letterhead.html%>
 
-  <tr>
-    <td width="10"></td>
-    
-    <th colspan="3">
-      <h4>P I C K &nbsp;&nbsp; L I S T</h4>
-    </th>
-  </tr>
+    <tr>
+      <td width="10"></td>
+
+      <th colspan="3">
+        <h4>P I C K &nbsp;&nbsp; L I S T</h4>
+      </th>
+    </tr>
+
     <tr>
       <td></td>
 
@@ -25,15 +26,18 @@
             <th width="50%" align="left">Ship To:</th>
             <th width="50%"></th>
           </tr>
+
           <tr valign="top">
             <td>
 			<%shiptoname%>
 			<br>
             <%shiptoaddress1%> 
-			<%if shiptoaddress2%>
+
+<%if shiptoaddress2%>
 			<br>
             <%shiptoaddress2%> 
-			<%end shiptoaddress2%>
+<%end shiptoaddress2%>
+
 			<br>
 			<%shiptocity%>
 <%if shiptostate%>
@@ -41,24 +45,26 @@
 <%end shiptostate%>
 			<%shiptozipcode%>
 
-			<%if shiptocountry%>
+<%if shiptocountry%>
 			<br>
             <%shiptocountry%> 
-			<%end shiptocountry%>
+<%end shiptocountry%>
 			</td>
+
             <td>
-			<%if shiptocontact%>
+<%if shiptocontact%>
 			<br>
 			<%shiptocontact%>
-			<%end shiptocontact%> 
-			<%if shiptophone%>
+<%end shiptocontact%> 
+
+<%if shiptophone%>
 			<br>
             Tel: <%shiptophone%> 
-			<%end shiptophone%> 
-			<%if shiptofax%>
+<%end shiptophone%> 
+<%if shiptofax%>
 			<br>
             Fax: <%shiptofax%> 
-			<%end shiptofax%> 
+<%end shiptofax%> 
 
 			<br>
 			<%shiptoemail%>
@@ -107,6 +113,7 @@
         </table>
       </td>
     </tr>
+
     <tr>
       <td></td>
 

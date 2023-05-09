@@ -168,7 +168,7 @@
 
 <%foreach tax%>
           <tr>
-            <th colspan="3" align="left"><span class="mallprint">Registration No. <%taxnumber%></span></th>
+            <th colspan="3" align="left"><span class="smallprint">Registration No. <%taxnumber%></span></th>
             <th colspan="4" align="right" nowrap><%taxdescription%> on <%taxbase%> @ <%taxrate%> %</th>
             <td colspan="2" align="right"><%tax%></td>
           </tr>
@@ -198,7 +198,9 @@
         <table width="100%">
           <tr valign="top">
             <th align="left"><%text_amount%>***** <%decimal%>/100</th>
-            <td align="right" nowrap>All prices in <b><%currency%></b></td>
+            <td align="right" nowrap>
+			All prices in <b><%currency%></b>
+			</td>
           </tr>
 
 <%if taxincluded%>

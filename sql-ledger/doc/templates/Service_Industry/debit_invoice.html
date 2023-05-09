@@ -32,16 +32,19 @@
               <%name%>
               <br>
               <%address1%> 
+
 <%if address2%>
               <br>
               <%address2%> 
 <%end address2%>
+
               <br>
               <%city%> 
 <%if state%> 
               , <%state%> 
 <%end state%> 
               <%zipcode%> 
+
 <%if country%>
               <br>
               <%country%> 
@@ -129,8 +132,10 @@
     <tr height="5">
       <td></td>
     </tr>
+
     <tr>
       <td></td>
+
       <td>
         <table width="100%" border="1">
           <tr>
@@ -185,6 +190,7 @@
             <td align="right"><%discountrate%></td>
             <td align="right"><%linetotal%></td>
           </tr>
+
           <tr>
             <td></td>
             <td></td>
@@ -212,7 +218,7 @@
 
 <%foreach tax%>
           <tr>
-            <th colspan="3" align="left"><span class="mallprint">Registration No. <%taxnumber%></span></th>
+            <th colspan="3" align="left"><span class="smallprint">Registration No. <%taxnumber%></span></th>
             <th colspan="4" align="right" nowrap><%taxdescription%> on <%taxbase%> @ <%taxrate%> %</th>
             <td colspan="2" align="right"><%tax%></td>
           </tr>
@@ -234,6 +240,7 @@
 
           <tr>
             <td colspan="5"></td>
+
             <td colspan="4">
               <hr noshade>
             </td>

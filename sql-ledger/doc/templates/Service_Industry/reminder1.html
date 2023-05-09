@@ -2,44 +2,84 @@
 <html lang="en-US">
 <head>
   <title>FIRST REMINDER</title>
-  <link rel="stylesheet" href="<%templates%>/<%language_code%>/sqledger.css">
+  <link rel="stylesheet" href="<%templates%>/<%language_code%>/sqledger.css" />
 </head>
 <body>
   <table width="100%">
+
     <%include letterhead.html%>
+
     <tr>
       <td width="10"></td>
+
       <th colspan="3">
         <h4>1. R E M I N D E R</h4>
       </th>
     </tr>
+
     <tr>
       <td></td>
+
       <td colspan="3" align="right"><%statementdate%></td>
     </tr>
+
     <tr>
       <td></td>
+
       <td>
         <table width="100%">
           <tr valign="top">
-            <td><%name%><br>
-            <%address1%> <%if address2%><br>
-            <%address2%> <%end address2%><br>
-            <%city%> <%if state%> , <%state%> <%end state%> <%zipcode%> <%if country%><br>
-            <%country%> <%end country%><br>
-            <%if customerphone%><br>
-            Tel: <%customerphone%> <%end customerphone%> <%if customerfax%><br>
-            Fax: <%customerfax%> <%end customerfax%> <%if email%><br>
-            <%email%> <%end email%></td>
+            <td>
+			<%name%>
+			<br>
+            <%address1%> 
+
+<%if address2%>
+			<br>
+            <%address2%> 
+<%end address2%>
+
+			<br>
+            <%city%> 
+<%if state%> 
+			, <%state%> 
+<%end state%> 
+			<%zipcode%> 
+
+<%if country%>
+			<br>
+            <%country%> 
+<%end country%>
+
+			<br>
+
+<%if customerphone%>
+			<br>
+            Tel: <%customerphone%> 
+<%end customerphone%> 
+
+<%if customerfax%>
+			<br>
+            Fax: <%customerfax%> 
+<%end customerfax%> 
+
+<%if email%>
+			<br>
+            <%email%> 
+<%end email%>
+			</td>
           </tr>
         </table>
       </td>
     </tr>
+
     <tr height="10">
       <td></td>
     </tr>
+
     <tr>
       <td></td>
+
       <td>
         <table width="100%">
           <tr>
@@ -49,6 +89,7 @@
             <th>Due Date</th>
             <th>Amount</th>
           </tr>
+
           <tr>
             <td align="center"><%invnumber%></td>
             <td align="center"><%ordnumber%></td>
@@ -56,6 +97,7 @@
             <td align="center"><%duedate%></td>
             <td align="center"><%due%></td>
           </tr>
+
           <tr>
             <td colspan="5">
               <hr size="1">
@@ -64,14 +106,23 @@
         </table>
       </td>
     </tr>
+
     <tr height="10">
       <td></td>
     </tr>
+
     <tr>
       <td></td>
+
       <td>
-        <p>Our records indicate that payment for invoice # <%invnumber%> is past due. If the amount has already been paid, please disregard this notice. If you have not yet arranged for payment why not take this reminder to do so at this time.</p>
-        <p>Thank you in advance for your anticipated cooperation in this matter.</p>
+        <p>
+		Our records indicate that payment for invoice # <%invnumber%> is past due. 
+		If the amount has already been paid, please disregard this notice. 
+		If you have not yet arranged for payment why not take this reminder to do so at this time.
+		</p>
+        <p>
+		Thank you in advance for your anticipated cooperation in this matter.
+		</p>
       </td>
     </tr>
   </table>
