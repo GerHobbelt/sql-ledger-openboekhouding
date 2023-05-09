@@ -1,95 +1,147 @@
 <!DOCTYPE html>
 <html lang="en-US">
+<head>
+  <title>INCOME STATEMENT</title>
+  <style type="text/css">
+  hr.left {
+    text-align: left;
+  }
+  .center {
+    text-align: center;
+  }
+  </style>
+</head>
 <body>
+  <h4 class="center">
+    <%company%>
+    <br>
+    <%address%>
+  </h4>
 
-<h4 align=center>
-<%company%>
-<br><%address%>
-
-<p>INCOME STATEMENT
+  <p>
+    INCOME STATEMENT 
 <%if method eq 'cash'%>
-<br>CASH Method
+    <br>
+    CASH Method 
 <%end method eq 'cash'%>
-<br><%period%>
-</h4>
+    <br>
+    <%period%> 
+  </p>
 
 <%if department%>
-<h4>Department: <%department%></h4>
+  <h4>Department: <%department%></h4>
 <%end department%>
 
 <%if projectnumber%>
-<h4>Project Number: <%projectnumber%></h4>
+  <h4>Project Number: <%projectnumber%></h4>
 <%end projectnumber%>
 
-<table width=100% border=0>
-<tr>
-  <th width=400 align=left colspan=2>INCOME<br><hr width=300 size=5 align=left noshade></th>
-  <th><%this_period%></th>
-  <th><%previous_period%></th>
-</tr>
+  <table width="100%" border="0">
+    <tr>
+      <th width="400" align="left" colspan="2">
+        INCOME
+        <br>
+        <hr class="c2" width="300" size="5" noshade>
+      </th>
+      <th><%this_period%></th>
+      <th><%previous_period%></th>
+    </tr>
 
 <%foreach income_account%>
-<tr>
-  <td width=4> </td>
-  <td><%income_account%></td>
-  <td align=right><%income_this_period%></td>
-  <td align=right><%income_previous_period%></td>
-</tr>
+    <tr>
+      <td width="4"></td>
+      <td><%income_account%></td>
+      <td align="right"><%income_this_period%></td>
+      <td align="right"><%income_previous_period%></td>
+    </tr>
 <%end income_account%>
 
-<tr>
-  <td colspan=2> </td>
-  <td><hr noshade size=1></td>
-  <td><hr noshade size=1></td>
-</tr>
+    <tr>
+      <td colspan="2"></td>
+      <td>
+        <hr noshade size="1">
+      </td>
 
-<tr valign=top>
-  <td> </td>
-  <th align=left>TOTAL INCOME</th>
-  <td align=right><%total_income_this_period%><hr noshade size=2></td>
-  <td align=right><%total_income_previous_period%><hr noshade size=2></td>
-</tr>
+      <td>
+        <hr noshade size="1">
+      </td>
+    </tr>
 
-<tr>
-  <th align=left colspan=2>EXPENSES<br><hr width=300 size=5 align=left noshade></th>
-</tr>
+    <tr valign="top">
+      <td></td>
+      <th align="left">TOTAL INCOME</th>
+      <td align="right">
+        <%total_income_this_period%>
+        <hr noshade size="2">
+      </td>
+
+      <td align="right">
+        <%total_income_previous_period%>
+        <hr noshade size="2">
+      </td>
+    </tr>
+
+    <tr>
+      <th align="left" colspan="2">
+        EXPENSES<br>
+        <hr class="c2" width="300" size="5" noshade>
+      </th>
+    </tr>
 
 <%foreach expense_account%>
-<tr>
-  <td> </td>
-  <td><%expense_account%></td>
-  <td align=right><%expense_this_period%></td>
-  <td align=right><%expense_previous_period%></td>
-</tr>
+    <tr>
+      <td></td>
+      <td><%expense_account%></td>
+      <td align="right"><%expense_this_period%></td>
+      <td align="right"><%expense_previous_period%></td>
+    </tr>
 <%end expense_account%>
 
-<tr>
-  <td colspan=2> </td>
-  <td><hr noshade size=1></td>
-  <td><hr noshade size=1></td>
-</tr>
+    <tr>
+      <td colspan="2"></td>
+      <td>
+        <hr noshade size="1">
+      </td>
+      <td>
+        <hr noshade size="1">
+      </td>
+    </tr>
 
-<tr valign=top>
-  <td> </td>
-  <th align=left>TOTAL EXPENSES</th>
-  <td align=right><%total_expense_this_period%><br><hr noshade size=2</td>
-  <td align=right><%total_expense_previous_period%><br><hr noshade size=2</td>
-</tr>
+    <tr valign="top">
+      <td></td>
+      <th align="left">TOTAL EXPENSES</th>
+      <td align="right">
+        <%total_expense_this_period%>
+        <br>
+        <hr noshade size="2">
+      </td>
 
-<tr valign=top>
-  <th align=left colspan=2>INCOME / (LOSS)</th>
-  <td align=right><%total_this_period%><br><hr noshade size=2></td>
-  <td align=right><%total_previous_period%><br><hr noshade size=2></td>
-</tr>
+      <td align="right">
+        <%total_expense_previous_period%>
+        <br>
+        <hr noshade size="2">
+      </td>
+    </tr>
 
-</table>
+    <tr valign="top">
+      <th align="left" colspan="2">INCOME / (LOSS)</th>
+      <td align="right">
+        <%total_this_period%>
+        <br>
+        <hr noshade size="2">
+      </td>
 
-<p>
-All amounts in <%currency%>
-<%if currency ne 'CAD'%>
- converted at <%exchangerate%>
-<%end currency ne 'CAD'%>.
-</p>
+      <td align="right">
+        <%total_previous_period%>
+        <br>
+        <hr noshade size="2">
+      </td>
+    </tr>
+  </table>
 
+  <p>
+    All amounts in <%currency%> 
+    <%if currency ne 'CAD'%> converted at <%exchangerate%><%end currency ne 'CAD'%>.
+  </p>
 </body>
 </html>
