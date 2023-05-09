@@ -61,10 +61,12 @@
             <%address2%> 
 <%end address2%>
 
-            <br>
-            <%city%> <%state%>
-            <br>
-            <%zipcode%> 
+			<br>
+            <%city%> 
+<%if state%> 
+			, <%state%> 
+<%end state%> 
+			<%zipcode%> 
 
 <%if country%>
             <br>
@@ -104,10 +106,12 @@
             <%shiptoaddress2%> 
 <%end shiptoaddress2%>
 
-            <br>
-            <%shiptocity%> <%shiptostate%>
-            <br>
-            <%shiptozipcode%> 
+			<br>
+            <%shiptocity%> 
+<%if shiptostate%> 
+			, <%shiptostate%> 
+<%end shiptostate%> 
+			<%shiptozipcode%> 
 
 <%if shiptocountry%>
             <br>

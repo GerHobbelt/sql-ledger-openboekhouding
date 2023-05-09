@@ -57,8 +57,12 @@
                   <%address2%> 
 <%end address2%>
 
-                  <br>
-                  <%city%> <%state%> <%zipcode%> 
+				  <br>
+	              <%city%> 
+<%if state%> 
+				  , <%state%> 
+<%end state%> 
+				  <%zipcode%> 
 
 <%if country%>
                   <br>
@@ -209,7 +213,9 @@
                   <td><%notes%></td>
 <%end notes%>
 
-                  <td align="right">All prices in <b><%currency%></b> Funds</td>
+                  <td align="right">
+				  All prices in <b><%currency%></b> Funds
+				  </td>
                 </tr>
               </table>
             </td>
@@ -223,7 +229,12 @@
             <td>
               <table width="100%">
                 <tr valign="top">
-                  <td width="60%"><span class="payment-conditions">Special order items are subject to a 10% cancellation fee.</span></td>
+                  <td width="60%">
+				    <span class="payment-conditions">
+					  Special order items are subject to a 10% cancellation fee.
+					</span>
+				  </td>
+
                   <td width="40%">
                     <br>
                     <hr noshade>
