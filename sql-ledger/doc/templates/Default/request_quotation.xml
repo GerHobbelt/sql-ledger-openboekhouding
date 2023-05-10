@@ -43,7 +43,7 @@
              
           </crm>
 
-        <meta>
+        <data>
 <!--	
              RFQ # 
              Date 
@@ -58,10 +58,7 @@
              <%employee%> 
              <%shippingpoint%> 
              <%shipvia%> 
-         </meta>
 
-       
-        <data>
 <!--
              Item 
              Number 
@@ -72,17 +69,16 @@
              Extended 
 -->
 <%foreach number%>
-          <request-item>
+          <request-quotation-item>
              <%runningnumber%>
              <%number%> 
              <%description%> 
              <%qty%> 
              <%unit%> 
-          </request-item>
+          </request-quotation-item>
 <%end number%>
 
              <%notes%> 
-  </data>
-  
-</body>
+    </data>
+  </content>
 </html>

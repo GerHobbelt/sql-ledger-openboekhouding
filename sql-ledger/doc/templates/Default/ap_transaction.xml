@@ -13,6 +13,7 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="AP-TRANSACTION" >
+    <!-- when CONTENT has only a single CRM record, it is type-attribute-less and the addressee, implicitly -->
     <crm>
       <%name%>
       <%address1%>
@@ -28,37 +29,35 @@
       <%vendortaxnumber%>
     </crm>
 
-    <meta>    
       <!-- Invoice # -->
       <%invnumber%>
+
       <%invdate%>
       <%duedate%>
+
       <!-- PO # -->
       <%ponumber%>
+
       <!-- Order # -->
       <%ordnumber%>
       <%employee%>
+
 <%if taxincluded%>
       <taxincluded value="true" />
 <%end taxincluded%>
-    </meta>
 
-    <data>
-      <account-set>
 <%foreach account%>
-        <account>    
+        <account-item>    
           <%accno%>
           <%account%>
           <%amount%>
           <%description%>
           <%projectnumber%>
-        </account>    
+        </account-item>    
 <%end account%>
-      </account-set>    
 
-      <tax-info>
 <%foreach tax%>
-        <tax-line>
+        <tax-info-line>
           <%taxdescription%>
           
           <tax-rate-percentage>
@@ -66,9 +65,8 @@
           <tax-rate-percentage>
           
           <%tax%>
-        </tax-line>
+        </tax-info-line>
 <%end tax%>
-      </tax-info>
 
       <summary-totals>
 <%if not taxincluded%>
@@ -86,24 +84,23 @@
         <currency-decimal-value>
           <%decimal%>
         </currency-decimal-value>
+      </summary-totals>
+
         <currency-info>
           <%currency%>
         </currency-info>
-      </summary-totals>
 
       <%notes%>
     
-      <payments>
 <%foreach payment%>
-        <payment>
+        <payment-item>
           <%paymentdate%>
           <%paymentaccount%>
           <%paymentsource%>
           <%paymentmemo%>
           <%payment%>
-        </payment>
+        </payment-item>
 <%end payment%>
-      </payments>
     </data>    
 
     <footer>    

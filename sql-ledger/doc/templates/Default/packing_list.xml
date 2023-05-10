@@ -27,7 +27,7 @@
       <%shiptoemail%> 
     </crm>
     
-    <meta>
+    <data>
 <!--
              Invoice # 
              Order # 
@@ -45,9 +45,7 @@
              <%warehouse%> 
              <%shippingpoint%> 
              <%shipvia%> 
-        </meta>
 
-    <data>
 <!--    
              Item 
              Number 
@@ -56,9 +54,8 @@
              Qty 
              Ship 
 -->
-
 <%foreach number%>
-          <item>
+          <packing-list-item>
              <%runningnumber%> 
              <%number%> 
              <%description%> 
@@ -67,10 +64,12 @@
              <%qty%> 
              <%ship%> 
              <%unit%> 
-          </item>
+          </packing-list-item>
 <%end number%>
 
              <%notes%> 
+
+    </data>
 
           <payment-conditions-msg>
             Items returned are subject to a 10% restocking charge. 

@@ -13,14 +13,12 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="INCOME-STATEMENT" >
-    <crm>
+    <data>
       <%company%>
       <%address%>
-    </crm>
 
-    <meta>
 <%if method eq 'cash'%>
-      CASH Method 
+      <cash-method value="true" />
 <%end method eq 'cash'%>
      
       <%period%> 
@@ -31,16 +29,14 @@
       
       <%this_period%> 
       <%previous_period%> 
-    </meta>
 
-    <data>
       <income>
 <%foreach income_account%>
-        <account>
+        <income_account-item>
           <%income_account%> 
           <%income_this_period%> 
           <%income_previous_period%> 
-        </account>
+        </income_account-item>
 <%end income_account%>
 
         <%total_income_this_period%>
@@ -49,11 +45,11 @@
       
       <expense> 
 <%foreach expense_account%>
-        <expense-account>
+        <expense-account-item>
           <%expense_account%> 
           <%expense_this_period%> 
           <%expense_previous_period%> 
-        </expense-account>
+        </expense-account-item>
 <%end expense_account%>
        
         <%total_expense_this_period%>
@@ -64,11 +60,18 @@
         <%total_this_period%>
         <%total_previous_period%>
       </summary>
+
+      <%currency%> 
+<%if currency ne 'CAD'%> 
+      <%exchangerate%>
+<%end currency ne 'CAD'%>
     </data>
 
-  <p>
-    All amounts in <%currency%> 
-    <%if currency ne 'CAD'%> converted at <%exchangerate%><%end currency ne 'CAD'%>.
-  </p>
-</body>
-</html>
+    <footer>
+      <currency-msg>
+        All amounts in <%currency%> 
+        <%if currency ne 'CAD'%> converted at <%exchangerate%><%end currency ne 'CAD'%>.
+      </currency-msg>
+    </footer>
+  </content>
+<sql-ledger-root>

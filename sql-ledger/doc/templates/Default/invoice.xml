@@ -41,7 +41,9 @@
       <%shiptoemail%> 
     </crm>
        
-    <meta>
+    <data>
+      <%company%>
+
 <!--    
              Invoice # 
              Date 
@@ -58,9 +60,7 @@
       <%employee%> 
       <%shippingpoint%> 
       <%shipvia%> 
-    </meta>
 
-    <data>
 <!--    
              Item 
              Number 
@@ -70,9 +70,8 @@
              Disc % 
              Extended 
 -->
-
 <%foreach number%>
-      <line-item>
+      <invoice-line-item>
         <%runningnumber%>
 	<%number%> 
         <%description%> 
@@ -82,7 +81,7 @@
         <%sellprice%> 
         <%discountrate%> 
         <%linetotal%> 
-      </line-item>
+      </invoice-line-item>
 <%end number%>
 
 <%if taxincluded%>
@@ -115,24 +114,36 @@
 	     
              <%currency%>
        
-    </tr>
-
-    <payments>
 <!--    
              Date 
              Account 
              Source 
              Amount 
 -->
-
 <%foreach payment%>
-          <tr>
+          <payment-item>
              <%paymentdate%> 
              <%paymentaccount%> 
              <%paymentsource%> 
              <%payment%> 
-          </tr>
+          </payment-item>
 <%end payment%>
+               
+             
+
+<%foreach tax%>
+    <tax>
+      <%taxdescription%> 
+      <%taxnumber%>
+    </tr>
+<%end tax%>
+
+
+<%if taxincluded%>
+    <tr>
+      Taxes shown are included in price.
+    </tr>
+<%end taxincluded%>
 
 
     <tr>
@@ -147,22 +158,6 @@
                 <%company%> will not be responsible for damages during transit.
         </payment-conditions-msg>
                
-               
-             
-
-<%foreach tax%>
-    <tax>
-      <%taxdescription%> 
-      <%taxnumber%>
-    </tr>
-<%end tax%>
-
-<%if taxincluded%>
-    <tr>
-      Taxes shown are included in price.
-    </tr>
-<%end taxincluded%>
-
 
 
   </table>

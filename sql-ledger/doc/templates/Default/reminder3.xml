@@ -28,7 +28,6 @@
             <%email%> 
           </crm>
        
-    <meta>
        <%statementdate%> 
        
 <!--
@@ -43,9 +42,9 @@
              <%invdate%> 
              <%duedate%> 
              <%due%> 
-          </meta>
+          </data>
 
-          <data>
+          <footer>
        
       <reminder-msg>
         Our records indicate that payment for invoice # <%invnumber%> is past due. 
@@ -55,8 +54,8 @@
         Thank you in advance for your anticipated cooperation in this matter.
       </reminder-msg>
        
-    </data>
+    </footer>
 
-  </table>
+  </content>
 </body>
 </html>

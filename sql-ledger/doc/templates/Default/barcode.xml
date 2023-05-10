@@ -21,15 +21,15 @@ TODO: generate images for these barcodes?
 
 Current decision: NO. This is left to the receiver to generate.
 -->
-      <barcode>
+      <barcode-item>
 <!-- \psbarcode{^104<%sku%><%sell%>} -->      
         <code>
           104<%sku%><%sell%>
-        <code>
-        <caption>
-          104<%sku%><%sell%>
-        </div>
-      </barcode>
+        </code>
+
+	<%sku%>
+	<%sell%>
+      </barcode-item>
 <%end number * ship%>
 
     </data>

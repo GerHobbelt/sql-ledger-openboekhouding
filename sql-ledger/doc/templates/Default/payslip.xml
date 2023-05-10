@@ -13,7 +13,6 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="PAYSLIP" >
-    <meta>  
       <crm>
         <%name%>
         <%address1%>
@@ -24,11 +23,9 @@
         <%country%>
       </crm>
        
-      <meta>
+      <data>
         <%company%>
-    </meta>
-       
-    <data>
+
       <%text_amount%>
         <%decimal%>
        

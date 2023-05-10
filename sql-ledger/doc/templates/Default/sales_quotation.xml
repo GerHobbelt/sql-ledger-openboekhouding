@@ -27,7 +27,7 @@
             <%email%> 
           </crm>
 
-          <meta>
+          <data>
 <!--	  
              Number 
              Date 
@@ -42,9 +42,7 @@
              <%employee%> 
              <%shippingpoint%> 
              <%shipvia%> 
-          </meta>
 
-          <data>
 <!--	  
              Item 
              Number 
@@ -55,7 +53,7 @@
              Amount 
 -->	     
 <%foreach number%>
-          <quotation-item>
+          <sales-quotation-item>
              <%runningnumber%> 
              <%number%> 
              <%description%> 
@@ -64,7 +62,7 @@
              <%sellprice%> 
              <%discountrate%> 
              <%linetotal%> 
-          </quotation-item>
+          </sales-quotation-item>
 <%end number%>
 
 <%if taxincluded%>
@@ -92,15 +90,16 @@
 
             
             <%currency%>
+       
+    </data>
+
 	    
              
               <payment-conditions-msg>
                 Special order items are subject to a 10% cancellation fee.
               </payment-conditions-msg>
-             
-       
-    </data>
 
+             
   </table>
 </body>
 </html>

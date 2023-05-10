@@ -13,7 +13,7 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="CREDIT-INVOICE" >
-    <crm type="to">
+    <crm>
       <%name%>
       <%address1%> 
       <%address2%> 
@@ -28,7 +28,7 @@
       <%customertaxnumber%> 
     </crm>
     
-    <meta>
+    <data>
 <!--
              Invoice # 
              Invoice Date 
@@ -47,12 +47,10 @@
       <%employee%> 
       <%shippingpoint%> 
       <%shipvia%> 
+
 <%if taxincluded%>
       <taxincluded value="true" />
 <%end taxincluded%>
-    </meta>
-
-    <data>
 
 <!--
              Item 
@@ -63,9 +61,8 @@
              Disc % 
              Extended 
 -->
-      <line-items>
 <%foreach number%>
-        <item>
+        <credit-item>
           <%runningnumber%>
           <%number%> 
           <%description%> 
@@ -77,9 +74,8 @@
           <%linetotal%> 
               
           <%notes%> 
-        </item>
+        </credit-item>
 <%end number%>
-      </line-items>
 
       <summary-totals>
 <%if not taxincluded%>
@@ -97,37 +93,36 @@
         <currency-decimal-value>
           <%decimal%>
         </currency-decimal-value>
-        <currency-info>
-          <%currency%>
-        </currency-info>
       </summary-totals>
+
+      <currency-info>
+        <%currency%>
+      </currency-info>
 
       <%notes%> 
 
-      <refunds>
 <%foreach payment%>
-        <item>
+        <refund-item>
           <%paymentdate%> 
           <%paymentaccount%> 
           <%paymentsource%> 
           <%payment%> 
-        </item>
+        </refund-item>
 <%end payment%>
-      </refunds>
 
-      <tax-registrations>
 <%foreach tax%>
-        <tax-registration>
+        <tax-registration-item>
 	  <%taxnumber%>
 	  <%taxdescription%>
 	  <%taxbase%>
+	  
 	  <taxrate-percentage>
             <%taxrate%>
 	  </taxrate-percentage>
-          <%tax%> 
-        </tax-registration>
+          
+	  <%tax%> 
+        </tax-registration-item>
 <%end tax%>
-      </tax-registrations>
     </data>
 
     <footer>    
@@ -137,7 +132,5 @@
       </tax-included-msg>
 <%end taxincluded%>
     </footer>    
-
   </content>
 </sql-ledger-root>
-i

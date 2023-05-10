@@ -13,7 +13,7 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="REMITTANCE-VOUCHER" >
-    <crm type="from">
+    <crm>
 	  <%name%>
 	  <%address1%>
 	  <%address2%>
@@ -22,7 +22,6 @@
 	  <%zipcode%>
 	  <%country%>
   </crm>
-
 
   <data>
 
@@ -35,10 +34,8 @@
     <%bankbic%> 
 <!-- Bank: -->
     <%bankname%>
-    
-    <%company%> 
-    
-    <%address%>
+
+<!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
   </data>
 
 </body>

@@ -57,12 +57,12 @@
 -->
 
 <%foreach invnumber%>
-    <invoice-item>
+    <receipt-item>
         <%invnumber%>
         <%invdate%>
         <%due%>
         <%paid%>
-    </invoice-item>
+    </receipt-item>
 <%end invnumber%>
        
     </data>

@@ -13,6 +13,7 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="AR-TRANSACTION" >
+    <!-- when CONTENT has only a single CRM record, it is type-attribute-less and the addressee, implicitly -->
     <crm>
       <%name%>
       <%address1%>
@@ -28,34 +29,31 @@
       <%customertaxnumber%> 
     </crm>
 
-    <meta>    
       <!-- Invoice # -->
       <%invnumber%>
+
       <%invdate%>
       <%duedate%>
+
       <!-- PO # -->
       <%ponumber%>
+
       <!-- Order # -->
       <%ordnumber%>
       <%employee%>
-    </meta>
 
-    <data>    
-      <account-set>    
 <%foreach account%>
-        <account>    
+        <account-item>    
           <%accno%>
           <%account%>
           <%amount%>
           <%description%>
           <%projectnumber%>
-        </account>    
+        </account-item>    
 <%end account%>
-      </account-set>    
 
-      <tax-info>
 <%foreach tax%>
-        <tax-line>
+        <tax-info-line>
           <%taxdescription%>
           
           <tax-rate-percentage>
@@ -63,9 +61,8 @@
           <tax-rate-percentage>
           
           <%tax%>
-        </tax-line>
+        </tax-info-line>
 <%end tax%>
-      </tax-info>
 
       <summary-totals>
 <%if not taxincluded%>
@@ -83,46 +80,44 @@
         <currency-decimal-value>
           <%decimal%>
         </currency-decimal-value>
+      </summary-totals>
+
         <currency-info>
           <%currency%>
         </currency-info>
-      </summary-totals>
 
-      <notes>
-        <%notes%>
-      </notes>
+      <%notes%>
     
-      <payments>
 <%foreach payment%>
-        <payment>
+        <payment-item>
           <%paymentdate%>
           <%paymentaccount%>
           <%paymentsource%>
           <%paymentmemo%>
           <%payment%>
-        </payment>
+        </payment-item>
 <%end payment%>
-      </payments>
 
-      <tax-registrations>
 <%foreach tax%>
-        <tax-registration>
+        <tax-registration-item>
 	  <%taxnumber%>
 	  <%taxdescription%>
 	  <%taxbase%>
+	  
 	  <taxrate-percentage>
             <%taxrate%>
 	  </taxrate-percentage>
-          <%tax%> 
-        </tax-registration>
+          
+	  <%tax%> 
+        </tax-registration-item>
 <%end tax%>
-      </tax-registrations>
   
 <%if cd_amount%>
       <discount-terms>
         <within-days>
           <%discountterms%>
         </within-days>
+	
         <discount-percentage>
           <%cashdiscount%>
         </discount-percentage>

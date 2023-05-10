@@ -42,7 +42,7 @@
       <%shiptoemail%> 
     </crm>
     
-    <meta>
+    <data>
 <!--
              Invoice # 
              Date 
@@ -59,12 +59,10 @@
       <%employee%> 
       <%shippingpoint%> 
       <%shipvia%> 
+
 <%if taxincluded%>
       <taxincluded value="true" />
 <%end taxincluded%>
-    </meta>
-
-    <data>
 
 <!--
              Item 
@@ -75,9 +73,8 @@
              Disc % 
              Extended 
 -->
-      <line-items>
 <%foreach number%>
-        <item>
+        <debit-item>
           <%runningnumber%>
           <%number%> 
           <%description%> 
@@ -89,9 +86,8 @@
           <%linetotal%> 
               
           <%notes%> 
-        </item>
+        </debit-item>
 <%end number%>
-      </line-items>
 
       <summary-totals>
 <%if not taxincluded%>
@@ -115,27 +111,25 @@
         <currency-decimal-value>
           <%decimal%>
         </currency-decimal-value>
-        <currency-info>
-          <%currency%>
-        </currency-info>
       </summary-totals>
+
+      <currency-info>
+        <%currency%>
+      </currency-info>
 
       <%notes%> 
 
-      <payments>
 <%foreach payment%>
-        <item>
+        <payment-item>
           <%paymentdate%> 
           <%paymentaccount%> 
           <%paymentsource%> 
           <%payment%> 
-        </item>
+        </payment-item>
 <%end payment%>
-      </payments>
 
-      <tax-registrations>
 <%foreach tax%>
-        <tax-registration>
+        <tax-registration-item>
 	  <%taxnumber%>
 	  <%taxdescription%>
 	  <%taxbase%>
@@ -143,9 +137,8 @@
             <%taxrate%>
 	  </taxrate-percentage>
           <%tax%> 
-        </tax-registration>
+        </tax-registration-item>
 <%end tax%>
-      </tax-registrations>
     </data>
 
     <footer>    

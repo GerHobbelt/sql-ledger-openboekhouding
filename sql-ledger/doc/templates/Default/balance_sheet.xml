@@ -13,12 +13,11 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="BALANCE-SHEET" >
-    <crm>
+    <data>
       <%company%>
-      <%address%>
-    </crm>
 
-    <meta>    
+      <%address%>
+
 <%if method eq 'cash'%>
       <cash-method value="true" />
 <%end method eq 'cash'%>
@@ -33,17 +32,15 @@
 
       <%this_period%>
       <%previous_period%>
-    </meta>
 
-    <data>    
       <assets>    
 <%foreach asset_account%>
-        <asset>    
+        <asset-item>    
           <%asset_account%> 
           <%asset_this_period%> 
         
           <%asset_previous_period%> 
-        </asset>    
+        </asset-item>    
 <%end asset_account%>
 
         <%total_asset_this_period%>
@@ -52,12 +49,12 @@
       
       <liabilities>
 <%foreach liability_account%>
-        <liability>
+        <liability-item>
           <%liability_account%> 
           <%liability_this_period%> 
         
           <%liability_previous_period%> 
-        </liability>
+        </liability-item>
 <%end liability_account%>
        
         <%total_liability_this_period%>
@@ -66,11 +63,11 @@
          
       <shareholders-equity>
 <%foreach equity_account%>
-        <equity>
+        <equity-item>
           <%equity_account%> 
 	  <%equity_this_period%> 
 	  <%equity_previous_period%> 
-        </equity>
+        </equity-item>
 <%end equity_account%>
        
         <%total_equity_this_period%>
@@ -82,14 +79,15 @@
         <%total_this_period%>
         <%total_previous_period%>
       </summary>
+
+      <%currency%> 
+<% if currency ne 'CAD' %>
+      <%exchangerate%>
+<% end currency ne 'CAD' %>
+
     </data>    
 
     <footer>    
-      <%currency%> 
-<%if currency ne 'CAD'%>
-      <%exchangerate%>
-<%end currency ne 'CAD'%>
-
       <currency-msg>
         All amounts in <%currency%>.
 	

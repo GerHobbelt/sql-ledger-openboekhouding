@@ -13,12 +13,7 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="CHEQUE" >
-    <crm type="from">
-      <%company%>
-      <%address%>
-    </crm>
-  
-    <crm type="to">
+    <crm>
       <%name%>
       <%address1%>
       <%address2%>
@@ -29,6 +24,9 @@
     </crm>
        
     <data>
+      <%company%>
+      <%address%>
+  
       <%source%>
        
       <%text_amount%>
@@ -47,16 +45,15 @@
 
       <%memo%>
        
-      <invoices>
 <%foreach invnumber%>
-        <item>
+        <cheque-item>
           <%invnumber%> 
           <%invdate%>
           <%due%> 
           <%paid%>
-        </item>
+        </cheque-item>
 <%end invnumber%>
-      </invoices>
+
     </data>
   </content>
 </sql-ledger-root>

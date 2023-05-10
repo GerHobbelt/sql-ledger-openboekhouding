@@ -39,7 +39,7 @@
             <%shiptofax%> 
           </crm>
 
-          <meta>
+          <data>
 <!--	  
              Order # 
              Order Date 
@@ -54,9 +54,7 @@
              <%employee%> 
              <%shippingpoint%> 
              <%shipvia%> 
-          </meta>
 
-          <data>
 <!--	  
              Item 
              Number 
@@ -68,7 +66,7 @@
 -->
 
 <%foreach number%>
-          <order-item>
+          <purchase-order-item>
              <%runningnumber%>
              <%number%> 
              <%description%> 
@@ -77,7 +75,7 @@
              <%sellprice%> 
              <%discountrate%> 
              <%linetotal%> 
-          </order-item>
+          </purchase-order-item>
 <%end number%>
 
 <%if taxincluded%>
@@ -102,12 +100,15 @@
              <%ordtotal%> 
 <%end taxincluded%>
 
-<%if terms%>
-          <tr>
              <%terms%>
-             <%ordtotal%> 
-          </tr>
-<%end terms%>
+
+             <%currency%>
+
+
+             <%notes%> 
+
+       
+    </data>
 
 <%if taxincluded%>
           <tr>
@@ -121,11 +122,6 @@
           </tr>
 <%end ordtotal%>
 
-
-             <%notes%> 
-
-       
-    </data>
     
   </table>
 </body>

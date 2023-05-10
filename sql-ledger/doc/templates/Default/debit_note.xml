@@ -28,7 +28,7 @@
       <%vendortaxnumber%> 
     </crm>
              
-    <meta>
+    <data>
 <!-- Invoice # -->
       <%invnumber%> 
       <%invdate%> 
@@ -36,24 +36,19 @@
       <%ponumber%> 
       <%ordnumber%> 
       <%employee%> 
-    </meta>
-    
-    <data>
-      <account-set>
+
 <%foreach account%>
-        <account>    
+        <account-item>    
           <%accno%>
           <%account%>
           <%amount%>
           <%description%>
           <%projectnumber%>
-        </account>    
+        </account-item>    
 <%end account%>
-      </account-set>    
 
-      <tax-info>
 <%foreach tax%>
-        <tax-line>
+        <tax-info-line>
           <%taxdescription%>
           
           <tax-rate-percentage>
@@ -61,9 +56,8 @@
           <tax-rate-percentage>
           
           <%tax%>
-        </tax-line>
+        </tax-info-line>
 <%end tax%>
-      </tax-info>
 
       <summary-totals>
 <%if not taxincluded%>
@@ -88,18 +82,15 @@
 
       <%notes%>
     
-      <payments>
 <%foreach payment%>
-        <payment>
+        <payment-item>
           <%paymentdate%>
           <%paymentaccount%>
           <%paymentsource%>
 	  <%paymentmemo%> 
           <%payment%>
-        </payment>
+        </payment-item>
 <%end payment%>
-      </payments>
-
     </data>
 
     <footer>    
@@ -109,6 +100,5 @@
       </tax-included-msg>
 <%end taxincluded%>
     </footer>    
-
   </content>
 </sql-ledger-root>

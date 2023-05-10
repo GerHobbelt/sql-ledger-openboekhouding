@@ -27,7 +27,7 @@
             <%shiptoemail%>
           </crm>
        
-          <meta>
+          <data>
 <!--	  
              Invoice # 
              Order # 
@@ -37,7 +37,6 @@
              Shipping Point 
              Ship via 
 -->	     
-
              <%invnumber%> 
              <%ordnumber%> 
 
@@ -48,9 +47,7 @@
              <%warehouse%> 
              <%shippingpoint%> 
              <%shipvia%> 
-          </meta>
-       
-          <data>
+
 <!--	  
              Item 
              Number 
@@ -59,7 +56,6 @@
              Ship 
              Bin 
 -->	     
-
 <%foreach number%>
           <pick-item>
              <%runningnumber%> 

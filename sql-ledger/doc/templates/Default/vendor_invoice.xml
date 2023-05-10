@@ -72,8 +72,8 @@
              Extended 
 -->
 <%foreach number%>
-          <invoice-item>
-             <%runningnumber%>. 
+          <vendor-invoice-line-item>
+             <%runningnumber%> 
              <%number%> 
              <%description%> 
              <%deliverydate%> 
@@ -84,7 +84,7 @@
              <%linetotal%> 
               
              <%notes%> 
-          </invoice-item>
+          </vendor-invoice-line-item>
 <%end number%>
 
 <%if taxincluded%>
@@ -121,12 +121,6 @@
              
             <%currency%>
              
-<%if taxincluded%>
-          <tr>
-             Taxes included in price
-          </tr>
-<%end taxincluded%>
-
              <%notes%> 
 
               <payments>
@@ -138,9 +132,17 @@
                          <%payment%> 
                       </tr>
 <%end payment%>
-                    </payments>
+              </payments>
        
     </data>
+
+
+<%if taxincluded%>
+          <tr>
+             Taxes included in price
+          </tr>
+<%end taxincluded%>
+
     
   </table>
 </body>
