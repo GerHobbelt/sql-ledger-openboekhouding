@@ -1,29 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<html>
-<head>
-  <title></title>
-</head>
-<body>
-  <sql-ledger-root></sql-ledger-root>
-  <head>
-  <title>SECOND REMINDER</title>
-  <link rel="stylesheet" href="<%templates%>/<%language_code%>/sqledger.css" />
-</head>
-<body>
-  <table width="100%">
+<sql-ledger-root>
+  <letterhead>
+    <title>SECOND REMINDER</title>
 
-    <%include letterhead.html%>
+    <%include letterhead.xml%>
+    
+  </letterhead>
 
-    <tr>
-        
+<!-- 
+ all XML formats have the same structure: the info is contained in a CONTENT block of certain TYPE.
+ That way we can batch/merge XML files without loosing any data; all they'll share is 
+ the LETTERHEAD block above and FOOTER block further below.
+-->
+  <content type="REMINDER" >
+    <level>3</level>
 
-       
-        <h4>2. R E M I N D E R</h4>
-       
-    </tr>
+    <crm type="from">
 
-    <tr>
-        
+
 
        <%statementdate%> 
     </tr>
@@ -36,15 +30,15 @@
           <tr valign="top">
              
             <%name%>
-            <br>
+             
             <%address1%> 
 
 <%if address2%>
-            <br>
+             
             <%address2%> 
 <%end address2%>
 
-            <br>
+             
             <%city%> 
 <%if state%> 
             , <%state%> 
@@ -52,24 +46,24 @@
             <%zipcode%> 
 
 <%if country%>
-            <br>
+             
             <%country%> 
 <%end country%>
 
-            <br>
+             
 
 <%if customerphone%>
-            <br>
+             
             Tel: <%customerphone%> 
 <%end customerphone%> 
 
 <%if customerfax%>
-            <br>
+             
             Fax: <%customerfax%> 
 <%end customerfax%> 
 
 <%if email%>
-            <br>
+             
             <%email%> 
 <%end email%>
              

@@ -1,28 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<html>
-<head>
-  <title></title>
-</head>
-<body>
-  <sql-ledger-root></sql-ledger-root>
-  <head>
-  <title>TIME CARD</title>
-  <link rel="stylesheet" href="<%templates%>/<%language_code%>/sqledger.css" />
-</head>
-<body>
-  <table width="100%">
+<sql-ledger-root>
+  <letterhead>
+    <title>TIME CARD</title>
 
-    <%include letterhead.html%>
+    <%include letterhead.xml%>
+    
+  </letterhead>
 
-    <tr>
-        
+<!-- 
+ all XML formats have the same structure: the info is contained in a CONTENT block of certain TYPE.
+ That way we can batch/merge XML files without loosing any data; all they'll share is 
+ the LETTERHEAD block above and FOOTER block further below.
+-->
+  <content type="TIME-CARD" >
+    <crm type="from">
 
-       
-        <h4>T I M E &nbsp;&nbsp; C A R D</h4>
-       
-    </tr>
 
-    <tr>
         
 
        

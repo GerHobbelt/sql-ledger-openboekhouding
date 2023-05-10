@@ -1,28 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<html>
-<head>
-  <title></title>
-</head>
-<body>
-  <sql-ledger-root></sql-ledger-root>
-  <head>
-  <title>INCOME STATEMENT</title>
-  <link rel="stylesheet" href="<%templates%>/<%language_code%>/sqledger.css" />
-</head>
-<body>
+<sql-ledger-root>
+  <letterhead>
+    <title>INCOME STATEMENT</title>
+
+    <%include letterhead.xml%>
+    
+  </letterhead>
+
+<!-- 
+ all XML formats have the same structure: the info is contained in a CONTENT block of certain TYPE.
+ That way we can batch/merge XML files without loosing any data; all they'll share is 
+ the LETTERHEAD block above and FOOTER block further below.
+-->
+  <content type="INCOME-STATEMENT" >
+    <crm type="from">
+
+
   <h4 class="center">
     <%company%>
-    <br>
+     
     <%address%>
   </h4>
 
   <p>
     INCOME STATEMENT 
 <%if method eq 'cash'%>
-    <br>
+     
     CASH Method 
 <%end method eq 'cash'%>
-    <br>
+     
     <%period%> 
   </p>
 
@@ -38,7 +44,7 @@
     <tr>
        
         INCOME
-        <br>
+         
          
        
        <%this_period%> 
@@ -81,7 +87,7 @@
 
     <tr>
        
-        EXPENSES<br>
+        EXPENSES 
          
        
     </tr>
@@ -110,13 +116,13 @@
        TOTAL EXPENSES 
        
         <%total_expense_this_period%>
-        <br>
+         
          
        
 
        
         <%total_expense_previous_period%>
-        <br>
+         
          
        
     </tr>
@@ -125,13 +131,13 @@
        INCOME / (LOSS) 
        
         <%total_this_period%>
-        <br>
+         
          
        
 
        
         <%total_previous_period%>
-        <br>
+         
          
        
     </tr>

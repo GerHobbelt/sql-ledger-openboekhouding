@@ -9,7 +9,7 @@
 
 <!-- 
  all XML formats have the same structure: the info is contained in a CONTENT block of certain TYPE.
- That way we can batch/merge XML files wihout loosing any data; all they'll share is 
+ That way we can batch/merge XML files without loosing any data; all they'll share is 
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="AP-TRANSACTION" >
@@ -38,7 +38,7 @@
       <!-- Order # -->
       <%ordnumber%>
       <%employee%>
-    </meta>    
+    </meta>
 
     <data>    
       <account-set>    
@@ -54,19 +54,17 @@
       </account-set>    
 
       <tax-info>
-        <tax-lines>
 <%foreach tax%>
-          <tax-line>
-            <%taxdescription%>
+        <tax-line>
+          <%taxdescription%>
           
-            <tax-rate-percentage>
-              <%taxrate%>
-            <tax-rate-percentage>
+          <tax-rate-percentage>
+            <%taxrate%>
+          <tax-rate-percentage>
           
-            <%tax%>
-          </tax-line>
+          <%tax%>
+        </tax-line>
 <%end tax%>
-        </tax-lines>
       </tax-info>
 
       <summary-totals>

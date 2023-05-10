@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<html>
-<head>
-  <title>REMITTANCE VOUCHER</title>
-  <link rel="stylesheet" href="<%templates%>/<%language_code%>/sqledger.css" />
-</head>
-<body>
+<sql-ledger-root>
+  <letterhead>
+    <title>REMITTANCE VOUCHER</title>
+
+    <%include letterhead.xml%>
+    
+  </letterhead>
+
+<!-- 
+ all XML formats have the same structure: the info is contained in a CONTENT block of certain TYPE.
+ That way we can batch/merge XML files without loosing any data; all they'll share is 
+ the LETTERHEAD block above and FOOTER block further below.
+-->
+  <content type="REMITTANCE-VOUCHER" >
+    <crm type="from">
+
+
   <h4>Remittance Voucher</h4>
 
   <p><%currency%> <%total%></p>
@@ -15,18 +26,18 @@
 
   <p>
   <%name%>
-  <br>
+   
   <%address1%>
-  <br>
+   
   <%address2%>
-  <br>
+   
   <%city%> 
 <%if state%> 
   , <%state%> 
 <%end state%>
-  <br>
+   
   <%zipcode%>
-  <br>
+   
   <%country%>
   </p>
 </body>

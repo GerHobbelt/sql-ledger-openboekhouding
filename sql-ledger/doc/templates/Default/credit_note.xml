@@ -1,77 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<html>
-<head>
-  <title></title>
-</head>
-<body>
-  <sql-ledger-root></sql-ledger-root>
-  <head>
-  <title>CREDIT NOTE</title>
-  <link rel="stylesheet" href="<%templates%>/<%language_code%>/sqledger.css" />
-</head>
-<body>
-  <table width="100%">
+<sql-ledger-root>
+  <letterhead>
+    <title>CREDIT NOTE</title>
 
-  <%include letterhead.html%>
+    <%include letterhead.xml%>
+    
+  </letterhead>
 
-  <tr>
-      
+<!-- 
+ all XML formats have the same structure: the info is contained in a CONTENT block of certain TYPE.
+ That way we can batch/merge XML files without loosing any data; all they'll share is 
+ the LETTERHEAD block above and FOOTER block further below.
+-->
+  <content type="CREDIT-NOTE" >
+    <crm type="from">
 
-     
-      <h4>C R E D I T &nbsp;&nbsp; N O T E</h4>
-     
-  </tr>
-
-    <tr>
-        
 
        
         <table width="100%" cellspacing="0" cellpadding="0">
           <tr valign="top">
              
               <%name%>
-              <br>
+               
               <%address1%> 
 <%if address2%>
-              <br>
+               
               <%address2%> 
 <%end address2%>
-              <br>
+               
               <%city%> 
 <%if state%> 
               , <%state%> 
 <%end state%> 
               <%zipcode%> 
 <%if country%>
-              <br>
+               
               <%country%> 
 <%end country%>
 
-              <br>
+               
 
 <%if contact%>
-              <br>
+               
               Attn: <%contact%>
-              <br>
+               
 <%end contact%> 
 
 <%if customerphone%>
-              <br>
+               
               Tel: <%customerphone%> 
 <%end customerphone%> 
 
 <%if customerfax%>
-              <br>
+               
               Fax: <%customerfax%> 
 <%end customerfax%> 
 
 <%if email%>
-              <br>
+               
               <%email%> 
 <%end email%>
 
 <%if customertaxnumber%>
-              <br>
+               
               Taxnumber: <%customertaxnumber%> 
 <%end customertaxnumber%>
              

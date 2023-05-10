@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<html>
-<head>
-  <title></title>
-</head>
-<body>
-  <sql-ledger-root></sql-ledger-root>
-  <head>
-  <title>RECEIPT</title>
-  <link rel="stylesheet" href="<%templates%>/<%language_code%>/sqledger.css" />
-</head>
-<body>
-  <table width="100%">
+<sql-ledger-root>
+  <letterhead>
+    <title>RECEIPT</title>
 
-  <%include letterhead.html%>
+    <%include letterhead.xml%>
+    
+  </letterhead>
 
-    <tr>
-       
-        <h4>RECEIPT</h4>
-       
-    </tr>
+<!-- 
+ all XML formats have the same structure: the info is contained in a CONTENT block of certain TYPE.
+ That way we can batch/merge XML files without loosing any data; all they'll share is 
+ the LETTERHEAD block above and FOOTER block further below.
+-->
+  <content type="RECEIPT" >
+    <crm type="from">
+
+
 
     <tr>
        
@@ -63,17 +60,17 @@
     <tr>
        
         <%name%>
-        <br>
+         
         <%address1%>
-        <br>
+         
         <%address2%>
-        <br>
+         
         <%city%>
         <%if state%>
         , <%state%>
         <%end state%>
         <%zipcode%>
-        <br>
+         
         <%country%>
        
     </tr>

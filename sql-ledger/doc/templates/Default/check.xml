@@ -1,166 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<html>
-<head>
-  <title></title>
-</head>
-<body>
-  <sql-ledger-root></sql-ledger-root>
-  <head>
-  <title>CHEQUE</title>
-  <link rel="stylesheet" href="<%templates%>/<%language_code%>/sqledger.css" />
-</head>
-<body>
-  <table width="100%">
+<sql-ledger-root>
+  <letterhead>
+    <title>CHEQUE</title>
 
-<!--
-  <%include letterhead.html%>
+    <%include letterhead.xml%>
+    
+  </letterhead>
+
+<!-- 
+ all XML formats have the same structure: the info is contained in a CONTENT block of certain TYPE.
+ That way we can batch/merge XML files without loosing any data; all they'll share is 
+ the LETTERHEAD block above and FOOTER block further below.
 -->
+  <content type="CHEQUE" >
+    <crm type="from">
+      <%company%>
+      <%address%>
+    </crm>
+  
+    <crm type="to">
+      <%name%>
+      <%address1%>
+      <%address2%>
+      <%city%>
+      <%state%>
+      <%zipcode%>
+      <%country%>
+    </crm>
+       
+    <data>
+      <%source%>
+       
+      <%text_amount%>
 
-    <tr>
-       
-        <h4>CHEQUE</h4>
-       
-    </tr>
+      <decimal-value>   
+        <%decimal%>
+      </decimal-value>   
 
-    <tr>
-       
-        <%company%>
-       
-    </tr>
-    <tr>
-       
-        <%address%>
-       
-       
-        <%source%>
-       
-    </tr>
-
-    <tr>
-          
-    </tr>
-    
-    <tr>
-       
-        <%text_amount%> \dotfill
-       
-       
-        <%decimal%>/100 
-       
-    </tr>
-
-    <tr>
-          
-    </tr>
-    
-    <tr>
-       
-        <%datepaid%> 
-       
-       
-        <%amount%>
-       
-    </tr>
+      <%datepaid%> 
+      <%amount%>
 
 <!--
 % different date format for datepaid
 % <%DD%><%MM%><%YYYY%>
 -->
 
-    <tr>
-          
-    </tr>
-    
-    <tr>
+      <%memo%>
        
-        <%name%>
-        <br>
-        <%address1%>
-        <br>
-        <%address2%>
-        <br>
-        <%city%>
-<%if state%>
-        , <%state%>
-<%end state%>
-        <br>
-        <%zipcode%>
-        <br>
-        <%country%>
-       
-    </tr>
-
-    <tr>
-          
-    </tr>
-    
-    <tr>
-       
-        <%memo%>
-       
-    </tr>
-  </table>
-
-  <table width="100%">
-    <tr>
-       
-        <%company%>
-       
-    </tr>
-    <tr>
-       
-        <%name%> 
-       
-       
-          <%datepaid%>
-       
-       
-        <%source%>
-       
-    </tr>
-  </table>
-
-  <table width="100%">
-    <tr>
-       
-        Invoice #
-       
-       
-        Invoice Date
-       
-       
-        Amount Due
-       
-       
-        Applied
-       
-    </tr>
-
+      <invoices>
 <%foreach invnumber%>
-    <tr>
-       
-        <%invnumber%> 
-       
-       
-        <%invdate%> \dotfill
-       
-       
-        <%due%> 
-       
-       
-        <%paid%>
-       
-    </tr>
+        <item>
+          <%invnumber%> 
+          <%invdate%>
+          <%due%> 
+          <%paid%>
+        </item>
 <%end invnumber%>
-  </table>
-  
-  <table width="100%">
-    <tr>
-       
-        <%memo%>
-       
-    </tr>
-  </table>
-</body>
-</html>
-
+      </invoices>
+    </data>
+  </content>
+</sql-ledger-root>

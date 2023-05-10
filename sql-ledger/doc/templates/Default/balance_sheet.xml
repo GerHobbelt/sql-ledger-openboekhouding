@@ -9,7 +9,7 @@
 
 <!-- 
  all XML formats have the same structure: the info is contained in a CONTENT block of certain TYPE.
- That way we can batch/merge XML files wihout loosing any data; all they'll share is 
+ That way we can batch/merge XML files without loosing any data; all they'll share is 
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="BALANCE-SHEET" >

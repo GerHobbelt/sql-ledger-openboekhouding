@@ -1,44 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<html>
-<head>
-  <title></title>
-</head>
-<body>
-  <sql-ledger-root></sql-ledger-root>
-  <head>
-  <title>BARCODES</title>
-  <link rel="stylesheet" href="<%templates%>/<%language_code%>/sqledger.css" />
-</head>
-<body>
-  <table width="100%">
+<sql-ledger-root>
+  <letterhead>
+    <title>BARCODES</title>
 
-<!--
-  <%include letterhead.html%>
+    <%include letterhead.xml%>
+    
+  </letterhead>
+
+<!-- 
+ all XML formats have the same structure: the info is contained in a CONTENT block of certain TYPE.
+ That way we can batch/merge XML files without loosing any data; all they'll share is 
+ the LETTERHEAD block above and FOOTER block further below.
 -->
-
-    <tr>
-       
-        <h4>B A R C O D E S</h4>
-       
-    </tr>
+  <content type="BARCODES" >
+    <data>
 
 <%foreach number * ship%>
 <!-- 
-TODO: Use JavaScript library to convert these to CODE128 barcodes? 
+TODO: generate images for these barcodes? 
+
+Current decision: NO. This is left to the receiver to generate.
 -->
-    <tr>
-       
+      <barcode>
 <!-- \psbarcode{^104<%sku%><%sell%>} -->      
-        <div class="code128fmt">
+        <code>
+          104<%sku%><%sell%>
+        <code>
+        <caption>
           104<%sku%><%sell%>
         </div>
-        <div class="barcode-human-readable-caption">
-          104<%sku%><%sell%>
-        </div>
-       
-    </tr>
+      </barcode>
 <%end number * ship%>
 
-  </table>
-</body>
-</html>
+    </data>
+  </content>
+</sql-ledger-root>

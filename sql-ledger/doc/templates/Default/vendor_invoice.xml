@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<html>
-<head>
-  <title></title>
-</head>
-<body>
-  <sql-ledger-root></sql-ledger-root>
-  <head>
-  <title>VENDOR INVOICE</title>
-  <link rel="stylesheet" href="<%templates%>/<%language_code%>/sqledger.css" />
-</head>
-<body>
-  <table width="100%">
+<sql-ledger-root>
+  <letterhead>
+    <title>VENDOR INVOICE</title>
 
-    <%include letterhead.html%>
+    <%include letterhead.xml%>
+    
+  </letterhead>
 
-    <tr>
+<!-- 
+ all XML formats have the same structure: the info is contained in a CONTENT block of certain TYPE.
+ That way we can batch/merge XML files without loosing any data; all they'll share is 
+ the LETTERHEAD block above and FOOTER block further below.
+-->
+  <content type="VENDOR-INVOICE" >
+    <crm type="from">
+
+
         
 
        
@@ -27,15 +28,15 @@
           <tr valign="top">
              
             <%name%>
-            <br>
+             
             <%address1%> 
 
 <%if address2%>
-            <br>
+             
             <%address2%> 
 <%end address2%>
 
-            <br>
+             
             <%city%> 
 <%if state%> 
             , <%state%> 
@@ -43,50 +44,50 @@
             <%zipcode%> 
 
 <%if country%>
-            <br>
+             
             <%country%> 
 <%end country%>
 
-            <br>
+             
 
 <%if contact%>
-            <br>
+             
             Attn: <%contact%>
-            <br>
+             
 <%end contact%> 
 
 <%if vendorphone%>
-            <br>
+             
             Tel: <%vendorphone%> 
 <%end vendorphone%> 
 
 <%if vendorfax%>
-            <br>
+             
             Fax: <%vendorfax%> 
 <%end vendorfax%> 
 
 <%if email%>
-            <br>
+             
             <%email%> 
 <%end email%>
 
 <%if vendortaxnumber%>
-            <br>
+             
             <%vendortaxnumber%> 
 <%end vendortaxnumber%>
              
 
              
             <%shiptoname%>
-            <br>
+             
             <%shiptoaddress1%> 
 
 <%if shiptoaddress2%>
-            <br>
+             
             <%shiptoaddress2%> 
 <%end shiptoaddress2%>
 
-            <br>
+             
             <%shiptocity%> 
 <%if shiptostate%> 
             , <%shiptostate%> 
@@ -94,30 +95,30 @@
             <%shiptozipcode%> 
 
 <%if shiptocountry%>
-            <br>
+             
             <%shiptocountry%> 
 <%end shiptocountry%>
 
-            <br>
+             
 
 <%if shiptocontact%>
-            <br>
+             
             Attn: <%shiptocontact%>
-            <br>
+             
 <%end shiptocontact%> 
 
 <%if shiptophone%>
-            <br>
+             
             Tel: <%shiptophone%> 
 <%end shiptophone%> 
 
 <%if shiptofax%>
-            <br>
+             
             Fax: <%shiptofax%> 
 <%end shiptofax%> 
 
 <%if shiptoemail%>
-            <br>
+             
             <%shiptoemail%> 
 <%end shiptoemail%>
              

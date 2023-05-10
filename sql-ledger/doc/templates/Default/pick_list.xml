@@ -1,29 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<html>
-<head>
-  <title></title>
-</head>
-<body>
-  <sql-ledger-root></sql-ledger-root>
-  <head>
-  <title>PICK LIST</title>
-  <link rel="stylesheet" href="<%templates%>/<%language_code%>/sqledger.css" />
-</head>
-<body>
-  <table width="100%">
+<sql-ledger-root>
+  <letterhead>
+    <title>PICK LIST</title>
 
-  <%include letterhead.html%>
+    <%include letterhead.xml%>
+    
+  </letterhead>
 
-    <tr>
-        
+<!-- 
+ all XML formats have the same structure: the info is contained in a CONTENT block of certain TYPE.
+ That way we can batch/merge XML files without loosing any data; all they'll share is 
+ the LETTERHEAD block above and FOOTER block further below.
+-->
+  <content type="PICK-LIST" >
+    <crm type="from">
 
-       
-        <h4>P I C K &nbsp;&nbsp; L I S T</h4>
-       
-    </tr>
 
-    <tr>
-        
 
        
         <table width="100%" cellspacing="0" cellpadding="0">
@@ -35,15 +27,15 @@
           <tr valign="top">
              
             <%shiptoname%>
-            <br>
+             
             <%shiptoaddress1%> 
 
 <%if shiptoaddress2%>
-            <br>
+             
             <%shiptoaddress2%> 
 <%end shiptoaddress2%>
 
-            <br>
+             
             <%shiptocity%>
 <%if shiptostate%>
             , <%shiptostate%>
@@ -51,27 +43,27 @@
             <%shiptozipcode%>
 
 <%if shiptocountry%>
-            <br>
+             
             <%shiptocountry%> 
 <%end shiptocountry%>
              
 
              
 <%if shiptocontact%>
-            <br>
+             
             Attn: <%shiptocontact%> 
 <%end shiptocontact%> 
 
 <%if shiptophone%>
-            <br>
+             
             Tel: <%shiptophone%> 
 <%end shiptophone%> 
 <%if shiptofax%>
-            <br>
+             
             Fax: <%shiptofax%> 
 <%end shiptofax%> 
 
-            <br>
+             
             <%shiptoemail%>
              
           </tr>
