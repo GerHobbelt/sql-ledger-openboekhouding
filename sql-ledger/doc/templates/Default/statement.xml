@@ -14,73 +14,25 @@
 -->
   <content type="STATEMENT" >
     <crm type="from">
-
-
-        
-
-       <%statementdate%> 
-    </tr>
-
-    <tr>
-        
-
        
-        <table width="100%">
-          <tr valign="top">
-             
             <%name%>
-             
             <%address1%> 
-
-<%if address2%>
-             
             <%address2%> 
-<%end address2%>
-
-             
             <%city%> 
-<%if state%> 
-            , <%state%> 
-<%end state%> 
+            <%state%> 
             <%zipcode%> 
-
-<%if country%>
-             
             <%country%> 
-<%end country%>
-
-             
-
-<%if customerphone%>
-             
-            Tel: <%customerphone%> 
-<%end customerphone%> 
-
-<%if customerfax%>
-             
-            Fax: <%customerfax%> 
-<%end customerfax%> 
-
-<%if email%>
-             
+            <%customerphone%> 
+            <%customerfax%> 
             <%email%> 
-<%end email%>
              
-          </tr>
-        </table>
-       
-    </tr>
-
-    <tr height="10">
+          </crm>
         
-    </tr>
+    <data>
+    
+       <%statementdate%> 
 
-    <tr>
-        
-
-       
-        <table width="100%">
-          <tr>
+<!--
              Invoice # 
              Order# 
              Date 
@@ -89,10 +41,9 @@
              30 
              60 
              90 
-          </tr>
-
+-->
 <%foreach invnumber%>
-          <tr>
+          <statement-item>
              <%invnumber%> 
              <%ordnumber%> 
              <%invdate%> 
@@ -101,61 +52,23 @@
              <%c30%> 
              <%c60%> 
              <%c90%> 
-          </tr>
+          </statement-item>
 <%end invnumber%>
 
-          <tr>
-             
-               
-             
-          </tr>
-
-          <tr>
-              
-              
-              
-              
              <%c0total%> 
              <%c30total%> 
              <%c60total%> 
              <%c90total%> 
-          </tr>
-        </table>
-       
-    </tr>
 
-    <tr height="10">
-        
-    </tr>
 
-    <tr>
-        
-
-       
-        <table width="50%">
-          <tr>
-             Total Outstanding 
              <%total%> 
-          </tr>
-        </table>
-       
-    </tr>
 
-    <tr>
-        
+      <%currency%>
        
-         
+      <%company%>
        
-    </tr>
-
-    <tr>
-        
-       
-      All amounts in <b><%currency%></b> funds.
-       
-      Please make check payable to <b><%company%></b>.
-       
-    </tr>
+    </data>
+    
   </table>
 </body>
 </html>

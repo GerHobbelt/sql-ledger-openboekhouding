@@ -13,141 +13,39 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="VENDOR-INVOICE" >
-    <crm type="from">
-
-
-        
-
-       
-        <table width="100%" cellspacing="5">
-          <tr class="blackbar">
-             SOLD TO 
-             SHIP TO 
-          </tr>
-
-          <tr valign="top">
-             
+    <crm type="sold-to">
             <%name%>
-             
             <%address1%> 
-
-<%if address2%>
-             
             <%address2%> 
-<%end address2%>
-
-             
             <%city%> 
-<%if state%> 
-            , <%state%> 
-<%end state%> 
+            <%state%> 
             <%zipcode%> 
-
-<%if country%>
-             
             <%country%> 
-<%end country%>
-
-             
-
-<%if contact%>
-             
-            Attn: <%contact%>
-             
-<%end contact%> 
-
-<%if vendorphone%>
-             
-            Tel: <%vendorphone%> 
-<%end vendorphone%> 
-
-<%if vendorfax%>
-             
-            Fax: <%vendorfax%> 
-<%end vendorfax%> 
-
-<%if email%>
-             
+            <%contact%>
+            <%vendorphone%> 
+            <%vendorfax%> 
             <%email%> 
-<%end email%>
-
-<%if vendortaxnumber%>
-             
             <%vendortaxnumber%> 
-<%end vendortaxnumber%>
+    </crm>
              
 
+    <crm type="ship-to">
              
             <%shiptoname%>
-             
             <%shiptoaddress1%> 
-
-<%if shiptoaddress2%>
-             
             <%shiptoaddress2%> 
-<%end shiptoaddress2%>
-
-             
             <%shiptocity%> 
-<%if shiptostate%> 
-            , <%shiptostate%> 
-<%end shiptostate%> 
+            <%shiptostate%> 
             <%shiptozipcode%> 
-
-<%if shiptocountry%>
-             
             <%shiptocountry%> 
-<%end shiptocountry%>
-
-             
-
-<%if shiptocontact%>
-             
-            Attn: <%shiptocontact%>
-             
-<%end shiptocontact%> 
-
-<%if shiptophone%>
-             
-            Tel: <%shiptophone%> 
-<%end shiptophone%> 
-
-<%if shiptofax%>
-             
-            Fax: <%shiptofax%> 
-<%end shiptofax%> 
-
-<%if shiptoemail%>
-             
+            <%shiptocontact%>
+            <%shiptophone%> 
+            <%shiptofax%> 
             <%shiptoemail%> 
-<%end shiptoemail%>
-             
-          </tr>
-        </table>
+          </crm>
        
-    </tr>
-
-    <tr height="5">
-        
-    </tr>
-
-    <tr>
-        
-       
-        <h2>V E N D O R &nbsp;&nbsp; I N V O I C E</h2>
-       
-    </tr>
-
-    <tr height="5">
-        
-    </tr>
-
-    <tr>
-        
-
-       
-        <table width="100%" border="1">
-          <tr>
+        <data>
+<!--
              Invoice # 
              Date 
              Due 
@@ -155,9 +53,7 @@
              Employee 
              Shipping Point 
              Ship via 
-          </tr>
-
-          <tr>
+-->
              <%invnumber%> 
              <%invdate%> 
              <%duedate%> 
@@ -165,30 +61,18 @@
              <%employee%> 
              <%shippingpoint%> 
              <%shipvia%> 
-          </tr>
-        </table>
        
-    </tr>
-
-    <tr>
-        
-
-       
-        <table width="100%">
-          <tr class="blackbar">
+<!--
              Item 
              Number 
              Description 
-              
              Qt'y 
-              
              Unit Price 
              Disc % 
              Extended 
-          </tr>
-
+-->
 <%foreach number%>
-          <tr valign="top">
+          <invoice-item>
              <%runningnumber%>. 
              <%number%> 
              <%description%> 
@@ -198,123 +82,54 @@
              <%sellprice%> 
              <%discountrate%> 
              <%linetotal%> 
-          </tr>
-          <tr>
-              
               
              <%notes%> 
-          </tr>
+          </invoice-item>
 <%end number%>
 
-          <tr>
-             
-               
-             
-          </tr>
-
-          <tr>
 <%if taxincluded%>
-             Total 
              <%invtotal%> 
 <%end taxincluded%>
 
 <%if not taxincluded%>
-             Subtotal 
              <%subtotal%> 
 <%end taxincluded%>
-          </tr>
 
 <%foreach tax%>
           <tr>
-             <span class="smallprint">Registration No. <%taxnumber%></span> 
-             <%taxdescription%> on <%taxbase%> @ <%taxrate%> % 
+             <!-- Registration No. -->
+	     <%taxnumber%>
+             <%taxdescription%> 
+	     <%taxbase%> 
+	     <%taxrate%> 
              <%tax%> 
           </tr>
 <%end tax%>
 
 <%if not taxincluded%>
-          <tr>
-             Total 
              <%invtotal%> 
-          </tr>
 <%end taxincluded%>
 
-<%if paid%>
-          <tr>
-             Paid 
-             - <%paid%> 
-          </tr>
-<%end paid%>
+             <%paid%> 
 
-          <tr>
-              
-             
-               
-             
-          </tr>
-
-<%if total%>
-          <tr>
-              
-             Balance 
+             <!-- Balance -->
              <%total%> 
-          </tr>
-<%end total%>
-        </table>
-       
-    </tr>
-
-    <tr>
-        
 
        
-        <table width="100%">
-          <tr valign="top">
-             <%text_amount%>***** <%decimal%>/100 
+             <%text_amount%>
+	     <%decimal%>
              
-            All prices in <b><%currency%></b>
+            <%currency%>
              
-          </tr>
-
 <%if taxincluded%>
           <tr>
-             <span class="smallprint">Taxes included in price</span> 
+             Taxes included in price
           </tr>
 <%end taxincluded%>
-        </table>
-       
-    </tr>
 
-    <tr height="5">
-        
-    </tr>
-
-    <tr>
-        
-
-       
-        <table width="100%">
-          <tr valign="top">
              <%notes%> 
 
-<%if paid_1%>
-             
-              <table width="100%" border="1">
-                <tr>
-                   
-                    <table width="100%">
-                      <tr class="blackbar">
-                         Payments 
-                      </tr>
-
-                      <tr>
-                         Date 
-                          
-                         Source 
-                         Amount 
-                      </tr>
-<%end paid_1%>
-
+              <payments>
 <%foreach payment%>
                       <tr>
                          <%paymentdate%> 
@@ -323,26 +138,10 @@
                          <%payment%> 
                       </tr>
 <%end payment%>
-
-<%if paid_1%>
-                    </table>
-                   
-                </tr>
-              </table>
-<%end paid_1%>
-             
-          </tr>
-        </table>
+                    </payments>
        
-    </tr>
-
-    <tr>
-        
-
-       
-         
-       
-    </tr>
+    </data>
+    
   </table>
 </body>
 </html>

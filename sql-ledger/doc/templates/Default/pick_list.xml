@@ -13,74 +13,22 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="PICK-LIST" >
-    <crm type="from">
-
-
-
-       
-        <table width="100%" cellspacing="0" cellpadding="0">
-          <tr class="blackbar">
-             Ship To: 
-              
-          </tr>
-
-          <tr valign="top">
-             
+    <crm type="ship-to">
             <%shiptoname%>
-             
             <%shiptoaddress1%> 
-
-<%if shiptoaddress2%>
-             
             <%shiptoaddress2%> 
-<%end shiptoaddress2%>
-
-             
             <%shiptocity%>
-<%if shiptostate%>
-            , <%shiptostate%>
-<%end shiptostate%>
+            <%shiptostate%>
             <%shiptozipcode%>
-
-<%if shiptocountry%>
-             
             <%shiptocountry%> 
-<%end shiptocountry%>
-             
-
-             
-<%if shiptocontact%>
-             
-            Attn: <%shiptocontact%> 
-<%end shiptocontact%> 
-
-<%if shiptophone%>
-             
-            Tel: <%shiptophone%> 
-<%end shiptophone%> 
-<%if shiptofax%>
-             
-            Fax: <%shiptofax%> 
-<%end shiptofax%> 
-
-             
+            <%shiptocontact%> 
+            <%shiptophone%> 
+            <%shiptofax%> 
             <%shiptoemail%>
-             
-          </tr>
-        </table>
+          </crm>
        
-    </tr>
-
-    <tr height="5">
-        
-    </tr>
-
-    <tr>
-        
-
-       
-        <table width="100%" border="1">
-          <tr>
+          <meta>
+<!--	  
              Invoice # 
              Order # 
              Date 
@@ -88,66 +36,42 @@
              Warehouse 
              Shipping Point 
              Ship via 
-          </tr>
+-->	     
 
-          <tr>
              <%invnumber%> 
              <%ordnumber%> 
 
-<%if shippingdate%>
              <%shippingdate%> 
-<%end shippingdate%>
-
-<%if not shippingdate%>
              <%transdate%> 
-<%end shippingdate%>
 
              <%employee%> 
              <%warehouse%> 
              <%shippingpoint%> 
              <%shipvia%> 
-          </tr>
-        </table>
+          </meta>
        
-    </tr>
-
-    <tr>
-        
-
-       
-        <table width="100%">
-          <tr class="blackbar">
+          <data>
+<!--	  
              Item 
              Number 
              Description 
              Qty 
              Ship 
-              
              Bin 
-          </tr>
+-->	     
 
 <%foreach number%>
-          <tr valign="top">
+          <pick-item>
              <%runningnumber%> 
              <%number%> 
              <%description%> 
              <%qty%> 
-             [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;] 
              <%unit%> 
              <%bin%> 
-          </tr>
+          </pick-item>
 <%end number%>
-        </table>
-       
-    </tr>
-
-    <tr>
-        
-
-       
-         
-       
-    </tr>
+    </data>
+    
   </table>
 </body>
 </html>

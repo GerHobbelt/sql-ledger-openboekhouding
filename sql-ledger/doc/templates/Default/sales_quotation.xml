@@ -14,106 +14,48 @@
 -->
   <content type="QUOTATION" >
     <crm type="from">
-
-
-        
-
-       
-        <table width="100%">
-          <tr valign="top">
-             
             <%name%>
-             
             <%address1%> 
-
-<%if address2%>
-             
             <%address2%> 
-<%end address2%>
-
-             
             <%city%> 
-<%if state%> 
-            , <%state%> 
-<%end state%> 
+            <%state%> 
             <%zipcode%> 
-
-<%if country%>
-             
             <%country%> 
-<%end country%>
-
-             
-
-<%if contact%>
-             
-            Attn: <%contact%> 
-<%end contact%> 
-
-<%if customerphone%>
-             
-            Tel: <%customerphone%> 
-<%end customerphone%> 
-
-<%if customerfax%>
-             
-            Fax: <%customerfax%> 
-<%end customerfax%> 
-
-<%if email%>
-             
+            <%contact%> 
+            <%customerphone%> 
+            <%customerfax%> 
             <%email%> 
-<%end email%>
-             
-          </tr>
-        </table>
-       
-    </tr>
+          </crm>
 
-    <tr>
-        
-
-       
-        <table width="100%" border="1">
-          <tr>
+          <meta>
+<!--	  
              Number 
              Date 
              Valid until 
              Contact 
              Shipping Point 
              Ship via 
-          </tr>
-
-          <tr>
+-->
              <%quonumber%> 
              <%quodate%> 
              <%reqdate%> 
              <%employee%> 
              <%shippingpoint%> 
              <%shipvia%> 
-          </tr>
-        </table>
-       
-    </tr>
+          </meta>
 
-    <tr>
-        
-
-       
-        <table width="100%">
-          <tr class="blackbar">
+          <data>
+<!--	  
              Item 
              Number 
              Description 
              Qt'y 
-              
              Price 
              Disc % 
              Amount 
-          </tr>
-
+-->	     
 <%foreach number%>
-          <tr valign="top">
+          <quotation-item>
              <%runningnumber%> 
              <%number%> 
              <%description%> 
@@ -122,96 +64,43 @@
              <%sellprice%> 
              <%discountrate%> 
              <%linetotal%> 
-          </tr>
+          </quotation-item>
 <%end number%>
 
-          <tr>
-             
-               
-             
-          </tr>
-
-          <tr>
 <%if taxincluded%>
-             Total 
              <%invtotal%> 
 <%end taxincluded%>
 
 <%if not taxincluded%>
-             Subtotal 
              <%subtotal%> 
 <%end taxincluded%>
-          </tr>
 
 <%foreach tax%>
           <tr>
-             <%taxdescription%> on <%taxbase%> @ <%taxrate%> % 
+             <%taxdescription%> 
+	     <%taxbase%> 
+	     <%taxrate%>
              <%tax%> 
           </tr>
 <%end tax%>
 
-          <tr>
-              
-             
-               
-             
-          </tr>
-
-          <tr>
-             
-<%if terms%> 
-              Terms Net <b><%terms%></b> days 
-<%end terms%>
-             
-            
-             Total 
+              <%terms%>
+	      
              <%quototal%> 
-          </tr>
 
-          <tr>
-              
-          </tr>
-        </table>
-       
-    </tr>
-
-    <tr>
-        
-       
-        <table width="100%">
-          <tr valign="top">
-<%if notes%>
-             Notes 
              <%notes%> 
-<%end notes%>
 
+            
+            <%currency%>
+	    
              
-            All prices in <b><%currency%></b> Funds
-             
-          </tr>
-        </table>
-       
-    </tr>
-
-    <tr>
-        
-       
-        <table width="100%">
-          <tr valign="top">
-             
-              <span class="payment-conditions">
+              <payment-conditions-msg>
                 Special order items are subject to a 10% cancellation fee.
-              </span>
+              </payment-conditions-msg>
              
-
-             
-               
-               
-             
-          </tr>
-        </table>
        
-    </tr>
+    </data>
+
   </table>
 </body>
 </html>

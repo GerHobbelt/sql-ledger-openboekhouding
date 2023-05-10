@@ -13,152 +13,63 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="PURCHASE-ORDER" >
-    <crm type="from">
-
-
-        
-
-       
-        <table width="100%" cellspacing="0" cellpadding="0">
-          <tr class="blackbar">
-             To: 
-             Ship To: 
-          </tr>
-
-          <tr valign="top">
-             
+    <crm type="to">
             <%name%>
-             
             <%address1%> 
-
-<%if address2%>
-             
             <%address2%> 
-<%end address2%>
-
-             
             <%city%> 
-<%if state%> 
-            , <%state%> 
-<%end state%> 
+            <%state%> 
             <%zipcode%> 
-
-<%if country%>
-             
             <%country%> 
-<%end country%>
+            <%contact%> 
+            <%vendorphone%> 
+            <%vendorfax%> 
+    </crm>
 
-             
-
-<%if contact%>
-             
-            Attn: <%contact%> 
-<%end contact%> 
-
-<%if vendorphone%>
-             
-            Tel: <%vendorphone%> 
-<%end vendorphone%>
-
-<%if vendorfax%>
-             
-            Fax: <%vendorfax%> 
-<%end vendorfax%>
-             
-
-             
+    <crm type="ship-to">
             <%shiptoname%>
-             
             <%shiptoaddress1%> 
-
-<%if shiptoaddress2%>
-             
             <%shiptoaddress2%> 
-<%end shiptoaddress2%>
-
-             
             <%shiptocity%> 
-<%if shiptostate%> 
-            , <%shiptostate%> 
-<%end shiptostate%> 
+            <%shiptostate%> 
             <%shiptozipcode%> 
-
-<%if shiptocountry%>
-             
             <%shiptocountry%> 
-<%end shiptocountry%>
+            <%shiptocontact%>
+            <%shiptophone%> 
+            <%shiptofax%> 
+          </crm>
 
-             
-
-<%if shiptocontact%>
-             
-            Attn: <%shiptocontact%>
-<%end shiptocontact%> 
-
-<%if shiptophone%>
-             
-            Tel: <%shiptophone%> 
-<%end shiptophone%> 
-
-<%if shiptofax%>
-             
-            Fax: <%shiptofax%> 
-<%end shiptofax%> 
-             
-          </tr>
-        </table>
-       
-    </tr>
-
-    <tr height="5">
-        
-    </tr>
-
-    <tr>
-        
-
-       
-        <table width="100%" border="1">
-          <tr>
+          <meta>
+<!--	  
              Order # 
              Order Date 
              Required by 
              Contact 
              Shipping Point 
              Ship Via 
-          </tr>
-
-          <tr>
+-->	     
              <%ordnumber%> 
              <%orddate%> 
              <%reqdate%> 
              <%employee%> 
              <%shippingpoint%> 
              <%shipvia%> 
-          </tr>
-        </table>
-       
-    </tr>
+          </meta>
 
-    <tr>
-        
-
-       
-        <table width="100%">
-          <tr class="blackbar">
+          <data>
+<!--	  
              Item 
              Number 
              Description 
              Qt'y 
-              
              Price 
              % 
              Amount 
-          </tr>
+-->
 
 <%foreach number%>
-          <tr valign="top">
-             <%runningnumber%>. 
+          <order-item>
+             <%runningnumber%>
              <%number%> 
              <%description%> 
              <%qty%> 
@@ -166,53 +77,34 @@
              <%sellprice%> 
              <%discountrate%> 
              <%linetotal%> 
-          </tr>
+          </order-item>
 <%end number%>
 
-          <tr>
-             
-               
-             
-          </tr>
-
-          <tr>
 <%if taxincluded%>
-             Total 
              <%ordtotal%> 
 <%end taxincluded%>
 
 <%if not taxincluded%>
-             Subtotal 
              <%subtotal%> 
 <%end taxincluded%>
-          </tr>
+
 
 <%foreach tax%>
           <tr>
-             <%taxdescription%> on <%taxbase%> @ <%taxrate%> % 
+             <%taxdescription%> 
+	     <%taxbase%>
+	     <%taxrate%> 
              <%tax%> 
           </tr>
 <%end tax%>
 
-          <tr>
-              
-             
-               
-             
-          </tr>
-
 <%if not taxincluded%>
-          <tr>
-             Total 
              <%ordtotal%> 
 <%end taxincluded%>
 
 <%if terms%>
-          </tr>
-
           <tr>
-             Terms Net <b><%terms%></b> days 
-             Total 
+             <%terms%>
              <%ordtotal%> 
           </tr>
 <%end terms%>
@@ -223,49 +115,18 @@
           </tr>
 <%end taxincluded%>
 
-          <tr>
-              
-          </tr>
-
 <%if ordtotal%>
           <tr>
              All prices in <b><%currency%></b> Funds 
           </tr>
 <%end ordtotal%>
-        </table>
-       
-    </tr>
 
-<%if notes%>
-    <tr>
-        
 
-       
-        <table width="100%">
-          <tr valign="top">
-             Notes 
              <%notes%> 
-          </tr>
-        </table>
-       
-    </tr>
-<%end notes%>
-
-    <tr>
-        
 
        
-        <table width="100%">
-          <tr valign="top">
-              
-             
-               
-               
-             
-          </tr>
-        </table>
-       
-    </tr>
+    </data>
+    
   </table>
 </body>
 </html>

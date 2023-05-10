@@ -13,124 +13,36 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="INVOICE" >
-    <crm type="from">
-
-
-
+    <crm type="to">
+      <%name%>
+      <%address1%> 
+      <%address2%> 
+      <%city%> 
+      <%state%> 
+      <%zipcode%> 
+      <%country%> 
+      <%contact%>
+      <%customerphone%> 
+      <%customerfax%> 
+      <%email%> 
+    </crm>
+    
+    <crm type="ship-to">
+      <%shiptoname%>
+      <%shiptoaddress1%> 
+      <%shiptoaddress2%> 
+      <%shiptocity%> 
+      <%shiptostate%> 
+      <%shiptozipcode%> 
+      <%shiptocountry%> 
+      <%shiptocontact%>
+      <%shiptophone%> 
+      <%shiptofax%> 
+      <%shiptoemail%> 
+    </crm>
        
-        <table width="100%" cellspacing="0" cellpadding="0">
-          <tr class="blackbar">
-             To 
-             Ship To 
-          </tr>
-
-          <tr valign="top">
-             
-            <%name%>
-             
-            <%address1%> 
-
-<%if address2%>
-             
-            <%address2%> 
-<%end address2%>
-
-             
-            <%city%> 
-<%if state%> 
-            , <%state%> 
-<%end state%> 
-            <%zipcode%> 
-
-<%if country%>
-             
-            <%country%> 
-<%end country%>
-
-             
-
-<%if contact%>
-             
-            Attn: <%contact%>
-             
-<%end contact%> 
-
-<%if customerphone%>
-             
-            Tel: <%customerphone%> 
-<%end customerphone%> 
-
-<%if customerfax%>
-             
-            Fax: <%customerfax%> 
-<%end customerfax%> 
-
-<%if email%>
-             
-            <%email%> 
-<%end email%>
-             
-
-             
-            <%shiptoname%>
-             
-            <%shiptoaddress1%> 
-
-<%if shiptoaddress2%>
-             
-            <%shiptoaddress2%> 
-<%end shiptoaddress2%>
-
-             
-            <%shiptocity%> 
-<%if shiptostate%> 
-            , <%shiptostate%> 
-<%end shiptostate%> 
-            <%shiptozipcode%> 
-
-<%if shiptocountry%>
-             
-            <%shiptocountry%> 
-<%end shiptocountry%>
-
-             
-
-<%if shiptocontact%>
-             
-            Attn: <%shiptocontact%>
-             
-<%end shiptocontact%> 
-
-<%if shiptophone%>
-             
-            Tel: <%shiptophone%> 
-<%end shiptophone%> 
-
-<%if shiptofax%>
-             
-            Fax: <%shiptofax%> 
-<%end shiptofax%> 
-
-<%if shiptoemail%>
-             
-            <%shiptoemail%> 
-<%end shiptoemail%>
-             
-          </tr>
-        </table>
-       
-    </tr>
-
-    <tr height="5">
-        
-    </tr>
-
-    <tr>
-        
-
-       
-        <table width="100%" border="1">
-          <tr>
+    <meta>
+<!--    
              Invoice # 
              Date 
              Due 
@@ -138,142 +50,80 @@
              Salesperson 
              Shipping Point 
              Ship via 
-          </tr>
+-->	     
+      <%invnumber%> 
+      <%invdate%> 
+      <%duedate%> 
+      <%ordnumber%> 
+      <%employee%> 
+      <%shippingpoint%> 
+      <%shipvia%> 
+    </meta>
 
-          <tr>
-             <%invnumber%> 
-             <%invdate%> 
-             <%duedate%> 
-             <%ordnumber%> 
-             <%employee%> 
-             <%shippingpoint%> 
-             <%shipvia%> 
-          </tr>
-        </table>
-       
-    </tr>
-
-    <tr>
-        
-
-       
-        <table width="100%">
-          <tr class="blackbar">
+    <data>
+<!--    
              Item 
              Number 
              Description 
-              
              Qt'y 
-              
              Unit Price 
              Disc % 
              Extended 
-          </tr>
+-->
 
 <%foreach number%>
-          <tr valign="top">
-             <%runningnumber%>. 
-             <%number%> 
-             <%description%> 
-             <%deliverydate%> 
-             <%qty%> 
-             <%unit%> 
-             <%sellprice%> 
-             <%discountrate%> 
-             <%linetotal%> 
-          </tr>
+      <line-item>
+        <%runningnumber%>
+	<%number%> 
+        <%description%> 
+        <%deliverydate%> 
+        <%qty%> 
+        <%unit%> 
+        <%sellprice%> 
+        <%discountrate%> 
+        <%linetotal%> 
+      </line-item>
 <%end number%>
 
-          <tr>
-             
-               
-             
-          </tr>
-
-          <tr>
 <%if taxincluded%>
-             Total 
-             <%invtotal%> 
+      <%invtotal%> 
 <%end taxincluded%>
 
 <%if not taxincluded%>
-             Subtotal 
-             <%subtotal%> 
+      <%subtotal%> 
 <%end taxincluded%>
-          </tr>
 
 <%foreach tax%>
           <tr>
-             <%taxdescription%> on <%taxbase%> @ <%taxrate%> % 
+             <%taxdescription%> 
+	     <%taxbase%> 
+	     <%taxrate%>
              <%tax%> 
           </tr>
 <%end tax%>
 
-<%if paid%>
-          <tr>
-             Paid 
-             - <%paid%> 
-          </tr>
-<%end paid%>
+          <%paid%> 
 
-          <tr>
-              
-
-             
-               
-             
-          </tr>
-
-<%if total%>
-          <tr>
-              
-             Balance Due 
+<!-- Balance Due -->
              <%total%> 
-          </tr>
-<%end total%>
-        </table>
-       
-    </tr>
 
-    <tr>
-        
-
-       
-        <table width="100%">
-          <tr valign="top">
-<%if notes%>
              <%notes%> 
-<%end notes%>
 
-             <%text_amount%>***** <%decimal%>/100 
-             All prices in <b><%currency%></b> 
-          </tr>
-        </table>
+
+             <%text_amount%>
+	     <%decimal%>
+	     
+             <%currency%>
        
     </tr>
 
-<%if paid_1%>
-    <tr>
-        
-       
-        <table width="60%">
-          <tr>
-             Payments 
-          </tr>
-
-          <tr>
-             
-               
-             
-          </tr>
-
-          <tr>
+    <payments>
+<!--    
              Date 
              Account 
              Source 
              Amount 
-          </tr>
-<%end paid_1%>
+-->
 
 <%foreach payment%>
           <tr>
@@ -284,63 +134,37 @@
           </tr>
 <%end payment%>
 
-<%if paid_1%>
-        </table>
-       
-    </tr>
-<%end paid_1%>
-
-    <tr height="10">
-        
-    </tr>
 
     <tr>
-        
        Thank you for your valued business! 
     </tr>
 
-    <tr>
-        
-
-       
-        <table width="100%">
-          <tr valign="top">
-             
-              <span class="payment-conditions">
+        <payment-conditions-msg>
                 Payment due by <%duedate%>. 
                 Items returned are subject to a 10% restocking charge. 
                 A return authorization must be obtained from <%company%> before goods are returned. 
                 Returns must be shipped prepaid and properly insured. 
                 <%company%> will not be responsible for damages during transit.
-              </span>
-             
-
-             
+        </payment-conditions-msg>
                
                
              
-          </tr>
-        </table>
-       
-    </tr>
 
 <%foreach tax%>
-    <tr>
-        
-
-       <span class="smallprint"><%taxdescription%> Registration <%taxnumber%></span> 
+    <tax>
+      <%taxdescription%> 
+      <%taxnumber%>
     </tr>
 <%end tax%>
 
 <%if taxincluded%>
     <tr>
-        
-    </tr>
-
-    <tr>
-       <span class="smallprint">Taxes shown are included in price.</span> 
+      Taxes shown are included in price.
     </tr>
 <%end taxincluded%>
+
+
+
   </table>
 </body>
 </html>

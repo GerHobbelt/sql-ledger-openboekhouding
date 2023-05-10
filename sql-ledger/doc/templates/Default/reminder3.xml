@@ -15,116 +15,48 @@
   <content type="REMINDER" >
     <level>3</level>
     
-    <crm type="from">
-
-
-        
-
-       <%statementdate%> 
-    </tr>
-
-    <tr>
-        
-
-       
-        <table width="100%">
-          <tr valign="top">
-             
+    <crm type="to">
             <%name%>
-             
             <%address1%> 
-
-<%if address2%>
-             
             <%address2%> 
-<%end address2%>
-
-             
             <%city%> 
-<%if state%> 
-            , <%state%> 
-<%end state%> 
+            <%state%> 
             <%zipcode%> 
-
-<%if country%>
-             
             <%country%> 
-<%end country%>
-
-             
-
-<%if customerphone%>
-             
-            Tel: <%customerphone%> 
-<%end customerphone%> 
-
-<%if customerfax%>
-             
-            Fax: <%customerfax%> 
-<%end customerfax%> 
-
-<%if email%>
-             
+            <%customerphone%> 
+            <%customerfax%> 
             <%email%> 
-<%end email%>
-             
-          </tr>
-        </table>
+          </crm>
        
-    </tr>
-
-    <tr height="10">
-        
-    </tr>
-
-    <tr>
-        
-
+    <meta>
+       <%statementdate%> 
        
-        <table width="100%">
-          <tr>
+<!--
              Invoice # 
              Order # 
              Invoice Date 
              Due Date 
              Amount 
-          </tr>
-
-          <tr>
+-->
              <%invnumber%> 
              <%ordnumber%> 
              <%invdate%> 
              <%duedate%> 
              <%due%> 
-          </tr>
+          </meta>
 
-          <tr>
-             
-               
-             
-          </tr>
-        </table>
+          <data>
        
-    </tr>
-
-    <tr height="10">
-        
-    </tr>
-
-    <tr>
-        
-
-       
-        <p>
+      <reminder-msg>
         Our records indicate that payment for invoice # <%invnumber%> is past due. 
         If the amount has already been paid, please disregard this notice. 
         If you have not yet arranged for payment why not take this reminder to do so at this time.
-        </p>
-        <p>
+
         Thank you in advance for your anticipated cooperation in this matter.
-        </p>
+      </reminder-msg>
        
-    </tr>
+    </data>
+
   </table>
 </body>
 </html>

@@ -13,186 +13,74 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="WORK-ORDER" >
-    <crm type="from">
-
-
-        
-
-       
-        <table width="100%" cellspacing="0" cellpadding="0">
-          <tr class="blackbar">
-             To 
-             Ship To 
-          </tr>
-
-          <tr valign="top">
-             
+    <crm type="to">
             <%name%>
-             
             <%address1%> 
-
-<%if address2%>
-             
             <%address2%> 
-<%end address2%>
-
-             
             <%city%> 
-<%if state%> 
-            , <%state%> 
-<%end state%> 
+            <%state%> 
             <%zipcode%> 
-
-<%if country%>
-             
             <%country%> 
-<%end country%>
-
-             
-
-<%if contact%>
-             
-            Attn: <%contact%> 
-<%end contact%> 
-
-<%if customerphone%>
-             
-            Tel: <%customerphone%> 
-<%end customerphone%> 
-
-<%if customerfax%>
-             
-            Fax: <%customerfax%> 
-<%end customerfax%> 
-
-<%if email%>
-             
+            <%contact%> 
+            <%customerphone%> 
+            <%customerfax%> 
             <%email%> 
-<%end email%>
-             
+    </crm>
 
-             
+    <crm type="ship-to">
             <%shiptoname%>
-             
             <%shiptoaddress1%> 
-
-<%if shiptoaddress2%>
-             
             <%shiptoaddress2%> 
-<%end shiptoaddress2%>
-
-             
             <%shiptocity%> 
-<%if shiptostate%> 
-            , <%shiptostate%> 
-<%end shiptostate%> 
+            <%shiptostate%> 
             <%shiptozipcode%> 
-
-<%if shiptocountry%>
-             
             <%shiptocountry%> 
-<%end shiptocountry%>
-
-             
-
-<%if shiptocontact%>
-             
-            Attn: <%shiptocontact%>
-<%end shiptocontact%> 
-
-<%if shiptophone%>
-             
-            Tel: <%shiptophone%> 
-<%end shiptophone%> 
-
-<%if shiptofax%>
-             
-            Fax: <%shiptofax%> 
-<%end shiptofax%> 
-
-<%if shiptoemail%>
-             
+            <%shiptocontact%>
+            <%shiptophone%> 
+            <%shiptofax%> 
             <%shiptoemail%> 
-<%end shiptoemail%>
-             
-          </tr>
-        </table>
-       
-    </tr>
+          </crm>
 
-    <tr height="5">
-        
-    </tr>
-
-    <tr>
-        
-
-       
-        <table width="100%" border="1">
-          <tr>
+          <data>
+<!--	  
              Order # 
              Order Date 
              Required by 
              Salesperson 
              Shipping Point 
              Ship Via 
-          </tr>
-
-          <tr>
+-->
              <%ordnumber%> 
              <%orddate%> 
              <%reqdate%> 
              <%employee%> 
              <%shippingpoint%> 
              <%shipvia%> 
-          </tr>
-        </table>
-       
-    </tr>
 
-    <tr>
-        
-
-       
-        <table width="100%">
-          <tr class="blackbar">
+<!--
              Item 
              Number 
              Description 
              Qt'y 
-              
              Bin 
              Serial # 
-          </tr>
-
+-->
 <%foreach number%>
-          <tr valign="top">
-             <%runningnumber%>. 
+          <work-item>
+             <%runningnumber%>
              <%number%> 
              <%description%> 
              <%qty%> 
              <%unit%> 
              <%bin%> 
              <%serialnumber%> 
-          </tr>
+          </work-item>
 <%end number%>
 
-          <tr>
-             
-               
-             
-          </tr>
-        </table>
-       
-    </tr>
-
-    <tr>
-        
-
-<%if notes%>
        <%notes%> 
-<%end notes%>
-    </tr>
+
+    </data>
+    
   </table>
 </body>
 </html>

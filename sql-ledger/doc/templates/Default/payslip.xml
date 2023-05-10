@@ -13,264 +13,66 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="PAYSLIP" >
-    <crm type="from">
-
-
-
-    <tr>
+    <meta>  
+      <crm>
+        <%name%>
+        <%address1%>
+        <%address2%>
+        <%city%>
+        <%state%>
+        <%zipcode%>
+        <%country%>
+      </crm>
        
-        <%source%>
+      <meta>
+        <%company%>
+    </meta>
        
-    </tr>
-
-    <tr>
-        
-    </tr>
-
-    <tr>
-       
-        <%text_amount%> \dotfill 
-       
-       
-        <%decimal%>/100
-       
-    </tr>
-  </table>
-  
-  <table width="100%">
-    <tr>
-        
-      
+    <data>
+      <%text_amount%>
+        <%decimal%>
        
         <%datepaid%>
        
-       
-       <%net%>
-       
-    </tr>
-  </table>
-    
-  
-  <table width="100%">
-    <tr>
-       
-        <%name%>
-         
-        <%address1%>
-         
-        <%address2%>
-         
-        <%city%>
-<%if state%>
-        , <%state%>
-<%end state%>
-        <%zipcode%>
-         
-        <%country%>
-       
-    </tr>
-    
-    <tr>
-       
+            <%source%>
+
         <%memo%>
-       
-    </tr>
-    
-    <tr>
-       
-        <%company%>
-       
-    </tr>
-  </table>
-  
-  <table width="100%">
-    <tr>
-       
-        <%name%>
-       
-       
-       <%datepaid%>
-       
-       
-        For Pay Period: <%dateto%>
-       
-       
-        <%source%>
-       
-    </tr>
-  </table>
-  
-  <table width="100%">
-    <tr>
-       
-        Regular
-       
-      <!-- \dotfill -->
-       
+
+<!-- For Pay Period: -->
+	 <%dateto%>
+
           <%regularpay%>
-       
-    </tr>
-    <tr>
-       
-        Overtime
-       
-      <!-- \dotfill -->
-       
          <%overtimepay%>
-       
-    </tr>
-    <tr>
-       
-        Travel
-       
-      <!-- \dotfill -->
-       
          <%travelpay%>
-       
-    </tr>
-    <tr>
-       
-        Stat Holiday
-       
-      <!-- \dotfill -->
-       
          <%holidaypay%>
        
-    </tr>
-    <tr>
-       
-        <hr>
-       
-    </tr>
-    <tr>
-       
-        Gross
-       
-      <!-- \dotfill -->
-       
          <%gross%>
        
-    </tr>
-  </table>
-  
-  <table width="100%">
 <%foreach deduction%>
-    <tr>
-       
+    <deduction-item>
         <%deduction%>
-       
-      <!-- \dotfill -->
-       
         <%amount%>
-       
-    </tr>
+    </deduction-item>
 <%end deduction%>
 
-    <tr>
-       
-        <hr>
-       
-    </tr>
-    
-    <tr>
-       
-          Withheld
-       
-      <!-- \dotfill -->
-       
         <%withheld%>
-       
-    </tr>
-  </table>
-  
-  <table width="100%">
-    <tr>
-       
-        Gross
-       
-      <!-- \dotfill -->
-       
-         <%gross%>
-       
-    </tr>
-    <tr>
-       
-        Withheld
-       
-      <!-- \dotfill -->
-       
-         <%withheld%>
-       
-    </tr>
-    <tr>
-       
-        Benefits
-       
-      <!-- \dotfill -->
        
          <%benefits%>
        
-    </tr>
-    <tr>
-       
-        <hr>
-       
-    </tr>
-    <tr>
-       
-        Net
-       
-      <!-- \dotfill -->
-       
          <%net%>
        
-    </tr>
-  </table>
-  
-  <table width="100%">
-    <tr>
-       
-        Regular:
-       
-       
         <%regular%>
-       
-       
         <%regularrate%>
        
-    </tr>
-    <tr>
-       
-        Overtime:
-       
-       
         <%overtime%>
-       
-       
         <%overtimerate%>
        
-    </tr>
-    <tr>
-       
-        Travel:
-       
-       
         <%travel%>
-       
-       
         <%travelrate%>
        
-    </tr>
-    <tr>
-       
-        Stat Holiday:
-       
-       
         <%holiday%>
-       
-      
-        
-    </tr>
+    </data>
+
   </table>
 </body>
 </html>

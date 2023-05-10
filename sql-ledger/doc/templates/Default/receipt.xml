@@ -14,147 +14,59 @@
 -->
   <content type="RECEIPT" >
     <crm type="from">
+        <%name%>
+        <%address1%>
+        <%address2%>
+        <%city%>
+        <%state%>
+        <%zipcode%>
+        <%country%>
+    </crm>
 
 
-
-    <tr>
+    <data>
        
         <%source%>
        
-    </tr>
-
-    <tr>
-        
-    </tr>
-
-    <tr>
-       
         <%text_amount%>
        
-      <!-- \dotfill -->
-       
-        <%decimal%>/100
-       
-    </tr>
-  </table>
-
-  <table width="100%">
-    <tr>
-        
-      
+        <%decimal%>
        
           <%datepaid%>
        
-       
         <%amount%>
-       
-    </tr>
-  </table>
-        
+
 <!--
 % different date format for datepaid
 % <%DD%><%MM%><%YYYY%>
 -->
 
-  <table width="100%">
-    <tr>
-       
-        <%name%>
-         
-        <%address1%>
-         
-        <%address2%>
-         
-        <%city%>
-        <%if state%>
-        , <%state%>
-        <%end state%>
-        <%zipcode%>
-         
-        <%country%>
-       
-    </tr>
-
-    <tr>
-        
-    </tr>
-
-    <tr>
-       
         <%memo%>
-       
-    </tr>
-
-    <tr>
-        
-    </tr>
-
-    <tr>
        
         <%company%>
        
-    </tr>
-  </table>
-        
-  <table width="100%">
-    <tr>
-       
         <%name%>
-       
-    </tr>
-    <tr>
        
         <%datepaid%>
        
-    </tr>
-    <tr>
-       
-        <%source%>
-       
-    </tr>
-  </table>
-        
-  <table width="100%">
-    <tr>
-       
+<!--       
         Invoice No.
-       
-       
         Invoice Date
-       
-       
         Due
-       
-       
         Applied
-       
-    </tr>
+-->
 
 <%foreach invnumber%>
-    <tr>
-       
+    <invoice-item>
         <%invnumber%>
-       
-       
         <%invdate%>
-       
-      <!-- \dotfill -->
-       
         <%due%>
-       
-       
         <%paid%>
-       
-    </tr>
+    </invoice-item>
 <%end invnumber%>
-  </table>
-        
-  <table width="100%">
-    <tr>
        
-        <%memo%>
-       
-    </tr>
+    </data>
+    
   </table>
 </body>
 </html>

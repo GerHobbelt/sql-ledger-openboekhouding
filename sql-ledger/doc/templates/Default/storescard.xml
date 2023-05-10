@@ -18,102 +18,27 @@
 
 
        
-        <table width="100%" cellspacing="0" cellpadding="0">
-          <tr valign="top">
-             
-              <table>
-                <tr>
-                   Employee 
+        <data>
                    <%employee%> 
-                </tr>
-                <tr>
-                   ID 
                    <%employee_id%> 
-                </tr>
-              </table>
-             
 
-             
-              <table>
-                <tr>
-                   Card ID 
+<!-- Card ID -->
                    <%id%> 
-                </tr>
-                <tr>
-                   Date 
                    <%transdate%> 
-                </tr>
-              </table>
-             
-          </tr>
-        </table>
-       
-    </tr>
 
-    <tr height="5">
-        
-    </tr>
-
-    <tr>
-        
-
-       
-        <table width="100%">
-          <tr>
-             
-              <table width="100%">
-                <tr>
-                   Job # 
-                   Description 
-                </tr>
-
-                <tr>
                    <%projectnumber%> 
                    <%projectdescription%> 
-                </tr>
-              </table>
-             
-          </tr>
 
-          <tr height="15">
-              
-          </tr>
-
-          <tr>
-             
-              <table width="100%" border="1">
-                <tr>
-                   Part Number 
-                   Description 
-                   Qty 
-                   Cost 
-                   Total 
-                </tr>
-
-                <tr>
                    <%partnumber%> 
                    <%description%> 
                    <%qty%> 
                    <%sellprice%> 
                    <%total%> 
-                </tr>
-              </table>
-             
-          </tr>
-        </table>
-       
-    </tr>
 
-<%if notes%>
-    <tr height="5">
-        
-    </tr>
-
-    <tr>
-        
        <%notes%> 
-    </tr>
-<%end notes%>
+
+    </data>
+
   </table>
 </body>
 </html>

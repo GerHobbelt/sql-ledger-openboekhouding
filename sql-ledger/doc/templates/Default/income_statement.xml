@@ -13,135 +13,58 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="INCOME-STATEMENT" >
-    <crm type="from">
+    <crm>
+      <%company%>
+      <%address%>
+    </crm>
 
-
-  <h4 class="center">
-    <%company%>
-     
-    <%address%>
-  </h4>
-
-  <p>
-    INCOME STATEMENT 
+    <meta>
 <%if method eq 'cash'%>
-     
-    CASH Method 
+      CASH Method 
 <%end method eq 'cash'%>
      
-    <%period%> 
-  </p>
+      <%period%> 
 
-<%if department%>
-  <h4>Department: <%department%></h4>
-<%end department%>
+      <%department%>
 
-<%if projectnumber%>
-  <h4>Project Number: <%projectnumber%></h4>
-<%end projectnumber%>
+      <%projectnumber%>
+      
+      <%this_period%> 
+      <%previous_period%> 
+    </meta>
 
-  <table width="100%" border="0">
-    <tr>
-       
-        INCOME
-         
-         
-       
-       <%this_period%> 
-       <%previous_period%> 
-    </tr>
-
+    <data>
+      <income>
 <%foreach income_account%>
-    <tr>
-        
-       <%income_account%> 
-       <%income_this_period%> 
-       <%income_previous_period%> 
-    </tr>
+        <account>
+          <%income_account%> 
+          <%income_this_period%> 
+          <%income_previous_period%> 
+        </account>
 <%end income_account%>
 
-    <tr>
-        
-       
-         
-       
-
-       
-         
-       
-    </tr>
-
-    <tr valign="top">
-        
-       TOTAL INCOME 
-       
         <%total_income_this_period%>
-         
-       
-
-       
         <%total_income_previous_period%>
-         
-       
-    </tr>
-
-    <tr>
-       
-        EXPENSES 
-         
-       
-    </tr>
-
+      </income>
+      
+      <expense> 
 <%foreach expense_account%>
-    <tr>
-        
-       <%expense_account%> 
-       <%expense_this_period%> 
-       <%expense_previous_period%> 
-    </tr>
+        <expense-account>
+          <%expense_account%> 
+          <%expense_this_period%> 
+          <%expense_previous_period%> 
+        </expense-account>
 <%end expense_account%>
-
-    <tr>
-        
-       
-         
-       
-       
-         
-       
-    </tr>
-
-    <tr valign="top">
-        
-       TOTAL EXPENSES 
        
         <%total_expense_this_period%>
-         
-         
-       
-
-       
         <%total_expense_previous_period%>
-         
-         
-       
-    </tr>
+      </expense>
 
-    <tr valign="top">
-       INCOME / (LOSS) 
-       
+      <summary>
         <%total_this_period%>
-         
-         
-       
-
-       
         <%total_previous_period%>
-         
-         
-       
-    </tr>
-  </table>
+      </summary>
+    </data>
 
   <p>
     All amounts in <%currency%> 

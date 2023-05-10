@@ -16,121 +16,39 @@
     <crm type="from">
 
 
-        
 
-       
-        <table width="100%" cellspacing="0" cellpadding="0">
-          <tr valign="top">
-             
-              <table>
-                <tr>
-                   Employee 
+
+              <data>
                    <%employee%> 
-                </tr>
-
-                <tr>
-                   ID 
                    <%employee_id%> 
-                </tr>
-              </table>
-             
 
-             
-              <table>
-                <tr>
-                   Card ID 
+<!-- Card ID -->
                    <%id%> 
-                </tr>
 
-                <tr>
-                   Date 
                    <%transdate%> 
-                </tr>
 
-                <tr>
-                   In 
                    <%checkedin%> 
-                </tr>
-
-                <tr>
-                   Out 
                    <%checkedout%> 
-                </tr>
 
-                <tr>
-                   Hours 
+<!-- Hours -->
                    <%qty%> 
-                </tr>
-              </table>
-             
-          </tr>
-        </table>
        
-    </tr>
-
-    <tr height="5">
-        
-    </tr>
-
-    <tr>
-        
-
-       
-        <table width="100%">
-          <tr valign="bottom">
-             
-              <table>
-                <tr valign="top">
-                   Job/Project # 
                    <%projectnumber%> 
-                </tr>
-
-                <tr>
-                   Description 
                    <%projectdescription%> 
-                </tr>
 
-                <tr valign="top">
-                   Labor/Service Code 
+<!-- Labor/Service Code -->
                    <%partnumber%> 
-                </tr>
 
-                <tr>
-                   Description 
                    <%description%> 
-                </tr>
-              </table>
-             
 
-             
-              <table>
-                <tr>
-                   Rate 
+<!-- Rate -->
                    <%sellprice%> 
-                </tr>
 
-                <tr>
-                   Total 
                    <%total%> 
-                </tr>
-              </table>
-             
-          </tr>
-        </table>
-       
-    </tr>
-
-<%if notes%>
-    <tr height="5">
-        
-    </tr>
-
-    <tr>
-        
 
        <%notes%> 
-    </tr>
-<%end notes%>
+    </data>
+
   </table>
 </body>
 </html>

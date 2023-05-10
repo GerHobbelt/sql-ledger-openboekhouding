@@ -13,196 +13,76 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="REQUEST-FOR-QUOTATION" >
-    <crm type="from">
+    <crm type="to">
 
-
-        
-
-       
-        <table width="100%">
-          <tr class="blackbar">
-             To: 
-             Ship To: 
-          </tr>
-
-          <tr valign="top">
-             
             <%name%>
-             
             <%address1%> 
-
-<%if address2%>
-             
             <%address2%> 
-<%end address2%>
-
-             
             <%city%> 
-<%if state%> 
-            , <%state%> 
-<%end state%> 
+            <%state%> 
             <%zipcode%> 
-
-<%if country%>
-             
             <%country%> 
-<%end country%>
-
+            <%contact%> 
+            <%vendorphone%> 
+            <%vendorfax%> 
+    </crm>
              
 
-<%if contact%>
-             
-            Attn: <%contact%> 
-<%end contact%> 
-
-<%if vendorphone%>
-             
-            Tel: <%vendorphone%> 
-<%end vendorphone%>
-
-<%if vendorfax%>
-             
-            Fax: <%vendorfax%> 
-<%end vendorfax%>
-             
-
+    <crm type="ship-to">
              
             <%shiptoname%>
-             
             <%shiptoaddress1%> 
-
-<%if shiptoaddress2%>
-             
             <%shiptoaddress2%> 
-<%end shiptoaddress2%>
-
-             
             <%shiptocity%> 
-<%if shiptostate%> 
-            , <%shiptostate%> 
-<%end shiptostate%> 
+            <%shiptostate%> 
             <%shiptozipcode%> 
-
-<%if shiptocountry%>
-             
             <%shiptocountry%> 
-<%end shiptocountry%>
-
+            <%shiptocontact%> 
+            <%shiptophone%> 
+            <%shiptofax%> 
              
+          </crm>
 
-<%if shiptocontact%>
-             
-            Attn: <%shiptocontact%> 
-<%end shiptocontact%> 
-
-<%if shiptophone%>
-             
-            Tel: <%shiptophone%> 
-<%end shiptophone%> 
-
-<%if shiptofax%>
-             
-            Fax: <%shiptofax%> 
-<%end shiptofax%> 
-             
-          </tr>
-        </table>
-       
-    </tr>
-
-    <tr height="5">
-        
-    </tr>
-
-    <tr>
-        
-
-       
-        <table width="100%" border="1">
-          <tr>
+        <meta>
+<!--	
              RFQ # 
              Date 
              Required by 
              Contact 
              Shipping Point 
              Ship via 
-          </tr>
-
-          <tr>
+-->	     
              <%quonumber%> 
              <%quodate%> 
              <%reqdate%> 
              <%employee%> 
              <%shippingpoint%> 
              <%shipvia%> 
-          </tr>
-        </table>
-       
-    </tr>
-
-    <tr height="10">
-        
-    </tr>
-
-    <tr>
-        
-
-       Please provide price and delivery time for the following items: 
-    </tr>
-
-    <tr height="10">
-        
-    </tr>
-
-    <tr>
-        
+         </meta>
 
        
-        <table width="100%">
-          <tr class="blackbar">
+        <data>
+<!--
              Item 
              Number 
              Description 
              Qt'y 
-              
              Delivery 
              Unit Price 
              Extended 
-          </tr>
-
+-->
 <%foreach number%>
-          <tr valign="top">
-             <%runningnumber%>. 
+          <request-item>
+             <%runningnumber%>
              <%number%> 
              <%description%> 
              <%qty%> 
              <%unit%> 
-          </tr>
+          </request-item>
 <%end number%>
 
-          <tr>
-             
-               
-             
-          </tr>
-        </table>
-       
-    </tr>
-
-<%if notes%>
-    <tr>
-        
-
-       
-        <table width="100%">
-          <tr valign="top">
-             Notes 
              <%notes%> 
-          </tr>
-        </table>
-       
-    </tr>
-<%end notes%>
-  </table>
+  </data>
+  
 </body>
 </html>

@@ -13,129 +13,52 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="PACKING-LIST" >
-    <crm type="from">
-
-
-
-       
-        <table width="100%" cellspacing="0" cellpadding="0">
-          <tr class="blackbar">
-             Ship To: 
-              
-          </tr>
-
-          <tr valign="top">
-             
-            <%shiptoname%>
-             
-            <%shiptoaddress1%> 
-
-<%if shiptoaddress2%>
-             
-            <%shiptoaddress2%> 
-<%end shiptoaddress2%>
-
-             
-            <%shiptocity%> 
-<%if shiptostate%> 
-            , <%shiptostate%> 
-<%end shiptostate%> 
-            <%shiptozipcode%> 
-
-<%if shiptocountry%>
-             
-            <%shiptocountry%> 
-<%end shiptocountry%>
-             
-
-             
-<%if shiptocontact%>
-             
-            Attn: <%shiptocontact%>
-<%end shiptocontact%> 
-
-<%if shiptophone%>
-             
-            Tel: <%shiptophone%> 
-<%end shiptophone%> 
-
-<%if shiptofax%>
-             
-            Fax: <%shiptofax%> 
-<%end shiptofax%> 
-
-<%if shiptoemail%>
-             
-            <%shiptoemail%> 
-<%end shiptoemail%>
-             
-          </tr>
-        </table>
-       
-    </tr>
-
-    <tr height="5">
-        
-    </tr>
-
-    <tr>
-        
-
-       
-        <table width="100%" border="1">
-          <tr>
+    <crm type="ship to">
+      <%shiptoname%>
+      <%shiptoaddress1%> 
+      <%shiptoaddress2%> 
+      <%shiptocity%> 
+      <%shiptostate%> 
+      <%shiptozipcode%> 
+      <%shiptocountry%> 
+      <%shiptocontact%>
+      <%shiptophone%> 
+      <%shiptofax%> 
+      <%shiptoemail%> 
+    </crm>
+    
+    <meta>
+<!--
              Invoice # 
              Order # 
              Date 
              Contact 
-<%if warehouse%>
              Warehouse 
-<%end warehouse%>
              Shipping Point 
              Ship via 
-          </tr>
-
-          <tr>
+-->
              <%invnumber%> 
              <%ordnumber%> 
-
-<%if shippingdate%>
              <%shippingdate%> 
-<%end shippingdate%>
-
-<%if not shippingdate%>
              <%transdate%> 
-<%end shippingdate%>
-
              <%employee%> 
-<%if warehouse%>
              <%warehouse%> 
-<%end warehouse%>
              <%shippingpoint%> 
              <%shipvia%> 
-          </tr>
-        </table>
-       
-    </tr>
+        </meta>
 
-    <tr>
-        
-
-       
-        <table width="100%">
-          <tr class="blackbar">
+    <data>
+<!--    
              Item 
              Number 
              Description 
              Serial # 
-              
              Qty 
              Ship 
-              
-          </tr>
+-->
 
 <%foreach number%>
-          <tr valign="top">
+          <item>
              <%runningnumber%> 
              <%number%> 
              <%description%> 
@@ -144,58 +67,18 @@
              <%qty%> 
              <%ship%> 
              <%unit%> 
-          </tr>
+          </item>
 <%end number%>
-        </table>
-       
-    </tr>
 
-    <tr>
-        
-
-       
-         
-       
-    </tr>
-
-<%if notes%>
-    <tr>
-        
-
-       
-        <table width="100%">
-          <tr valign="top">
-             Notes 
              <%notes%> 
-          </tr>
-        </table>
-       
-    </tr>
-<%end notes%>
 
-    <tr>
-        
-
-       
-        <table width="100%">
-          <tr valign="top">
-             
-            <span class="payment-conditions">
+          <payment-conditions-msg>
             Items returned are subject to a 10% restocking charge. 
             A return authorization must be obtained from <%company%> before goods are returned. 
             Returns must be shipped prepaid and properly insured. 
             <%company%> will not be responsible for damages during transit.
-            </span>
-             
-
-             
-               
-               
-             
-          </tr>
-        </table>
+          </payment-conditions-msg>
        
-    </tr>
   </table>
 </body>
 </html>

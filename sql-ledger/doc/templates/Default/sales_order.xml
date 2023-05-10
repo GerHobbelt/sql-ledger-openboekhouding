@@ -13,162 +13,67 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="SALES-ORDER" >
-    <crm type="from">
+    <crm type="to">
 
-
-        
-
-       
-        <table width="100%" cellspacing="0" cellpadding="0">
-          <tr class="blackbar">
-             To 
-             Ship To 
-          </tr>
-
-          <tr valign="top">
-             
             <%name%>
-             
             <%address1%> 
-
-<%if address2%>
-             
             <%address2%> 
-<%end address2%>
-
-             
             <%city%> 
-<%if state%> 
-            , <%state%> 
-<%end state%> 
+            <%state%> 
             <%zipcode%> 
-
-<%if country%>
-             
             <%country%> 
-<%end country%>
-
-             
-
-<%if contact%>
-             
-            Attn: <%contact%> 
-<%end contact%> 
-
-<%if customerphone%>
-             
-            Tel: <%customerphone%> 
-<%end customerphone%> 
-
-<%if customerfax%>
-             
-            Fax: <%customerfax%> 
-<%end customerfax%> 
-
-<%if email%>
-             
+            <%contact%> 
+            <%customerphone%> 
+            <%customerfax%> 
             <%email%> 
-<%end email%>
+    </crm>
              
-
-             
+    <crm type="ship-to">
             <%shiptoname%>
-             
             <%shiptoaddress1%> 
-
-<%if shiptoaddress2%>
-             
             <%shiptoaddress2%> 
-<%end shiptoaddress2%>
-
-             
             <%shiptocity%> 
-<%if shiptostate%> 
-            , <%shiptostate%> 
-<%end shiptostate%> 
+            <%shiptostate%> 
             <%shiptozipcode%> 
-
-<%if shiptocountry%>
-             
             <%shiptocountry%> 
-<%end shiptocountry%>
-
-             
-
-<%if shiptocontact%>
-             
-            Attn: <%shiptocontact%>
-<%end shiptocontact%> 
-
-<%if shiptophone%>
-             
-            Tel: <%shiptophone%> 
-<%end shiptophone%> 
-
-<%if shiptofax%>
-             
-            Fax: <%shiptofax%> 
-<%end shiptofax%> 
-
-<%if shiptoemail%>
-             
+            <%shiptocontact%>
+            <%shiptophone%> 
+            <%shiptofax%> 
             <%shiptoemail%> 
-<%end shiptoemail%>
              
-          </tr>
-        </table>
+          </crm>
        
-    </tr>
-
-    <tr height="5">
-        
-    </tr>
-
-    <tr>
-        
-
-       
-        <table width="100%" border="1">
-          <tr>
+          <meta>
+<!--	  
              Order # 
              Order Date 
              Required by 
              Salesperson 
              Shipping Point 
              Ship Via 
-          </tr>
-
-          <tr>
+-->	     
              <%ordnumber%> 
              <%orddate%> 
              <%reqdate%> 
              <%employee%> 
              <%shippingpoint%> 
              <%shipvia%> 
-          </tr>
-        </table>
+          </meta>
        
-    </tr>
-
-    <tr>
-        
-
-       
-        <table width="100%">
-          <tr class="blackbar">
+        <data>
+<!--	
              Item 
              Number 
              Description 
              Qt'y 
-              
              Price 
              Disc % 
              Amount 
-          </tr>
+-->
 
 <%foreach number%>
-          <tr valign="top">
-             <%runningnumber%>. 
+          <order-item>
+             <%runningnumber%>
              <%number%> 
              <%description%> 
              <%qty%> 
@@ -176,99 +81,45 @@
              <%sellprice%> 
              <%discountrate%> 
              <%linetotal%> 
-          </tr>
+          </order-item>
 <%end number%>
 
-          <tr>
-             
-               
-             
-          </tr>
-
-          <tr>
 <%if taxincluded%>
-             Total 
              <%invtotal%> 
 <%end taxincluded%>
 
 <%if not taxincluded%>
-             Subtotal 
              <%subtotal%> 
 <%end taxincluded%>
-          </tr>
 
 <%foreach tax%>
           <tr>
-             <%taxdescription%> on <%taxbase%> @ <%taxrate%> % 
+             <%taxdescription%> 
+	     <%taxbase%> 
+	     <%taxrate%> 
              <%tax%> 
           </tr>
 <%end tax%>
 
-          <tr>
-              
              
-               
-             
-          </tr>
-
-          <tr>
-             
-            <%text_amount%>***** <%decimal%>/100 
-<%if terms%>
-             
-            Terms Net <b><%terms%></b> days 
-<%end terms%>
-             
+            <%text_amount%>
+	    <%decimal%>
             
-             Total 
+	    <%terms%>
+            
              <%ordtotal%> 
-          </tr>
 
-          <tr>
-              
-          </tr>
-        </table>
-       
-    </tr>
-
-    <tr>
-        
-
-       
-        <table width="100%">
-          <tr valign="top">
-<%if notes%>
-             Notes 
              <%notes%> 
-<%end notes%>
-
              
-            All prices in <%currency%> Funds
-             
-          </tr>
-        </table>
+            <%currency%>
        
-    </tr>
-
-    <tr>
-        
-
-       
-        <table width="100%">
-          <tr valign="top">
-             
-              <span class="payment-conditions">
+              <payment-conditions-msg>
                 Special order items are subject to a 10% order cancellation fee.
-              </span>
+              </payment-conditions-msg>
              
-             
-               
-               
-             
-          </tr>
-        </table>
        
-    </tr>
+    </data>
+
   </table>
 </body>
 </html>

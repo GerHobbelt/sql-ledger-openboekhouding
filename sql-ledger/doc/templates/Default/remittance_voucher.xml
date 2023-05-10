@@ -14,31 +14,32 @@
 -->
   <content type="REMITTANCE-VOUCHER" >
     <crm type="from">
+	  <%name%>
+	  <%address1%>
+	  <%address2%>
+	  <%city%> 
+	  <%state%> 
+	  <%zipcode%>
+	  <%country%>
+  </crm>
 
 
-  <h4>Remittance Voucher</h4>
+  <data>
 
-  <p><%currency%> <%total%></p>
+    <%currency%> 
+    <%total%>
 
-  <p>IBAN: <%bankiban%> BIC: <%bankbic%> Bank: <%bankname%></p>
+<!-- IBAN: -->
+    <%bankiban%> 
+<!-- BIC: -->
+    <%bankbic%> 
+<!-- Bank: -->
+    <%bankname%>
+    
+    <%company%> 
+    
+    <%address%>
+  </data>
 
-  <p><%company%> <%address%></p>
-
-  <p>
-  <%name%>
-   
-  <%address1%>
-   
-  <%address2%>
-   
-  <%city%> 
-<%if state%> 
-  , <%state%> 
-<%end state%>
-   
-  <%zipcode%>
-   
-  <%country%>
-  </p>
 </body>
 </html>
