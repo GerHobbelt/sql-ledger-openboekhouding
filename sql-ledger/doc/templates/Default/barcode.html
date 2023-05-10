@@ -1,28 +1,39 @@
-<%include preamble.tex%>
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>BARCODES</title>
+  <link rel="stylesheet" href="<%templates%>/<%language_code%>/sqledger.css" />
+</head>
+<body>
+  <table width="100%">
 
-\begin{document}
+<!--
+  <%include letterhead.html%>
+-->
 
-\newlength{\descrwidth}\setlength{\descrwidth}{10cm}
-\fontfamily{cmss}\fontsize{10pt}{12pt}\selectfont
-
-\pagestyle{myheadings}
-\thispagestyle{empty}
-
-<%include letterhead.tex%>
-
-\textbf{B A R C O D E S}
-
-\vspace{1cm}
+    <tr>
+      <th>
+        <h4>B A R C O D E S</h4>
+      </th>
+    </tr>
 
 <%foreach number * ship%>
-\begin{pspicture}(5,0.4in)
-\psbarcode{^104<%sku%><%sell%>}{height=0.4 includetext}{code128}
-\end{pspicture} \\[1em]
+<!-- 
+TODO: Use JavaScript library to convert these to CODE128 barcodes? 
+-->
+    <tr>
+      <td>
+<!-- \psbarcode{^104<%sku%><%sell%>} -->	  
+        <div class="code128fmt">
+		  104<%sku%><%sell%>
+		</div>
+        <div class="barcode-human-readable-caption">
+		  104<%sku%><%sell%>
+		</div>
+      </td>
+    </tr>
 <%end number * ship%>
 
-\parbox{\textwidth}{
-\rule{\textwidth}{2pt}
-}
-
-\end{document}
-
+  </table>
+</body>
+</html>

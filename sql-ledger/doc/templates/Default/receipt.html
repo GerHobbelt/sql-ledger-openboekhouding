@@ -1,77 +1,158 @@
-\documentclass{scrartcl}
-\usepackage[utf8x]{inputenc}
-\usepackage{tabularx}
-\usepackage[letterpaper,top=2cm,bottom=-3cm,left=1.1cm,right=1.5cm]{geometry}
-\usepackage{graphicx}
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>RECEIPT</title>
+  <link rel="stylesheet" href="<%templates%>/<%language_code%>/sqledger.css" />
+</head>
+<body>
+  <table width="100%">
 
-\begin{document}
+  <%include letterhead.html%>
 
-\pagestyle{myheadings}
-\thispagestyle{empty}
+    <tr>
+      <th colspan="2">
+        <h4>RECEIPT</h4>
+      </th>
+    </tr>
 
-\fontfamily{cmss}\fontsize{9pt}{9pt}\selectfont
+    <tr>
+      <td>
+		<%source%>
+	  </td>
+	</tr>
 
-\parbox[t]{12cm}{
-  <%company%>
+    <tr>
+      <td></td>
+	</tr>
 
-  <%address%>}
-\hfill
-\parbox[t]{6cm}{\hfill <%source%>}
+    <tr>
+      <td>
+		<%text_amount%>
+	  </td>
+	  <!-- \dotfill -->
+	  <td>
+	    <%decimal%>/100
+	  </td>
+	</tr>
+  </table>
 
-\vspace*{0.6cm}
-
-<%text_amount%> \dotfill <%decimal%>/100 \makebox[0.5cm]{\hfill}
-
-\vspace{0.5cm}
-
-\hfill <%datepaid%> \makebox[2cm]{\hfill} <%amount%>
-
+  <table width="100%">
+    <tr>
+      <td></td>
+	  
+	  <td>
+	  	<%datepaid%>
+	  </td>
+	  <td>
+	    <%amount%>
+	  </td>
+	</tr>
+  </table>
+		
+<!--
 % different date format for datepaid
 % <%DD%><%MM%><%YYYY%>
+-->
 
-\vspace{0.5cm}
+  <table width="100%">
+    <tr>
+      <td>
+		<%name%>
+		<br>
+		<%address1%>
+		<br>
+		<%address2%>
+		<br>
+		<%city%>
+		<%if state%>
+		, <%state%>
+		<%end state%>
+		<%zipcode%>
+		<br>
+		<%country%>
+	  </td>
+	</tr>
 
-<%name%>
+    <tr>
+      <td></td>
+	</tr>
 
-<%address1%>
+    <tr>
+      <td>
+		<%memo%>
+	  </td>
+	</tr>
 
-<%address2%>
+    <tr>
+      <td></td>
+	</tr>
 
-<%city%>
-<%if state%>
-\hspace{-0.1cm}, <%state%>
-<%end state%>
-<%zipcode%>
+    <tr>
+      <td>
+		<%company%>
+	  </td>
+	</tr>
+  </table>
+		
+  <table width="100%">
+    <tr>
+      <td>
+		<%name%>
+	  </td>
+	</tr>
+    <tr>
+      <td>
+		<%datepaid%>
+	  </td>
+	</tr>
+    <tr>
+      <td>
+		<%source%>
+	  </td>
+	</tr>
+  </table>
+		
+  <table width="100%">
+    <tr>
+      <th>
+		Invoice No.
+	  </th>
+      <th>
+		Invoice Date
+	  </th>
+      <th>
+		Due
+	  </th>
+      <th>
+		Applied
+	  </th>
+    </tr>
 
-<%country%>
-
-\vspace{1.8cm}
-
-<%memo%>
-
-\vspace{0.8cm}
-
-<%company%>
-
-\vspace{0.5cm}
-
-<%name%> \hfill <%datepaid%> \hfill <%source%>
-
-\vspace{0.5cm}
-\begin{tabularx}{\textwidth}{lXrr@{}}
-\textbf{Invoice No.} & \textbf{Invoice Date}
-  & \textbf{Due} & \textbf{Applied} \\
 <%foreach invnumber%>
-<%invnumber%> & <%invdate%> \dotfill
-  & <%due%> & <%paid%> \\
+    <tr>
+      <td>
+		<%invnumber%>
+      </td>
+      <td>
+		<%invdate%>
+      </td>
+	  <!-- \dotfill -->
+      <td>
+		<%due%>
+      </td>
+      <td>
+		<%paid%>
+      </td>
+    </tr>
 <%end invnumber%>
-\end{tabularx}
-
-\vspace{1cm}
-
-<%memo%>
-
-\vfill
-
-\end{document}
-
+  </table>
+		
+  <table width="100%">
+    <tr>
+      <td>
+		<%memo%>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
