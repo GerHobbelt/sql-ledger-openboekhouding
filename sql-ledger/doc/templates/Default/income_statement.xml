@@ -36,104 +36,104 @@
 
   <table width="100%" border="0">
     <tr>
-      <th width="400" align="left" colspan="2">
+       
         INCOME
         <br>
-        <hr class="c2" width="300" size="5" noshade>
-      </th>
-      <th><%this_period%></th>
-      <th><%previous_period%></th>
+         
+       
+       <%this_period%> 
+       <%previous_period%> 
     </tr>
 
 <%foreach income_account%>
     <tr>
-      <td width="4"></td>
-      <td><%income_account%></td>
-      <td align="right"><%income_this_period%></td>
-      <td align="right"><%income_previous_period%></td>
+        
+       <%income_account%> 
+       <%income_this_period%> 
+       <%income_previous_period%> 
     </tr>
 <%end income_account%>
 
     <tr>
-      <td colspan="2"></td>
-      <td>
-        <hr noshade size="1">
-      </td>
+        
+       
+         
+       
 
-      <td>
-        <hr noshade size="1">
-      </td>
+       
+         
+       
     </tr>
 
     <tr valign="top">
-      <td></td>
-      <th align="left">TOTAL INCOME</th>
-      <td align="right">
+        
+       TOTAL INCOME 
+       
         <%total_income_this_period%>
-        <hr noshade size="2">
-      </td>
+         
+       
 
-      <td align="right">
+       
         <%total_income_previous_period%>
-        <hr noshade size="2">
-      </td>
+         
+       
     </tr>
 
     <tr>
-      <th align="left" colspan="2">
+       
         EXPENSES<br>
-        <hr class="c2" width="300" size="5" noshade>
-      </th>
+         
+       
     </tr>
 
 <%foreach expense_account%>
     <tr>
-      <td></td>
-      <td><%expense_account%></td>
-      <td align="right"><%expense_this_period%></td>
-      <td align="right"><%expense_previous_period%></td>
+        
+       <%expense_account%> 
+       <%expense_this_period%> 
+       <%expense_previous_period%> 
     </tr>
 <%end expense_account%>
 
     <tr>
-      <td colspan="2"></td>
-      <td>
-        <hr noshade size="1">
-      </td>
-      <td>
-        <hr noshade size="1">
-      </td>
+        
+       
+         
+       
+       
+         
+       
     </tr>
 
     <tr valign="top">
-      <td></td>
-      <th align="left">TOTAL EXPENSES</th>
-      <td align="right">
+        
+       TOTAL EXPENSES 
+       
         <%total_expense_this_period%>
         <br>
-        <hr noshade size="2">
-      </td>
+         
+       
 
-      <td align="right">
+       
         <%total_expense_previous_period%>
         <br>
-        <hr noshade size="2">
-      </td>
+         
+       
     </tr>
 
     <tr valign="top">
-      <th align="left" colspan="2">INCOME / (LOSS)</th>
-      <td align="right">
+       INCOME / (LOSS) 
+       
         <%total_this_period%>
         <br>
-        <hr noshade size="2">
-      </td>
+         
+       
 
-      <td align="right">
+       
         <%total_previous_period%>
         <br>
-        <hr noshade size="2">
-      </td>
+         
+       
     </tr>
   </table>
 

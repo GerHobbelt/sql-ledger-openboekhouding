@@ -1,15 +1,18 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <sql-ledger-root>
   <letterhead>
     <title>A/P-TRANSACTION</title>
-    
+
     <%include letterhead.xml%>
     
   </letterhead>
 
-  <content-type>AP-TRANSACTION</content-type>
-  
-  <content>
+<!-- 
+ all XML formats have the same structure: the info is contained in a CONTENT block of certain TYPE.
+ That way we can batch/merge XML files wihout loosing any data; all they'll share is 
+ the LETTERHEAD block above and FOOTER block further below.
+-->
+  <content type="AP-TRANSACTION" >
     <crm>
       <%name%>
       <%address1%>
@@ -25,93 +28,91 @@
       <%vendortaxnumber%>
     </crm>
 
-    <invoice>    
-      <meta>    
-        <!-- Invoice # -->
-        <%invnumber%>
-        <%invdate%>
-        <%duedate%>
-        <!-- PO # -->
-        <%ponumber%>
-        <!-- Order # -->
-        <%ordnumber%>
-        <%employee%>
-      </meta>    
+    <meta>    
+      <!-- Invoice # -->
+      <%invnumber%>
+      <%invdate%>
+      <%duedate%>
+      <!-- PO # -->
+      <%ponumber%>
+      <!-- Order # -->
+      <%ordnumber%>
+      <%employee%>
+    </meta>    
 
-      <invoice-content>    
-        <account-set>    
+    <data>    
+      <account-set>    
 <%foreach account%>
-          <account>    
-            <%accno%>
-            <%account%>
-            <%amount%>
-            <%description%>
-            <%projectnumber%>
-          </account>    
+        <account>    
+          <%accno%>
+          <%account%>
+          <%amount%>
+          <%description%>
+          <%projectnumber%>
+        </account>    
 <%end account%>
-        </account-set>    
+      </account-set>    
 
-        <tax-info>
-          <tax-lines>
+      <tax-info>
+        <tax-lines>
 <%foreach tax%>
-            <tax-line>
-              <%taxdescription%>
+          <tax-line>
+            <%taxdescription%>
           
-          <tax-rate-percentage>
-            <%taxrate%>
-          <tax-rate-percentage>
+            <tax-rate-percentage>
+              <%taxrate%>
+            <tax-rate-percentage>
           
-              <%tax%>
-            </tax-line>
+            <%tax%>
+          </tax-line>
 <%end tax%>
-          </tax-lines>
-        </tax-info>
+        </tax-lines>
+      </tax-info>
 
-        <summary-totals>
+      <summary-totals>
 <%if not taxincluded%>
-          <sans-tax-subtotal>
-            <%subtotal%>
-          </sans-tax-subtotal>
+        <sans-tax-subtotal>
+          <%subtotal%>
+        </sans-tax-subtotal>
 <%end taxincluded%>
 
-          <total>
-            <%invtotal%>
-          </total>
+        <total>
+          <%invtotal%>
+        </total>
 
-          <%text_amount%>
+        <%text_amount%>
       
-          <currency-decimal-value>
-           <%decimal%>
-          </currency-decimal-value>
-          <currency-info>
-           <%currency%>
-          </currency-info>
-        </summary-totals>
+        <currency-decimal-value>
+          <%decimal%>
+        </currency-decimal-value>
+        <currency-info>
+          <%currency%>
+        </currency-info>
+      </summary-totals>
 
-        <notes>
-          <%notes%>
-        </notes>
+      <notes>
+        <%notes%>
+      </notes>
     
-        <payments>
+      <payments>
 <%foreach payment%>
-          <payment>
-            <%paymentdate%>
-        <%paymentaccount%>
-        <%paymentsource%>
-        <%paymentmemo%>
-        <%payment%>
-          </payment>
+        <payment>
+          <%paymentdate%>
+          <%paymentaccount%>
+          <%paymentsource%>
+          <%paymentmemo%>
+          <%payment%>
+        </payment>
 <%end payment%>
-        </payments>
-      </invoice-content>    
+      </payments>
+    </data>    
 
-      <footer>    
+    <footer>    
 <%if taxincluded%>
-        <tax-included-msg>
-          Taxes shown are included in price.
-        </tax-included-msg>
+      <tax-included-msg>
+        Taxes shown are included in price.
+      </tax-included-msg>
 <%end taxincluded%>
-      </footer>    
-    </invoice>    
+    </footer>    
   </content>
 </sql-ledger-root>

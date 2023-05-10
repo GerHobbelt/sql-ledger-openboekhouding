@@ -15,111 +15,111 @@
     <%include letterhead.html%>
 
     <tr>
-      <td width="10"></td>
+        
 
-      <th colspan="3">
+       
         <h4>S T O R E S &nbsp;&nbsp; C A R D</h4>
-      </th>
+       
     </tr>
 
     <tr>
-      <td></td>
+        
 
-      <td>
+       
         <table width="100%" cellspacing="0" cellpadding="0">
           <tr valign="top">
-            <td>
+             
               <table>
                 <tr>
-                  <th align="right">Employee</th>
-                  <td><%employee%></td>
+                   Employee 
+                   <%employee%> 
                 </tr>
                 <tr>
-                  <th align="right">ID</th>
-                  <td><%employee_id%></td>
+                   ID 
+                   <%employee_id%> 
                 </tr>
               </table>
-            </td>
+             
 
-            <td align="right">
+             
               <table>
                 <tr>
-                  <th align="right" nowrap>Card ID</th>
-                  <td><%id%></td>
+                   Card ID 
+                   <%id%> 
                 </tr>
                 <tr>
-                  <th align="right" nowrap>Date</th>
-                  <td><%transdate%></td>
+                   Date 
+                   <%transdate%> 
                 </tr>
               </table>
-            </td>
+             
           </tr>
         </table>
-      </td>
+       
     </tr>
 
     <tr height="5">
-      <td></td>
+        
     </tr>
 
     <tr>
-      <td></td>
+        
 
-      <td>
+       
         <table width="100%">
           <tr>
-            <td>
+             
               <table width="100%">
                 <tr>
-                  <th align="left">Job #</th>
-                  <th align="left">Description</th>
+                   Job # 
+                   Description 
                 </tr>
 
                 <tr>
-                  <td><%projectnumber%></td>
-                  <td><%projectdescription%></td>
+                   <%projectnumber%> 
+                   <%projectdescription%> 
                 </tr>
               </table>
-            </td>
+             
           </tr>
 
           <tr height="15">
-            <td></td>
+              
           </tr>
 
           <tr>
-            <td>
+             
               <table width="100%" border="1">
                 <tr>
-                  <th align="left">Part Number</th>
-                  <th align="left" width="50%">Description</th>
-                  <th align="right" width="10%">Qty</th>
-                  <th align="right" width="10%">Cost</th>
-                  <th align="right" width="10%">Total</th>
+                   Part Number 
+                   Description 
+                   Qty 
+                   Cost 
+                   Total 
                 </tr>
 
                 <tr>
-                  <td><%partnumber%></td>
-                  <td><%description%></td>
-                  <td align="right"><%qty%></td>
-                  <td align="right"><%sellprice%></td>
-                  <td align="right"><%total%></td>
+                   <%partnumber%> 
+                   <%description%> 
+                   <%qty%> 
+                   <%sellprice%> 
+                   <%total%> 
                 </tr>
               </table>
-            </td>
+             
           </tr>
         </table>
-      </td>
+       
     </tr>
 
 <%if notes%>
     <tr height="5">
-      <td></td>
+        
     </tr>
 
     <tr>
-      <td></td>
-      <td><%notes%></td>
+        
+       <%notes%> 
     </tr>
 <%end notes%>
   </table>

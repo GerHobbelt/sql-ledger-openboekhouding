@@ -1,271 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<html>
-<head>
-  <title></title>
-</head>
-<body>
-  <sql-ledger-root></sql-ledger-root>
-<head>
-  <title>A/R-TRANSACTION</title>
-  <link rel="stylesheet" href="<%templates%>/<%language_code%>/sqledger.css" />
-</head>
-<body>
-  <table width="100%">
+<sql-ledger-root>
+  <letterhead>
+    <title>A/R-TRANSACTION</title>
 
-  <%include letterhead.html%>
+    <%include letterhead.xml%>
+    
+  </letterhead>
 
-    <tr>
-      <td width="10"></td>
+<!-- 
+ all XML formats have the same structure: the info is contained in a CONTENT block of certain TYPE.
+ That way we can batch/merge XML files wihout loosing any data; all they'll share is 
+ the LETTERHEAD block above and FOOTER block further below.
+-->
+  <content type="AR-TRANSACTION" >
+    <crm>
+      <%name%>
+      <%address1%>
+      <%address2%>
+      <%city%> 
+      <%state%> 
+      <%zipcode%> 
+      <%country%> 
+      <%contact%>
+      <%customerphone%> 
+      <%customerfax%> 
+      <%email%>
+      <%customertaxnumber%> 
+    </crm>
 
-      <th colspan="3">
-        <h4>A R - T R A N S A C T I O N</h4>
-      </th>
-    </tr>
+    <meta>    
+      <!-- Invoice # -->
+      <%invnumber%>
+      <%invdate%>
+      <%duedate%>
+      <!-- PO # -->
+      <%ponumber%>
+      <!-- Order # -->
+      <%ordnumber%>
+      <%employee%>
+    </meta>
 
-    <tr>
-      <td></td>
-
-      <td>
-        <table width="100%" cellspacing="0" cellpadding="0">
-          <tr valign="top">
-            <td>
-              <%name%>
-              <br>
-              <%address1%> 
-<%if address2%>
-              <br>
-              <%address2%> 
-<%end address2%>
-              <br>
-              <%city%> 
-<%if state%> 
-              , <%state%> 
-<%end state%> 
-              <%zipcode%> 
-<%if country%>
-              <br>
-              <%country%> 
-<%end country%>
-              <br>
-
-<%if contact%>
-              <br>
-              Attn: <%contact%>
-              <br>
-<%end contact%> 
-
-<%if customerphone%>
-            <br>
-            Tel: <%customerphone%> 
-<%end customerphone%> 
-
-<%if customerfax%>
-            <br>
-            Fax: <%customerfax%> 
-<%end customerfax%> 
-
-<%if email%>
-              <br>
-              <%email%> 
-<%end email%> 
-
-<%if customertaxnumber%>
-            <br>
-            Taxnumber: <%customertaxnumber%> 
-<%end customertaxnumber%>
-            </td>
-
-            <td align="right">
-              <table>
-                <tr>
-                  <th align="left" nowrap>Invoice #</th>
-                  <td><%invnumber%></td>
-                </tr>
-                <tr>
-                  <th align="left" nowrap>Date</th>
-                  <td><%invdate%></td>
-                </tr>
-                <tr>
-                  <th align="left" nowrap>Due</th>
-                  <td><%duedate%></td>
-                </tr>
-<%if ponumber%>
-                <tr>
-                  <th align="left">PO #</th>
-                  <td><%ponumber%></td>
-                </tr>
-<%end ponumber%>
-<%if ordnumber%>
-                <tr>
-                  <th align="left">Order #</th>
-                  <td><%ordnumber%></td>
-                </tr>
-<%end ordnumber%>
-                <tr>
-                  <th align="left" nowrap>Salesperson</th>
-                  <td><%employee%></td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-
-    <tr height="5">
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-
-      <td>
-        <table>
+    <data>    
+      <account-set>    
 <%foreach account%>
-          <tr valign="top">
-            <td><%accno%></td>
-            <td><%account%></td>
-            <td width="10"></td>
-            <td align="right"><%amount%></td>
-            <td width="10"></td>
-            <td><%description%></td>
-            <td width="10"></td>
-            <td><%projectnumber%></td>
-          </tr>
+        <account>    
+          <%accno%>
+          <%account%>
+          <%amount%>
+          <%description%>
+          <%projectnumber%>
+        </account>    
 <%end account%>
+      </account-set>    
 
-          <tr>
-<%if taxincluded%>
-            <th colspan="2" align="right">Total</th>
-            <td width="10"></td>
-            <td align="right"><%invtotal%></td>
-<%end taxincluded%>
-
-<%if not taxincluded%>
-            <th colspan="2" align="right">Subtotal</th>
-            <td width="10"></td>
-            <td align="right"><%subtotal%></td>
-<%end taxincluded%>
-          </tr>
-
+      <tax-info>
+        <tax-lines>
 <%foreach tax%>
-          <tr>
-            <th colspan="2" align="right"><%taxdescription%> @ <%taxrate%> %</th>
-            <td width="10"></td>
-            <td align="right"><%tax%></td>
-          </tr>
+          <tax-line>
+            <%taxdescription%>
+          
+            <tax-rate-percentage>
+              <%taxrate%>
+            <tax-rate-percentage>
+          
+            <%tax%>
+          </tax-line>
 <%end tax%>
+        </tax-lines>
+      </tax-info>
 
+      <summary-totals>
 <%if not taxincluded%>
-          <tr>
-            <th colspan="2" align="right">Total</th>
-            <td width="10"></td>
-            <td align="right"><%invtotal%></td>
-          </tr>
+        <sans-tax-subtotal>
+          <%subtotal%>
+        </sans-tax-subtotal>
 <%end taxincluded%>
-        </table>
-      </td>
-    </tr>
 
-    <tr>
-      <td></td>
+        <total>
+          <%invtotal%>
+        </total>
 
-      <td>
-        <%text_amount%>***** <%decimal%>/100 <%currency%>
-      </td>
-    </tr>
+        <%text_amount%>
+      
+        <currency-decimal-value>
+          <%decimal%>
+        </currency-decimal-value>
+        <currency-info>
+          <%currency%>
+        </currency-info>
+      </summary-totals>
 
-    <tr>
-      <td></td>
-
-      <td>
+      <notes>
         <%notes%>
-      </td>
-    </tr>
-
-<%if paid_1%>
-    <tr>
-      <td></td>
-
-      <td>
-        <table>
-          <tr>
-            <th>Payments</th>
-          </tr>
-
-          <tr>
-            <td>
-              <hr noshade>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <table>
-                <tr>
-                  <th>Date</th>
-                  <th></th>
-                  <th>Source</th>
-                  <th>Memo</th>
-                  <th>Amount</th>
-                </tr>
-<%end paid_1%>
-
+      </notes>
+    
+      <payments>
 <%foreach payment%>
-                <tr>
-                  <td><%paymentdate%></td>
-                  <td><%paymentaccount%></td>
-                  <td><%paymentsource%></td>
-                  <td><%paymentmemo%></td>
-                  <td align="right"><%payment%></td>
-                </tr>
+        <payment>
+          <%paymentdate%>
+          <%paymentaccount%>
+          <%paymentsource%>
+          <%paymentmemo%>
+          <%payment%>
+        </payment>
 <%end payment%>
+      </payments>
 
-<%if paid_1%>
-              </table>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-<%end paid_1%>
-
-    <tr height="10">
-      <td></td>
-    </tr>
+      <tax-registrations>
 <%foreach tax%>
-    <tr>
-      <td></td>
-      <th colspan="9" align="left">
-        <span class="smallprint"><%taxdescription%> Registration <%taxnumber%></span>
-      </th>
-    </tr>
+        <tax-registration>
+          <%taxdescription%>
+          <%taxnumber%>
+        </tax-registration>
 <%end tax%>
+      </tax-registrations>
+  
+<%if cd_amount%>
+      <discount-terms>
+        <within-days>
+          <%discountterms%>
+        </within-days>
+        <discount-percentage>
+          <%cashdiscount%>
+        </discount-percentage>
 
+        <%cd_amount%>
+      </discount-terms>
+<%end cd_amount%>
+
+    </data>    
+
+    <footer>    
 <%if taxincluded%>
-    <tr>
-      <td></td>
-    </tr>
-
-    <tr>
-      <th colspan="3" align="left">
-        <span class="smallprint">Taxes shown are included in price.</span>
-      </th>
-    </tr>
+      <tax-included-msg>
+        Taxes shown are included in price.
+      </tax-included-msg>
 <%end taxincluded%>
   
 <%if cd_amount%>
-    <tr>
-      <td></td>
-
-      <td colspan="9">
-      If payment is received within <%discountterms%> days a discount of <%cashdiscount%> % applies for a total of <%cd_amount%>.
-      </td>
-    </tr>
+      <discount-terms-msg>
+        If payment is received within <%discountterms%> days a discount of <%cashdiscount%> % applies for a total of <%cd_amount%>.
+      </discount-terms-msg>
 <%end cd_amount%>
 
-  </table>
+    </footer>    
 
-<%dcn%>
+    <%dcn%>
 
-</body>
-</html>
+  </content>
+</sql-ledger-root>
