@@ -14,231 +14,101 @@
 -->
   <content type="DEBIT-NOTE" >
     <crm type="from">
-
-
-        
-
-       
-        <table width="100%" cellspacing="0" cellpadding="0">
-          <tr valign="top">
+      <%name%>
+      <%address1%> 
+      <%address2%> 
+      <%city%> 
+      <%state%> 
+      <%zipcode%> 
+      <%country%> 
+      <%contact%>
+      <%vendorphone%> 
+      <%vendorfax%> 
+      <%email%> 
+      <%vendortaxnumber%> 
+    </crm>
              
-              <%name%>
-               
-              <%address1%> 
-<%if address2%>
-               
-              <%address2%> 
-<%end address2%>
-               
-              <%city%> 
-<%if state%> 
-              , <%state%> 
-<%end state%> 
-              <%zipcode%> 
-<%if country%>
-               
-              <%country%> 
-<%end country%>
-
-               
-
-<%if contact%>
-               
-              Attn: <%contact%>
-               
-<%end contact%> 
-
-<%if vendorphone%>
-               
-              Tel: <%vendorphone%> 
-<%end vendorphone%> 
-
-<%if vendorfax%>
-               
-              Fax: <%vendorfax%> 
-<%end vendorfax%> 
-
-<%if email%>
-               
-              <%email%> 
-<%end email%> 
-
-<%if vendortaxnumber%>
-               
-              Taxnumber: <%vendortaxnumber%> 
-<%end vendortaxnumber%>
-             
-
-             
-              <table>
-                <tr>
-                   Invoice # 
-                   <%invnumber%> 
-                </tr>
-                <tr>
-                   Invoice Date 
-                   <%invdate%> 
-                </tr>
-                <tr>
-                   Due Date 
-                   <%duedate%> 
-                </tr>
-<%if ponumber%>
-                <tr>
-                   PO # 
-                   <%ponumber%> 
-                </tr>
-<%end ponumber%>
-<%if ordnumber%>
-                <tr>
-                   Order # 
-                   <%ordnumber%> 
-                </tr>
-<%end ordnumber%>
-                <tr>
-                   Contact 
-                   <%employee%> 
-                </tr>
-              </table>
-             
-          </tr>
-        </table>
-       
-    </tr>
-
-    <tr height="5">
-        
-    </tr>
-
-    <tr>
-        
-
-       
-        <table>
+    <meta>
+<!-- Invoice # -->
+      <%invnumber%> 
+      <%invdate%> 
+      <%duedate%>
+      <%ponumber%> 
+      <%ordnumber%> 
+      <%employee%> 
+    </meta>
+    
+    <data>
+      <account-set>
 <%foreach account%>
-          <tr valign="top">
-             <%accno%> 
-             <%account%> 
-              
-             <%amount%> 
-              
-             <%description%> 
-              
-             <%projectnumber%> 
-          </tr>
+        <account>    
+          <%accno%>
+          <%account%>
+          <%amount%>
+          <%description%>
+          <%projectnumber%>
+        </account>    
 <%end account%>
+      </account-set>    
 
-          <tr>
-<%if taxincluded%>
-             Total 
-              
-             <%invtotal%> 
-<%end taxincluded%>
-
-<%if not taxincluded%>
-             Subtotal 
-              
-             <%subtotal%> 
-<%end taxincluded%>
-          </tr>
-
+      <tax-info>
 <%foreach tax%>
-          <tr>
-             <%taxdescription%> @ <%taxrate%> % 
-              
-             <%tax%> 
-          </tr>
+        <tax-line>
+          <%taxdescription%>
+          
+          <tax-rate-percentage>
+            <%taxrate%>
+          <tax-rate-percentage>
+          
+          <%tax%>
+        </tax-line>
 <%end tax%>
+      </tax-info>
 
+      <summary-totals>
 <%if not taxincluded%>
-          <tr>
-             Total 
-              
-             <%invtotal%> 
-          </tr>
+        <sans-tax-subtotal>
+          <%subtotal%>
+        </sans-tax-subtotal>
 <%end taxincluded%>
-        </table>
-       
-    </tr>
 
-    <tr>
-        
+        <total>
+          <%invtotal%>
+        </total>
 
-       
-        <%text_amount%>***** <%decimal%>/100 <%currency%>
-       
-    </tr>
+        <%text_amount%>
+      
+        <currency-decimal-value>
+          <%decimal%>
+        </currency-decimal-value>
+        <currency-info>
+          <%currency%>
+        </currency-info>
+      </summary-totals>
 
-    <tr>
-        
-
-       
-        <%notes%>
-       
-    </tr>
-
-<%if paid_1%>
-    <tr>
-        
-
-       
-        <table>
-          <tr>
-             Payments 
-          </tr>
-
-          <tr>
-             
-               
-             
-          </tr>
-
-          <tr>
-             
-              <table>
-                <tr>
-                   Date 
-                    
-                   Source 
-                   Memo 
-                   Amount 
-                </tr>
-<%end paid_1%>
-
+      <%notes%>
+    
+      <payments>
 <%foreach payment%>
-                <tr>
-                   <%paymentdate%> 
-                   <%paymentaccount%> 
-                   <%paymentsource%> 
-                   <%paymentmemo%> 
-                   <%payment%> 
-                </tr>
+        <payment>
+          <%paymentdate%>
+          <%paymentaccount%>
+          <%paymentsource%>
+	  <%paymentmemo%> 
+          <%payment%>
+        </payment>
 <%end payment%>
+      </payments>
 
-<%if paid_1%>
-              </table>
-             
-          </tr>
-        </table>
-       
-    </tr>
-<%end paid_1%>
+    </data>
 
-    <tr height="10">
-        
-    </tr>
-
+    <footer>    
 <%if taxincluded%>
-    <tr>
-        
-    </tr>
-
-    <tr>
-       
-        <span class="smallprint">Taxes shown are included in price.</span>
-       
-    </tr>
+      <tax-included-msg>
+        Taxes shown are included in price.
+      </tax-included-msg>
 <%end taxincluded%>
-  </table>
-</body>
-</html>
+    </footer>    
+
+  </content>
+</sql-ledger-root>

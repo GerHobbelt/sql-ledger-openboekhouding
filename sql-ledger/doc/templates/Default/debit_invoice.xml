@@ -13,323 +13,148 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="DEBIT-INVOICE" >
-    <crm type="from">
+    <crm type="to">
+      <%name%>
+      <%address1%> 
+      <%address2%> 
+      <%city%> 
+      <%state%> 
+      <%zipcode%> 
+      <%country%> 
+      <%contact%>
+      <%vendorphone%> 
+      <%vendorfax%> 
+      <%email%> 
+      <%vendortaxnumber%> 
+    </crm>
 
-
-
-       
-        <table width="100%" cellspacing="5">
-          <tr class="blackbar">
-             TO 
-             SHIP TO 
-          </tr>
-
-          <tr valign="top">
-             
-              <%name%>
-               
-              <%address1%> 
-
-<%if address2%>
-               
-              <%address2%> 
-<%end address2%>
-
-               
-              <%city%> 
-<%if state%> 
-              , <%state%> 
-<%end state%> 
-              <%zipcode%> 
-
-<%if country%>
-               
-              <%country%> 
-<%end country%>
-
-               
-
-<%if contact%>
-               
-              Attn: <%contact%>
-               
-<%end contact%> 
-
-<%if vendorphone%>
-               
-              Tel: <%vendorphone%> 
-<%end vendorphone%> 
-
-<%if vendorfax%>
-               
-              Fax: <%vendorfax%> 
-<%end vendorfax%> 
-
-<%if email%>
-               
-              <%email%> 
-<%end email%> 
-
-<%if vendortaxnumber%>
-               
-              Taxnumber: <%vendortaxnumber%> 
-<%end vendortaxnumber%>
-             
-
-             
-              <%shiptoname%>
-               
-              <%shiptoaddress1%> 
-
-<%if shiptoaddress2%>
-               
-              <%shiptoaddress2%> 
-<%end shiptoaddress2%>
-
-               
-              <%shiptocity%> 
-<%if shiptostate%> 
-              , <%shiptostate%> 
-<%end shiptostate%> 
-              <%shiptozipcode%> 
-
-<%if shiptocountry%>
-               
-              <%shiptocountry%> 
-<%end shiptocountry%>
-
-               
-
-<%if shiptocontact%>
-               
-              Attn: <%shiptocontact%>
-               
-<%end shiptocontact%> 
-
-<%if shiptophone%>
-               
-              Tel: <%shiptophone%> 
-<%end shiptophone%> 
-
-<%if shiptofax%>
-               
-              Fax: <%shiptofax%> 
-<%end shiptofax%> 
-
-<%if shiptoemail%>
-               
-              <%shiptoemail%> 
-<%end shiptoemail%>
-             
-          </tr>
-        </table>
-       
-    </tr>
-
-    <tr height="5">
-        
-    </tr>
-
-    <tr>
-        
-
-       
-        <table width="100%" border="1">
-          <tr>
+    <crm type="ship-to">
+      <%shiptoname%>
+      <%shiptoaddress1%> 
+      <%shiptoaddress2%> 
+      <%shiptocity%> 
+      <%shiptostate%> 
+      <%shiptozipcode%> 
+      <%shiptocountry%> 
+      <%shiptocontact%>
+      <%shiptophone%> 
+      <%shiptofax%> 
+      <%shiptoemail%> 
+    </crm>
+    
+    <meta>
+<!--
              Invoice # 
              Date 
              Due Date 
              Order # 
-             Contact 
+             Contact
              Shipping Point 
              Ship via 
-          </tr>
+-->
+      <%invnumber%> 
+      <%invdate%> 
+      <%duedate%> 
+      <%ordnumber%> 
+      <%employee%> 
+      <%shippingpoint%> 
+      <%shipvia%> 
+<%if taxincluded%>
+      <taxincluded value="true" />
+<%end taxincluded%>
+    </meta>
 
-          <tr>
-             <%invnumber%> 
-             <%invdate%> 
-             <%duedate%> 
-             <%ordnumber%> 
-             <%employee%> 
-             <%shippingpoint%> 
-             <%shipvia%> 
-          </tr>
-        </table>
-       
-    </tr>
+    <data>
 
-    <tr>
-        
-
-       
-        <table width="100%">
-          <tr class="blackbar">
+<!--
              Item 
              Number 
              Description 
-              
              Qt'y 
-              
              Unit Price 
              Disc % 
              Extended 
-          </tr>
-
+-->
+      <line-items>
 <%foreach number%>
-          <tr valign="top">
-             <%runningnumber%>. 
-             <%number%> 
-             <%description%> 
-             <%deliverydate%> 
-             <%qty%> 
-             <%unit%> 
-             <%sellprice%> 
-             <%discountrate%> 
-             <%linetotal%> 
-          </tr>
-
-          <tr>
+        <item>
+          <%runningnumber%>
+          <%number%> 
+          <%description%> 
+          <%deliverydate%> 
+          <%qty%> 
+          <%unit%> 
+          <%sellprice%> 
+          <%discountrate%> 
+          <%linetotal%> 
               
-              
-             <%notes%> 
-          </tr>
+          <%notes%> 
+        </item>
 <%end number%>
+      </line-items>
 
-          <tr>
-             
-               
-             
-          </tr>
-
-          <tr>
-<%if taxincluded%>
-             Total 
-             <%invtotal%> 
-<%end taxincluded%>
-
+      <summary-totals>
 <%if not taxincluded%>
-             Subtotal 
-             <%subtotal%> 
-<%end taxincluded%>
-          </tr>
-
-<%foreach tax%>
-          <tr>
-             <span class="smallprint">Registration No. <%taxnumber%></span> 
-             <%taxdescription%> on <%taxbase%> @ <%taxrate%> % 
-             <%tax%> 
-          </tr>
-<%end tax%>
-
-<%if not taxincluded%>
-          <tr>
-             Total 
-             <%invtotal%> 
-          </tr>
+        <sans-tax-subtotal>
+          <%subtotal%>
+        </sans-tax-subtotal>
 <%end taxincluded%>
 
-<%if paid%>
-          <tr>
-             Paid 
-             - <%paid%> 
-          </tr>
-<%end paid%>
+        <total>
+          <%invtotal%>
+        </total>
 
-          <tr>
-              
+	<%paid%> 
 
-             
-               
-             
-          </tr>
+	<balance-due>
+          <%total%> 
+	</balance-due>
 
-<%if total%>
-          <tr>
-              
-             Balance Due 
-             <%total%> 
-          </tr>
-<%end total%>
-        </table>
-       
-    </tr>
+        <%text_amount%>
+      
+        <currency-decimal-value>
+          <%decimal%>
+        </currency-decimal-value>
+        <currency-info>
+          <%currency%>
+        </currency-info>
+      </summary-totals>
 
-    <tr>
-        
+      <%notes%> 
 
-       
-        <table width="100%">
-          <tr valign="top">
-             <%text_amount%>***** <%decimal%>/100 
-             All prices in <b><%currency%></b> 
-          </tr>
-
-<%if taxincluded%>
-          <tr>
-             <span class="smallprint">Taxes included in price</span> 
-          </tr>
-<%end taxincluded%>
-        </table>
-       
-    </tr>
-
-    <tr height="5">
-        
-    </tr>
-
-    <tr>
-        
-
-       
-        <table width="100%">
-          <tr valign="top">
-             <%notes%> 
-
-<%if paid_1%>
-             
-              <table width="100%" border="1">
-                <tr>
-                   
-                    <table width="100%">
-                      <tr class="blackbar">
-                         Payments 
-                      </tr>
-
-                      <tr>
-                         Date 
-                          
-                         Source 
-                         Amount 
-                      </tr>
-<%end paid_1%>
-
+      <payments>
 <%foreach payment%>
-                      <tr>
-                         <%paymentdate%> 
-                         <%paymentaccount%> 
-                         <%paymentsource%> 
-                         <%payment%> 
-                      </tr>
+        <item>
+          <%paymentdate%> 
+          <%paymentaccount%> 
+          <%paymentsource%> 
+          <%payment%> 
+        </item>
 <%end payment%>
+      </payments>
 
-<%if paid_1%>
-                    </table>
-                   
-                </tr>
-              </table>
-             
-<%end paid_1%>
-          </tr>
-        </table>
-       
-    </tr>
+      <tax-registrations>
+<%foreach tax%>
+        <tax-registration>
+	  <%taxnumber%>
+	  <%taxdescription%>
+	  <%taxbase%>
+	  <taxrate-percentage>
+            <%taxrate%>
+	  </taxrate-percentage>
+          <%tax%> 
+        </tax-registration>
+<%end tax%>
+      </tax-registrations>
+    </data>
 
-    <tr>
-        
-       
-         
-       
-    </tr>
-  </table>
-</body>
-</html>
+    <footer>    
+<%if taxincluded%>
+      <tax-included-msg>
+        Taxes shown are included in price.
+      </tax-included-msg>
+<%end taxincluded%>
+    </footer>    
+
+  </content>
+</sql-ledger-root>

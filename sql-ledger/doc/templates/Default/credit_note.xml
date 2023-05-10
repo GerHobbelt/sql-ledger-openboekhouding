@@ -29,146 +29,103 @@
     </crm>
              
     <meta>
-<!-- Invoice # -->
-      <%invnumber%> 
+      <!-- Invoice # -->
+      <%invnumber%>
       <%invdate%> 
       <%duedate%>
-      <%ponumber%> 
-      <%ordnumber%> 
+      <!-- PO # -->
+      <%ponumber%>
+      <!-- Order # -->
+      <%ordnumber%>
       <%employee%> 
+<%if taxincluded%>
+      <taxincluded value="true" />
+<%end taxincluded%>
     </meta>
-    
+
     <data>
-        <table>
+      <account-set>
 <%foreach account%>
-          <tr valign="top">
-             <%accno%> 
-             <%account%> 
-             
-             <%amount%> 
-              
-             <%description%> 
-              
-             <%projectnumber%> 
-          </tr>
+        <account>    
+          <%accno%>
+          <%account%>
+          <%amount%>
+          <%description%>
+          <%projectnumber%>
+        </account>    
 <%end account%>
+      </account-set>    
 
-          <tr>
-<%if taxincluded%>
-             Total 
-              
-             <%invtotal%> 
-<%end taxincluded%>
-
-<%if not taxincluded%>
-             Subtotal 
-              
-             <%subtotal%> 
-<%end taxincluded%>
-          </tr>
-
+      <tax-info>
 <%foreach tax%>
-          <tr>
-             <%taxdescription%> @ <%taxrate%> % 
-              
-             <%tax%> 
-          </tr>
+        <tax-line>
+          <%taxdescription%>
+          
+          <tax-rate-percentage>
+            <%taxrate%>
+          <tax-rate-percentage>
+          
+          <%tax%>
+        </tax-line>
 <%end tax%>
+      </tax-info>
 
+      <summary-totals>
 <%if not taxincluded%>
-          <tr>
-             Total 
-              
-             <%invtotal%> 
-          </tr>
+        <sans-tax-subtotal>
+          <%subtotal%>
+        </sans-tax-subtotal>
 <%end taxincluded%>
-        </table>
-       
-    </tr>
 
-    <tr>
-        
+        <total>
+          <%invtotal%>
+        </total>
 
-       
-        <%text_amount%>***** <%decimal%>/100 <%currency%>
-       
-    </tr>
+        <%text_amount%>
+      
+        <currency-decimal-value>
+          <%decimal%>
+        </currency-decimal-value>
+        <currency-info>
+          <%currency%>
+        </currency-info>
+      </summary-totals>
 
-    <tr>
-        
-
-       
-        <%notes%>
-       
-    </tr>
-
-<%if paid_1%>
-    <tr>
-        
-
-       
-        <table>
-          <tr>
-             Payments 
-          </tr>
-
-          <tr>
-             
-               
-             
-          </tr>
-
-          <tr>
-             
-              <table>
-                <tr>
-                   Date 
-                    
-                   Source 
-                   Amount 
-                </tr>
-<%end paid_1%>
-
+      <%notes%>
+    
+      <payments>
 <%foreach payment%>
-                <tr>
-                   <%paymentdate%> 
-                   <%paymentaccount%> 
-                   <%paymentsource%> 
-                   <%payment%> 
-                </tr>
+        <payment>
+          <%paymentdate%>
+          <%paymentaccount%>
+          <%paymentsource%>
+          <%payment%>
+        </payment>
 <%end payment%>
+      </payments>
 
-<%if paid_1%>
-              </table>
-             
-          </tr>
-        </table>
-       
-    </tr>
-<%end paid_1%>
-
-    <tr height="10">
-        
-    </tr>
-
+      <tax-registrations>
 <%foreach tax%>
-    <tr>
-        
-       <span class="smallprint"><%taxdescription%> Registration <%taxnumber%></span> 
-    </tr>
+        <tax-registration>
+	  <%taxnumber%>
+	  <%taxdescription%>
+	  <%taxbase%>
+	  <taxrate-percentage>
+            <%taxrate%>
+	  </taxrate-percentage>
+          <%tax%> 
+        </tax-registration>
 <%end tax%>
+      </tax-registrations>
+    </data>
 
+    <footer>    
 <%if taxincluded%>
-    <tr>
-        
-    </tr>
-
-    <tr>
-       
-        <span class="smallprint">Taxes shown are included in price.</span>
-       
-    </tr>
+      <tax-included-msg>
+        Taxes shown are included in price.
+      </tax-included-msg>
 <%end taxincluded%>
-  </table>
-</body>
-</html>
+    </footer>    
+
+  </content>
+</sql-ledger-root>

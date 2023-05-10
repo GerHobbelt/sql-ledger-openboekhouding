@@ -43,8 +43,8 @@
 <%end taxincluded%>
     </meta>
 
-    <data>    
-      <account-set>    
+    <data>
+      <account-set>
 <%foreach account%>
         <account>    
           <%accno%>
