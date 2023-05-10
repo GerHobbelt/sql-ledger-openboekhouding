@@ -107,8 +107,13 @@
       <tax-registrations>
 <%foreach tax%>
         <tax-registration>
-          <%taxdescription%>
-          <%taxnumber%>
+	  <%taxnumber%>
+	  <%taxdescription%>
+	  <%taxbase%>
+	  <taxrate-percentage>
+            <%taxrate%>
+	  </taxrate-percentage>
+          <%tax%> 
         </tax-registration>
 <%end tax%>
       </tax-registrations>

@@ -13,111 +13,38 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="CREDIT-NOTE" >
-    <crm type="from">
-
-
-       
-        <table width="100%" cellspacing="0" cellpadding="0">
-          <tr valign="top">
+    <crm type="to">
+      <%name%>
+      <%address1%> 
+      <%address2%> 
+      <%city%> 
+      <%state%> 
+      <%zipcode%> 
+      <%country%> 
+      <%contact%>
+      <%customerphone%> 
+      <%customerfax%> 
+      <%email%> 
+      <%customertaxnumber%> 
+    </crm>
              
-              <%name%>
-               
-              <%address1%> 
-<%if address2%>
-               
-              <%address2%> 
-<%end address2%>
-               
-              <%city%> 
-<%if state%> 
-              , <%state%> 
-<%end state%> 
-              <%zipcode%> 
-<%if country%>
-               
-              <%country%> 
-<%end country%>
-
-               
-
-<%if contact%>
-               
-              Attn: <%contact%>
-               
-<%end contact%> 
-
-<%if customerphone%>
-               
-              Tel: <%customerphone%> 
-<%end customerphone%> 
-
-<%if customerfax%>
-               
-              Fax: <%customerfax%> 
-<%end customerfax%> 
-
-<%if email%>
-               
-              <%email%> 
-<%end email%>
-
-<%if customertaxnumber%>
-               
-              Taxnumber: <%customertaxnumber%> 
-<%end customertaxnumber%>
-             
-
-             
-              <table>
-                <tr>
-                   Invoice # 
-                   <%invnumber%> 
-                </tr>
-                <tr>
-                   Invoice Date 
-                   <%invdate%> 
-                </tr>
-                <tr>
-                   Due Date 
-                   <%duedate%> 
-                </tr>
-<%if ponumber%>
-                <tr>
-                   PO # 
-                   <%ponumber%> 
-                </tr>
-<%end ponumber%>
-<%if ordnumber%>
-                <tr>
-                   Order # 
-                   <%ordnumber%> 
-                </tr>
-<%end ordnumber%>
-                <tr>
-                   Salesperson 
-                   <%employee%> 
-                </tr>
-              </table>
-             
-          </tr>
-        </table>
-       
-    </tr>
-
-    <tr height="5">
-        
-    </tr>
-
-    <tr>
-        
-
-       
+    <meta>
+<!-- Invoice # -->
+      <%invnumber%> 
+      <%invdate%> 
+      <%duedate%>
+      <%ponumber%> 
+      <%ordnumber%> 
+      <%employee%> 
+    </meta>
+    
+    <data>
         <table>
 <%foreach account%>
           <tr valign="top">
              <%accno%> 
              <%account%> 
-              
+             
              <%amount%> 
               
              <%description%> 

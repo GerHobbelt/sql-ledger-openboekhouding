@@ -38,6 +38,9 @@
       <!-- Order # -->
       <%ordnumber%>
       <%employee%>
+<%if taxincluded%>
+      <taxincluded value="true" />
+<%end taxincluded%>
     </meta>
 
     <data>    
@@ -88,9 +91,7 @@
         </currency-info>
       </summary-totals>
 
-      <notes>
-        <%notes%>
-      </notes>
+      <%notes%>
     
       <payments>
 <%foreach payment%>
