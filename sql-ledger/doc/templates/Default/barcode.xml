@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>BARCODES</title>
+  <link rel="stylesheet" href="<%templates%>/<%language_code%>/sqledger.css" />
+</head>
+<body>
+  <table width="100%">
+
+<!--
+  <%include letterhead.html%>
+-->
+
+    <tr>
+      <th>
+        <h4>B A R C O D E S</h4>
+      </th>
+    </tr>
+
+<%foreach number * ship%>
+<!-- 
+TODO: Use JavaScript library to convert these to CODE128 barcodes? 
+-->
+    <tr>
+      <td>
+<!-- \psbarcode{^104<%sku%><%sell%>} -->	  
+        <div class="code128fmt">
+		  104<%sku%><%sell%>
+		</div>
+        <div class="barcode-human-readable-caption">
+		  104<%sku%><%sell%>
+		</div>
+      </td>
+    </tr>
+<%end number * ship%>
+
+  </table>
+</body>
+</html>

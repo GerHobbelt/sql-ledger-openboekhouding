@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>CHEQUE</title>
+  <link rel="stylesheet" href="<%templates%>/<%language_code%>/sqledger.css" />
+</head>
+<body>
+  <table width="100%">
+
+<!--
+  <%include letterhead.html%>
+-->
+
+    <tr>
+      <th colspan="2">
+        <h4>CHEQUE</h4>
+      </th>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+	    <%company%>
+      </td>
+	</tr>
+	<tr>
+      <td>
+	    <%address%>
+      </td>
+	  <td>
+		<%source%>
+      </td>
+	</tr>
+
+	<tr>
+		<td></td>
+	</tr>
+	
+	<tr>
+      <td>
+		<%text_amount%> \dotfill
+	  </td>
+      <td>
+		<%decimal%>/100 
+	  </td>
+	</tr>
+
+	<tr>
+		<td></td>
+	</tr>
+	
+	<tr>
+      <td>
+		<%datepaid%> 
+	  </td>
+      <td>
+		<%amount%>
+	  </td>
+	</tr>
+
+<!--
+% different date format for datepaid
+% <%DD%><%MM%><%YYYY%>
+-->
+
+	<tr>
+		<td></td>
+	</tr>
+	
+	<tr>
+      <td>
+		<%name%>
+		<br>
+		<%address1%>
+		<br>
+		<%address2%>
+		<br>
+		<%city%>
+<%if state%>
+		, <%state%>
+<%end state%>
+		<br>
+		<%zipcode%>
+		<br>
+		<%country%>
+	  </td>
+	</tr>
+
+	<tr>
+		<td></td>
+	</tr>
+	
+	<tr>
+      <td>
+		<%memo%>
+	  </td>
+	</tr>
+  </table>
+
+  <table width="100%">
+	<tr>
+      <td>
+		<%company%>
+	  </td>
+	</tr>
+	<tr>
+      <td>
+		<%name%> 
+	  </td>
+	  <td>
+	  	<%datepaid%>
+	  </td>
+	  <td>
+		<%source%>
+	  </td>
+	</tr>
+  </table>
+
+  <table width="100%">
+	<tr>
+      <th>
+		Invoice #
+	  </th>
+	  <th>
+		Invoice Date
+	  </th>
+	  <th>
+		Amount Due
+	  </th>
+	  <th>
+		Applied
+	  </th>
+	</tr>
+
+<%foreach invnumber%>
+	<tr>
+	  <td>
+		<%invnumber%> 
+	  </td>
+	  <td>
+		<%invdate%> \dotfill
+	  </td>
+	  <td>
+		<%due%> 
+	  </td>
+	  <td>
+		<%paid%>
+	  </td>
+	</tr>
+<%end invnumber%>
+  </table>
+  
+  <table width="100%">
+	<tr>
+      <td>
+		<%memo%>
+	  </td>
+	</tr>
+  </table>
+</body>
+</html>
+
