@@ -1,6 +1,11 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<sql-ledger-root>
+<?xml version="1.0" encoding="utf-8"?>
+<html>
 <head>
+  <title></title>
+</head>
+<body>
+  <sql-ledger-root></sql-ledger-root>
+  <head>
   <title>INCOME STATEMENT</title>
   <link rel="stylesheet" href="<%templates%>/<%language_code%>/sqledger.css" />
 </head>

@@ -1,6 +1,11 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<sql-ledger-root>
+<?xml version="1.0" encoding="utf-8"?>
+<html>
 <head>
+  <title></title>
+</head>
+<body>
+  <sql-ledger-root></sql-ledger-root>
+  <head>
   <title>BARCODES</title>
   <link rel="stylesheet" href="<%templates%>/<%language_code%>/sqledger.css" />
 </head>
@@ -23,13 +28,13 @@ TODO: Use JavaScript library to convert these to CODE128 barcodes?
 -->
     <tr>
       <td>
-<!-- \psbarcode{^104<%sku%><%sell%>} -->	  
+<!-- \psbarcode{^104<%sku%><%sell%>} -->      
         <div class="code128fmt">
-		  104<%sku%><%sell%>
-		</div>
+          104<%sku%><%sell%>
+        </div>
         <div class="barcode-human-readable-caption">
-		  104<%sku%><%sell%>
-		</div>
+          104<%sku%><%sell%>
+        </div>
       </td>
     </tr>
 <%end number * ship%>

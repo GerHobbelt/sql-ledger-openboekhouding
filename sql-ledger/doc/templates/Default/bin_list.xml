@@ -1,6 +1,11 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<sql-ledger-root>
+<?xml version="1.0" encoding="utf-8"?>
+<html>
 <head>
+  <title></title>
+</head>
+<body>
+  <sql-ledger-root></sql-ledger-root>
+  <head>
   <title>BIN-LIST</title>
   <link rel="stylesheet" href="<%templates%>/<%language_code%>/sqledger.css" />
 </head>
@@ -76,15 +81,15 @@
             <%shiptoaddress2%> 
 <%end shiptoaddress2%>
             <br>
-			<%shiptocity%> 
+            <%shiptocity%> 
 <%if shiptostate%>
-			, <%shiptostate%>
+            , <%shiptostate%>
 <%end shiptostate%>
-			<%shiptozipcode%>
+            <%shiptozipcode%>
 
 <%if shiptocountry%>
             <br>
-			<%shiptocountry%>
+            <%shiptocountry%>
 <%end shiptocountry%>
             <br>
 <%if shiptocontact%>

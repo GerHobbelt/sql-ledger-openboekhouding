@@ -4,6 +4,7 @@
     <title>A/P-TRANSACTION</title>
     
     <%include letterhead.xml%>
+    
   </letterhead>
 
   <content-type>AP-TRANSACTION</content-type>
@@ -25,105 +26,92 @@
     </crm>
 
     <invoice>    
-    <invoice-leader>    
-      <!-- Invoice # -->
-      <%invnumber%>
-      <%invdate%>
-      <%duedate%>
-      <!-- PO # -->
-      <%ponumber%>
-      <!-- Order # -->
-      <%ordnumber%>
-      <%employee%>
-    </invoice-leader>    
+      <meta>    
+        <!-- Invoice # -->
+        <%invnumber%>
+        <%invdate%>
+        <%duedate%>
+        <!-- PO # -->
+        <%ponumber%>
+        <!-- Order # -->
+        <%ordnumber%>
+        <%employee%>
+      </meta>    
 
-    <invoice-content>    
-    <account-set>    
+      <invoice-content>    
+        <account-set>    
 <%foreach account%>
-      <account>    
-          <tr valign="top">
-            <td><%accno%></td>
-            <td><%account%></td>
-            <td width="10"></td>
-            <td align="right"><%amount%></td>
-            <td width="10"></td>
-            <td><%description%></td>
-            <td width="10"></td>
-            <td><%projectnumber%></td>
-          </tr>
-      </account>    
+          <account>    
+            <%accno%>
+            <%account%>
+            <%amount%>
+            <%description%>
+            <%projectnumber%>
+          </account>    
 <%end account%>
-    </account-set>    
+        </account-set>    
 
-    <tax-info>
-      <tax-lines>
+        <tax-info>
+          <tax-lines>
 <%foreach tax%>
-        <tax-line>
-          <tr>
-            <th colspan="2" align="right"><%taxdescription%>@ <%taxrate%> %</th>
-            <td width="10"></td>
-            <td align="right"><%tax%></td>
-          </tr>
-        </tax-line>
+            <tax-line>
+              <%taxdescription%>
+          
+          <tax-rate-percentage>
+            <%taxrate%>
+          <tax-rate-percentage>
+          
+              <%tax%>
+            </tax-line>
 <%end tax%>
-      </tax-lines>
-    </tax-info>
+          </tax-lines>
+        </tax-info>
 
-      <summary-totals>
+        <summary-totals>
 <%if not taxincluded%>
-	<sans-tax-subtotal>
-            <td align="right"><%subtotal%></td>
-	</sans-tax-subtotal>
+          <sans-tax-subtotal>
+            <%subtotal%>
+          </sans-tax-subtotal>
 <%end taxincluded%>
 
-	<total>
-            <td align="right"><%invtotal%></td>
-	</total>
+          <total>
+            <%invtotal%>
+          </total>
 
-      <%text_amount%>
+          <%text_amount%>
       
-      <currency-decimal-value>
-      <%decimal%>
-      </currency-decimal-value>
-      <currency-info>
-       <%currency%>
-      </currency-info>
-   </summary-totals>
+          <currency-decimal-value>
+           <%decimal%>
+          </currency-decimal-value>
+          <currency-info>
+           <%currency%>
+          </currency-info>
+        </summary-totals>
 
-      <invoice-notes>
-      <%notes%>
-      </invoice-notes>
-    </tr>
+        <notes>
+          <%notes%>
+        </notes>
     
-<%if paid_1%>
-    <payments>
-<%end paid_1%>
-
+        <payments>
 <%foreach payment%>
-    <payment>
-                <tr>
-                  <td><%paymentdate%></td>
-                  <td><%paymentaccount%></td>
-                  <td><%paymentsource%></td>
-                  <td><%paymentmemo%></td>
-                  <td align="right"><%payment%></td>
-                </tr>
-    </payment>
+          <payment>
+            <%paymentdate%>
+        <%paymentaccount%>
+        <%paymentsource%>
+        <%paymentmemo%>
+        <%payment%>
+          </payment>
 <%end payment%>
+        </payments>
+      </invoice-content>    
 
-<%if paid_1%>
-    </payments>
-    </invoice-content>    
-
-    <invoice-footer>    
-<%end paid_1%>
-
+      <footer>    
 <%if taxincluded%>
-    <tax-included-msg>
-        Taxes shown are included in price.
-    </tax-included-msg>
+        <tax-included-msg>
+          Taxes shown are included in price.
+        </tax-included-msg>
 <%end taxincluded%>
-    </invoice-footer>    
+      </footer>    
     </invoice>    
   </content>
 </sql-ledger-root>

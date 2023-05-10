@@ -1,6 +1,11 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<sql-ledger-root>
+<?xml version="1.0" encoding="utf-8"?>
+<html>
 <head>
+  <title></title>
+</head>
+<body>
+  <sql-ledger-root></sql-ledger-root>
+  <head>
   <title>DEBIT INVOICE</title>
   <link rel="stylesheet" href="<%templates%>/<%language_code%>/sqledger.css" />
 </head>
@@ -24,7 +29,7 @@
         <table width="100%" cellspacing="5">
           <tr class="blackbar">
             <th width="50%" align="left">TO</th>
-		    <th width="50%" align="left">SHIP TO</th>
+            <th width="50%" align="left">SHIP TO</th>
           </tr>
 
           <tr valign="top">

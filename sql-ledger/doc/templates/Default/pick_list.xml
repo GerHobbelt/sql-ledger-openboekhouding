@@ -1,6 +1,11 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<sql-ledger-root>
+<?xml version="1.0" encoding="utf-8"?>
+<html>
 <head>
+  <title></title>
+</head>
+<body>
+  <sql-ledger-root></sql-ledger-root>
+  <head>
   <title>PICK LIST</title>
   <link rel="stylesheet" href="<%templates%>/<%language_code%>/sqledger.css" />
 </head>
@@ -29,46 +34,46 @@
 
           <tr valign="top">
             <td>
-			<%shiptoname%>
-			<br>
+            <%shiptoname%>
+            <br>
             <%shiptoaddress1%> 
 
 <%if shiptoaddress2%>
-			<br>
+            <br>
             <%shiptoaddress2%> 
 <%end shiptoaddress2%>
 
-			<br>
-			<%shiptocity%>
+            <br>
+            <%shiptocity%>
 <%if shiptostate%>
-			, <%shiptostate%>
+            , <%shiptostate%>
 <%end shiptostate%>
-			<%shiptozipcode%>
+            <%shiptozipcode%>
 
 <%if shiptocountry%>
-			<br>
+            <br>
             <%shiptocountry%> 
 <%end shiptocountry%>
-			</td>
+            </td>
 
             <td>
 <%if shiptocontact%>
-			<br>
+            <br>
             Attn: <%shiptocontact%> 
 <%end shiptocontact%> 
 
 <%if shiptophone%>
-			<br>
+            <br>
             Tel: <%shiptophone%> 
 <%end shiptophone%> 
 <%if shiptofax%>
-			<br>
+            <br>
             Fax: <%shiptofax%> 
 <%end shiptofax%> 
 
-			<br>
-			<%shiptoemail%>
-			</td>
+            <br>
+            <%shiptoemail%>
+            </td>
           </tr>
         </table>
       </td>

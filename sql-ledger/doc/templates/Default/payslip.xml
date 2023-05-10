@@ -1,6 +1,11 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<sql-ledger-root>
+<?xml version="1.0" encoding="utf-8"?>
+<html>
 <head>
+  <title></title>
+</head>
+<body>
+  <sql-ledger-root></sql-ledger-root>
+  <head>
   <title>PAYSLIP</title>
   <link rel="stylesheet" href="<%templates%>/<%language_code%>/sqledger.css" />
 </head>
@@ -17,258 +22,258 @@
 
     <tr>
       <td colspan="2">
-		<%source%>
-	  </td>
-	</tr>
+        <%source%>
+      </td>
+    </tr>
 
     <tr>
       <td></td>
-	</tr>
+    </tr>
 
     <tr>
       <td>
-		<%text_amount%> \dotfill 
-	  </td>
-	  <td>
-	    <%decimal%>/100
-	  </td>
-	</tr>
+        <%text_amount%> \dotfill 
+      </td>
+      <td>
+        <%decimal%>/100
+      </td>
+    </tr>
   </table>
   
   <table width="100%">
     <tr>
       <td></td>
-	  
-	  <td>
-		<%datepaid%>
-	  </td>
-	  <td>
-	   <%net%>
-	  </td>
-	</tr>
+      
+      <td>
+        <%datepaid%>
+      </td>
+      <td>
+       <%net%>
+      </td>
+    </tr>
   </table>
-	
+    
   
   <table width="100%">
     <tr>
-	  <td>
-		<%name%>
-		<br>
-		<%address1%>
-		<br>
-		<%address2%>
-		<br>
-		<%city%>
+      <td>
+        <%name%>
+        <br>
+        <%address1%>
+        <br>
+        <%address2%>
+        <br>
+        <%city%>
 <%if state%>
-		, <%state%>
+        , <%state%>
 <%end state%>
-		<%zipcode%>
-		<br>
-		<%country%>
-	  </td>
-	</tr>
-	
-	<tr>
-	  <td>
-		<%memo%>
-	  </td>
-	</tr>
-	
-	<tr>
-	  <td>
-		<%company%>
-	  </td>
-	</tr>
+        <%zipcode%>
+        <br>
+        <%country%>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <%memo%>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <%company%>
+      </td>
+    </tr>
   </table>
   
   <table width="100%">
-	<tr>
-	  <td>
-		<%name%>
-	  </td>
-	  <td>
-	   <%datepaid%>
-	  </td>
-	  <td>
-	    For Pay Period: <%dateto%>
-	  </td>
-	  <td>
-		<%source%>
-	  </td>
-	</tr>
+    <tr>
+      <td>
+        <%name%>
+      </td>
+      <td>
+       <%datepaid%>
+      </td>
+      <td>
+        For Pay Period: <%dateto%>
+      </td>
+      <td>
+        <%source%>
+      </td>
+    </tr>
   </table>
   
   <table width="100%">
-	<tr>
-	  <th>
-		Regular
-	  </th>
-	  <!-- \dotfill -->
-	  <td>
-	  	<%regularpay%>
-	  </td>
-	</tr>
-	<tr>
-	  <th>
-		Overtime
-	  </th>
-	  <!-- \dotfill -->
-	  <td>
-		 <%overtimepay%>
-	  </td>
-	</tr>
-	<tr>
-	  <th>
-		Travel
-	  </th>
-	  <!-- \dotfill -->
-	  <td>
-		 <%travelpay%>
-	  </td>
-	</tr>
-	<tr>
-	  <th>
-		Stat Holiday
-	  </th>
-	  <!-- \dotfill -->
-	  <td>
-		 <%holidaypay%>
-	  </td>
-	</tr>
-	<tr>
-	  <td colspan="2">
-	    <hr>
-	  </td>
-	</tr>
-	<tr>
-	  <th>
-		Gross
-	  </th>
-	  <!-- \dotfill -->
-	  <td>
-		 <%gross%>
-	  </td>
-	</tr>
+    <tr>
+      <th>
+        Regular
+      </th>
+      <!-- \dotfill -->
+      <td>
+          <%regularpay%>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Overtime
+      </th>
+      <!-- \dotfill -->
+      <td>
+         <%overtimepay%>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Travel
+      </th>
+      <!-- \dotfill -->
+      <td>
+         <%travelpay%>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Stat Holiday
+      </th>
+      <!-- \dotfill -->
+      <td>
+         <%holidaypay%>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <hr>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Gross
+      </th>
+      <!-- \dotfill -->
+      <td>
+         <%gross%>
+      </td>
+    </tr>
   </table>
   
   <table width="100%">
 <%foreach deduction%>
-	<tr>
-	  <th>
-		<%deduction%>
-	  </th>
-	  <!-- \dotfill -->
-	  <td>
-		<%amount%>
-	  </td>
-	</tr>
+    <tr>
+      <th>
+        <%deduction%>
+      </th>
+      <!-- \dotfill -->
+      <td>
+        <%amount%>
+      </td>
+    </tr>
 <%end deduction%>
 
-	<tr>
-	  <td colspan="2">
-		<hr>
-	  </td>
-	</tr>
-	
-	<tr>
-	  <th>
-	  	Withheld
-	  </th>
-	  <!-- \dotfill -->
-	  <td>
-		<%withheld%>
-	  </td>
-	</tr>
+    <tr>
+      <td colspan="2">
+        <hr>
+      </td>
+    </tr>
+    
+    <tr>
+      <th>
+          Withheld
+      </th>
+      <!-- \dotfill -->
+      <td>
+        <%withheld%>
+      </td>
+    </tr>
   </table>
   
   <table width="100%">
-	<tr>
-	  <th>
-		Gross
-	  </th>
-	  <!-- \dotfill -->
-	  <td>
-		 <%gross%>
-	  </td>
-	</tr>
-	<tr>
-	  <th>
-		Withheld
-	  </th>
-	  <!-- \dotfill -->
-	  <td>
-		 <%withheld%>
-	  </td>
-	</tr>
-	<tr>
-	  <th>
-		Benefits
-	  </th>
-	  <!-- \dotfill -->
-	  <td>
-		 <%benefits%>
-	  </td>
-	</tr>
-	<tr>
-	  <td colspan="2">
-		<hr>
-	  </td>
-	</tr>
-	<tr>
-	  <th>
-		Net
-	  </th>
-	  <!-- \dotfill -->
-	  <td>
-		 <%net%>
-	  </td>
-	</tr>
+    <tr>
+      <th>
+        Gross
+      </th>
+      <!-- \dotfill -->
+      <td>
+         <%gross%>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Withheld
+      </th>
+      <!-- \dotfill -->
+      <td>
+         <%withheld%>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Benefits
+      </th>
+      <!-- \dotfill -->
+      <td>
+         <%benefits%>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <hr>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Net
+      </th>
+      <!-- \dotfill -->
+      <td>
+         <%net%>
+      </td>
+    </tr>
   </table>
   
   <table width="100%">
-	<tr>
-	  <th>
-		Regular:
-	  </th>
-	  <td>
-		<%regular%>
-	  </td>
-	  <td>
-		<%regularrate%>
-	  </td>
-	</tr>
-	<tr>
-	  <th>
-		Overtime:
-	  </th>
-	  <td>
-		<%overtime%>
-	  </td>
-	  <td>
-		<%overtimerate%>
-	  </td>
-	</tr>
-	<tr>
-	  <th>
-		Travel:
-	  </th>
-	  <td>
-		<%travel%>
-	  </td>
-	  <td>
-		<%travelrate%>
-	  </td>
-	</tr>
-	<tr>
-	  <th>
-		Stat Holiday:
-	  </th>
-	  <td>
-		<%holiday%>
-	  </td>
-	  
-	  <td></td>
-	</tr>
+    <tr>
+      <th>
+        Regular:
+      </th>
+      <td>
+        <%regular%>
+      </td>
+      <td>
+        <%regularrate%>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Overtime:
+      </th>
+      <td>
+        <%overtime%>
+      </td>
+      <td>
+        <%overtimerate%>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Travel:
+      </th>
+      <td>
+        <%travel%>
+      </td>
+      <td>
+        <%travelrate%>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Stat Holiday:
+      </th>
+      <td>
+        <%holiday%>
+      </td>
+      
+      <td></td>
+    </tr>
   </table>
 </body>
 </html>
