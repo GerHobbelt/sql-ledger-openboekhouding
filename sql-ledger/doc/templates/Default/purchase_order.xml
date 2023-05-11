@@ -3,7 +3,7 @@
   <letterhead>
     <title>PURCHASE ORDER</title>
 
-    <%if include letterhead.xml%><include letterhead.xml><%include letterhead.xml%></include letterhead.xml><%end include letterhead.xml%>
+    <%include letterhead.xml%>
     
   </letterhead>
 
@@ -91,7 +91,7 @@
       <%if taxbase%><taxbase><%taxbase%></taxbase><%end taxbase%>
     
       <taxrate-percentage>
-        <%if taxrate%><taxrate><%taxrate%></taxrate><%end taxrate%>
+        <%if taxrate%><%taxrate%><%end taxrate%>
       </taxrate-percentage>
           
       <%if tax%><tax><%tax%></tax><%end tax%> 
@@ -101,7 +101,7 @@
     <summary-totals>
 <%if not taxincluded%>
       <sans-tax-subtotal>
-        <%if subtotal%><subtotal><%subtotal%></subtotal><%end subtotal%>
+        <%if subtotal%><%subtotal%><%end subtotal%>
       </sans-tax-subtotal>
 <%end taxincluded%>
 
@@ -109,7 +109,7 @@
     </summary-totals>
 
     <currency-info>
-      <%if currency%><currency><%currency%></currency><%end currency%>
+      <%if currency%><%currency%><%end currency%>
     </currency-info>
 
     <%if terms%><terms><%terms%></terms><%end terms%>
@@ -117,7 +117,7 @@
     <%if notes%><notes><%notes%></notes><%end notes%> 
   </content>
 
-  <footer>    
+  <footer>
 <%if taxincluded%>
     <tax-included-msg>
       Taxes shown are included in price.

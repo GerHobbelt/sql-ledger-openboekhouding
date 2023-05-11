@@ -3,7 +3,7 @@
   <letterhead>
     <title>RECEIPT</title>
 
-    <%if include letterhead.xml%><include letterhead.xml><%include letterhead.xml%></include letterhead.xml><%end include letterhead.xml%>
+    <%include letterhead.xml%>
     
   </letterhead>
 
@@ -30,7 +30,7 @@
     <%if text_amount%><text_amount><%text_amount%></text_amount><%end text_amount%>
 
     <currency-decimal-value>
-      <%if decimal%><decimal><%decimal%></decimal><%end decimal%>
+      <%if decimal%><%decimal%><%end decimal%>
     </currency-decimal-value>
 
     <%if datepaid%><datepaid><%datepaid%></datepaid><%end datepaid%> 

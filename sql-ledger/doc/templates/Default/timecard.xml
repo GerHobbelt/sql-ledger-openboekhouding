@@ -3,7 +3,7 @@
   <letterhead>
     <title>TIME CARD</title>
 
-    <%if include letterhead.xml%><include letterhead.xml><%include letterhead.xml%></include letterhead.xml><%end include letterhead.xml%>
+    <%include letterhead.xml%>
     
   </letterhead>
 

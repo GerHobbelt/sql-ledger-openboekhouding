@@ -3,7 +3,7 @@
   <letterhead>
     <title>INCOME STATEMENT</title>
 
-    <%if include letterhead.xml%><include letterhead.xml><%include letterhead.xml%></include letterhead.xml><%end include letterhead.xml%>
+    <%include letterhead.xml%>
     
   </letterhead>
 
@@ -73,7 +73,7 @@
     <currency-msg>
       All amounts in <%currency%>.
     
-      <%if if currency ne 'CAD'%><if currency ne 'CAD'><%if currency ne 'CAD'%></if currency ne 'CAD'><%end if currency ne 'CAD'%> converted at <%exchangerate%><%end currency ne 'CAD'%>.
+      <%if currency ne 'CAD'%> converted at <%exchangerate%><%end currency ne 'CAD'%>.
     </currency-msg>
   </footer>
 </sql-ledger-root>

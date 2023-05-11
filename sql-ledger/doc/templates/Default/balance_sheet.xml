@@ -3,7 +3,7 @@
   <letterhead>
     <title>BALANCE SHEET</title>
 
-    <%if include letterhead.xml%><include letterhead.xml><%include letterhead.xml%></include letterhead.xml><%end include letterhead.xml%>
+    <%include letterhead.xml%>
     
   </letterhead>
 
@@ -21,7 +21,7 @@
 <%end method eq 'cash'%>
 
     <reporting-period>
-      <%if this_period%><this_period><%this_period%></this_period><%end this_period%> 
+      <%if this_period%><%this_period%><%end this_period%> 
     </reporting-period>
 
     <%if department%><department><%department%></department><%end department%>
@@ -77,7 +77,7 @@
     </summary-totals>
       
     <currency-info>
-      <%if currency%><currency><%currency%></currency><%end currency%>
+      <%if currency%><%currency%><%end currency%>
     </currency-info>
 
 <%if currency ne 'CAD'%> 
@@ -89,7 +89,7 @@
     <currency-msg>
       All amounts in <%currency%>.
     
-      <%if if currency ne 'CAD'%><if currency ne 'CAD'><%if currency ne 'CAD'%></if currency ne 'CAD'><%end if currency ne 'CAD'%> converted at <%exchangerate%><%end currency ne 'CAD'%>.
+      <%if currency ne 'CAD'%> converted at <%exchangerate%><%end currency ne 'CAD'%>.
     </currency-msg>
   </footer>
 </sql-ledger-root>

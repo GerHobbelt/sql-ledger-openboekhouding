@@ -3,7 +3,7 @@
   <letterhead>
     <title>REMITTANCE VOUCHER</title>
 
-    <%if include letterhead.xml%><include letterhead.xml><%include letterhead.xml%></include letterhead.xml><%end include letterhead.xml%>
+    <%include letterhead.xml%>
     
   </letterhead>
 
@@ -35,7 +35,7 @@
     <%if total%><total><%total%></total><%end total%>
 
     <currency-info>
-      <%if currency%><currency><%currency%></currency><%end currency%>
+      <%if currency%><%currency%><%end currency%>
     </currency-info>
   </content>
 </sql-ledger-root>

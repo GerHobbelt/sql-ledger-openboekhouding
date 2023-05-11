@@ -3,7 +3,7 @@
   <letterhead>
     <title>A/P-TRANSACTION</title>
 
-    <%if include letterhead.xml%><include letterhead.xml><%include letterhead.xml%></include letterhead.xml><%end include letterhead.xml%>
+    <%include letterhead.xml%>
     
   </letterhead>
 
@@ -61,12 +61,13 @@
 
 <%foreach tax%>
     <tax-registration-item>
+      <!-- Registration No. -->
       <%if taxnumber%><taxnumber><%taxnumber%></taxnumber><%end taxnumber%>
       <%if taxdescription%><taxdescription><%taxdescription%></taxdescription><%end taxdescription%>
       <%if taxbase%><taxbase><%taxbase%></taxbase><%end taxbase%>
       
       <taxrate-percentage>
-        <%if taxrate%><taxrate><%taxrate%></taxrate><%end taxrate%>
+        <%if taxrate%><%taxrate%><%end taxrate%>
       </taxrate-percentage>
           
       <%if tax%><tax><%tax%></tax><%end tax%> 
@@ -76,23 +77,23 @@
     <summary-totals>
 <%if not taxincluded%>
       <sans-tax-subtotal>
-        <%if subtotal%><subtotal><%subtotal%></subtotal><%end subtotal%>
+        <%if subtotal%><%subtotal%><%end subtotal%>
       </sans-tax-subtotal>
 <%end taxincluded%>
 
       <total>
-        <%if invtotal%><invtotal><%invtotal%></invtotal><%end invtotal%>
+        <%if invtotal%><%invtotal%><%end invtotal%>
       </total>
 
       <%if text_amount%><text_amount><%text_amount%></text_amount><%end text_amount%>
       
       <currency-decimal-value>
-        <%if decimal%><decimal><%decimal%></decimal><%end decimal%>
+        <%if decimal%><%decimal%><%end decimal%>
       </currency-decimal-value>
     </summary-totals>
 
     <currency-info>
-      <%if currency%><currency><%currency%></currency><%end currency%>
+      <%if currency%><%currency%><%end currency%>
     </currency-info>
 
     <%if notes%><notes><%notes%></notes><%end notes%>
@@ -114,5 +115,5 @@
       Taxes shown are included in price.
     </tax-included-msg>
 <%end taxincluded%>
-  </footer>    
+  </footer>
 </sql-ledger-root>

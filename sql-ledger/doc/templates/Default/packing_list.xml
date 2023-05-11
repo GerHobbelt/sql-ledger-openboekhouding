@@ -3,7 +3,7 @@
   <letterhead>
     <title>PACKING LIST</title>
 
-    <%if include letterhead.xml%><include letterhead.xml><%include letterhead.xml%></include letterhead.xml><%end include letterhead.xml%>
+    <%include letterhead.xml%>
     
   </letterhead>
 
@@ -79,7 +79,7 @@
       Items returned are subject to a 10% restocking charge. 
       A return authorization must be obtained from <%company%> before goods are returned. 
       Returns must be shipped prepaid and properly insured. 
-      <%if company%><company><%company%></company><%end company%> will not be responsible for damages during transit.
+      <%company%> will not be responsible for damages during transit.
     </payment-conditions-msg>
   </footer>
 </sql-ledger-root>

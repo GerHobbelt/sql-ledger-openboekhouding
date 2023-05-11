@@ -3,7 +3,7 @@
   <letterhead>
     <title>INVOICE</title>
 
-    <%if include letterhead.xml%><include letterhead.xml><%include letterhead.xml%></include letterhead.xml><%end include letterhead.xml%>
+    <%include letterhead.xml%>
     
   </letterhead>
 
@@ -105,7 +105,7 @@
       <%if taxbase%><taxbase><%taxbase%></taxbase><%end taxbase%>
     
       <taxrate-percentage>
-        <%if taxrate%><taxrate><%taxrate%></taxrate><%end taxrate%>
+        <%if taxrate%><%taxrate%><%end taxrate%>
       </taxrate-percentage>
           
       <%if tax%><tax><%tax%></tax><%end tax%> 
@@ -115,33 +115,33 @@
     <summary-totals>
 <%if not taxincluded%>
       <sans-tax-subtotal>
-        <%if subtotal%><subtotal><%subtotal%></subtotal><%end subtotal%>
+        <%if subtotal%><%subtotal%><%end subtotal%>
       </sans-tax-subtotal>
 <%end taxincluded%>
 
       <total>
-        <%if invtotal%><invtotal><%invtotal%></invtotal><%end invtotal%>
+        <%if invtotal%><%invtotal%><%end invtotal%>
       </total>
 
       <%if paid%><paid><%paid%></paid><%end paid%> 
 
       <balance-due>
-        <%if total%><total><%total%></total><%end total%> 
+        <%if total%><%total%><%end total%> 
       </balance-due>
 
       <%if text_amount%><text_amount><%text_amount%></text_amount><%end text_amount%>
       
       <currency-decimal-value>
-        <%if decimal%><decimal><%decimal%></decimal><%end decimal%>
+        <%if decimal%><%decimal%><%end decimal%>
       </currency-decimal-value>
     </summary-totals>
 
     <currency-info>
-      <%if currency%><currency><%currency%></currency><%end currency%>
+      <%if currency%><%currency%><%end currency%>
     </currency-info>
 
-    <%if notes%><notes><%notes%></notes><%end notes%> 
-
+    <%if notes%><notes><%notes%></notes><%end notes%>
+    
 <%foreach payment%>
     <payment-item>
       <%if paymentdate%><paymentdate><%paymentdate%></paymentdate><%end paymentdate%>
@@ -169,7 +169,7 @@
       Items returned are subject to a 10% restocking charge. 
       A return authorization must be obtained from <%company%> before goods are returned. 
       Returns must be shipped prepaid and properly insured. 
-      <%if company%><company><%company%></company><%end company%> will not be responsible for damages during transit.
+      <%company%> will not be responsible for damages during transit.
     </payment-conditions-msg>
   </footer>
 </sql-ledger-root>
