@@ -14,110 +14,122 @@
 -->
   <content type="SALES-ORDER" >
     <crm type="to">
-
-            <%name%>
-            <%address1%> 
-            <%address2%> 
-            <%city%> 
-            <%state%> 
-            <%zipcode%> 
-            <%country%> 
-            <%contact%> 
-            <%customerphone%> 
-            <%customerfax%> 
-            <%email%> 
+      <%name%>
+      <%address1%>
+      <%address2%>
+      <%city%> 
+      <%state%> 
+      <%zipcode%> 
+      <%country%> 
+      <%contact%>
+      <%customerphone%> 
+      <%customerfax%> 
+      <%email%>
+      <%customertaxnumber%> 
     </crm>
              
     <crm type="ship-to">
-            <%shiptoname%>
-            <%shiptoaddress1%> 
-            <%shiptoaddress2%> 
-            <%shiptocity%> 
-            <%shiptostate%> 
-            <%shiptozipcode%> 
-            <%shiptocountry%> 
-            <%shiptocontact%>
-            <%shiptophone%> 
-            <%shiptofax%> 
-            <%shiptoemail%> 
-             
-          </crm>
-       
-          <data>
-<!--	  
-             Order # 
-             Order Date 
-             Required by 
-             Salesperson 
-             Shipping Point 
-             Ship Via 
--->	     
-             <%ordnumber%> 
-             <%orddate%> 
-             <%reqdate%> 
-             <%employee%> 
-             <%shippingpoint%> 
-             <%shipvia%> 
+      <%shiptoname%>
+      <%shiptoaddress1%> 
+      <%shiptoaddress2%> 
+      <%shiptocity%> 
+      <%shiptostate%>
+      <%shiptozipcode%>
+      <%shiptocountry%>
+      <%shiptocontact%> 
+      <%shiptophone%> 
+      <%shiptofax%> 
+      <%shiptoemail%> 
+    </crm>
 
-<!--	
-             Item 
-             Number 
-             Description 
-             Qt'y 
-             Price 
-             Disc % 
-             Amount 
+<!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
+
+<!--
+     Order # 
+     Order Date 
+     Required by 
+     Salesperson 
+     Shipping Point 
+     Ship Via 
+-->         
+    <%ordnumber%> 
+    <%orddate%> 
+    <%reqdate%> 
+    <%employee%> 
+    <%shippingpoint%> 
+    <%shipvia%> 
+
+<!--    
+     Item 
+     Number 
+     Description 
+     Qt'y 
+     Price 
+     Disc % 
+     Amount 
 -->
-
 <%foreach number%>
-          <sales-order-item>
-             <%runningnumber%>
-             <%number%> 
-             <%description%> 
-             <%qty%> 
-             <%unit%> 
-             <%sellprice%> 
-             <%discountrate%> 
-             <%linetotal%> 
-          </sales-order-item>
+    <sales-order-item>
+      <%runningnumber%>
+      <%number%> 
+      <%description%> 
+      <%qty%> 
+      <%unit%> 
+      <%sellprice%> 
+      <%discountrate%> 
+      <%linetotal%> 
+              
+      <%notes%> 
+    </sales-order-item>
 <%end number%>
 
-<%if taxincluded%>
-             <%invtotal%> 
-<%end taxincluded%>
-
-<%if not taxincluded%>
-             <%subtotal%> 
-<%end taxincluded%>
-
 <%foreach tax%>
-          <tr>
-             <%taxdescription%> 
-	     <%taxbase%> 
-	     <%taxrate%> 
-             <%tax%> 
-          </tr>
+    <tax-registration-item>
+      <%taxnumber%>
+      <%taxdescription%>
+      <%taxbase%>
+    
+      <taxrate-percentage>
+        <%taxrate%>
+      </taxrate-percentage>
+          
+      <%tax%> 
+    </tax-registration-item>
 <%end tax%>
 
-             
-            <%text_amount%>
-	    <%decimal%>
-            
-	    <%terms%>
-            
-             <%ordtotal%> 
+    <summary-totals>
+<%if not taxincluded%>
+      <sans-tax-subtotal>
+        <%subtotal%>
+      </sans-tax-subtotal>
+<%end taxincluded%>
 
-             <%notes%> 
-             
-            <%currency%>
-       
-    </data>
-       
-              <payment-conditions-msg>
-                Special order items are subject to a 10% order cancellation fee.
-              </payment-conditions-msg>
-             
+      <total>
+        <%invtotal%>
+      </total>
 
-  </table>
-</body>
-</html>
+      <%ordtotal%> 
+
+      <%text_amount%>
+      
+      <currency-decimal-value>
+        <%decimal%>
+      </currency-decimal-value>
+    </summary-totals>
+
+    <currency-info>
+      <%currency%>
+    </currency-info>
+
+    <%terms%>
+
+    <%notes%>
+    
+  </content>
+
+  <footer>    
+    <payment-conditions-msg>
+      Special order items are subject to a 10% order cancellation fee.
+    </payment-conditions-msg>
+  </footer>
+</sql-ledger-root>

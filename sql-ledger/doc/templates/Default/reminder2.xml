@@ -16,46 +16,46 @@
     <level>2</level>
 
     <crm type="to">
-            <%name%>
-            <%address1%> 
-            <%address2%> 
-            <%city%> 
-            <%state%> 
-            <%zipcode%> 
-            <%country%> 
-            <%customerphone%> 
-            <%customerfax%> 
-            <%email%> 
-          </crm>
+      <%name%>
+      <%address1%> 
+      <%address2%> 
+      <%city%> 
+      <%state%> 
+      <%zipcode%> 
+      <%country%> 
+      <%contact%>
+      <%customerphone%> 
+      <%customerfax%> 
+      <%email%> 
+      <%customertaxnumber%> 
+    </crm>
+
+<!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
        
-       <%statementdate%> 
+    <%statementdate%> 
        
 <!--
-             Invoice # 
-             Order # 
-             Invoice Date 
-             Due Date 
-             Amount 
+     Invoice # 
+     Order # 
+     Invoice Date 
+     Due Date 
+     Amount 
 -->
-             <%invnumber%> 
-             <%ordnumber%> 
-             <%invdate%> 
-             <%duedate%> 
-             <%due%> 
-          </data>
+    <%invnumber%> 
+    <%ordnumber%> 
+    <%invdate%> 
+    <%duedate%> 
 
-          <footer>
-       
-      <reminder-msg>
-        Our records indicate that payment for invoice # <%invnumber%> is past due. 
-        If the amount has already been paid, please disregard this notice. 
-        If you have not yet arranged for payment why not take this reminder to do so at this time.
-
-        Thank you in advance for your anticipated cooperation in this matter.
-      </reminder-msg>
-       
-    </footer>
-
+    <%due%> 
   </content>
-</body>
-</html>
+
+  <footer>
+    <reminder-msg>
+      Our records indicate that payment for invoice # <%invnumber%> is past due. 
+      If the amount has already been paid, please disregard this notice. 
+      If you have not yet arranged for payment why not take this reminder to do so at this time.
+
+      Thank you in advance for your anticipated cooperation in this matter.
+    </reminder-msg>
+  </footer>
+</sql-ledger-root>

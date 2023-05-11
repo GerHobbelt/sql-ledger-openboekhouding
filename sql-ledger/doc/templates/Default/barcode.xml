@@ -13,25 +13,21 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="BARCODES" >
-    <data>
-
 <%foreach number * ship%>
 <!-- 
 TODO: generate images for these barcodes? 
 
 Current decision: NO. This is left to the receiver to generate.
 -->
-      <barcode-item>
+    <barcode-item>
 <!-- \psbarcode{^104<%sku%><%sell%>} -->      
-        <code>
+      <code>
           104<%sku%><%sell%>
-        </code>
+      </code>
 
-	<%sku%>
-	<%sell%>
-      </barcode-item>
+      <%sku%>
+      <%sell%>
+    </barcode-item>
 <%end number * ship%>
-
-    </data>
   </content>
 </sql-ledger-root>

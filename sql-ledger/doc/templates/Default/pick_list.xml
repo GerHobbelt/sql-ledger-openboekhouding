@@ -14,60 +14,50 @@
 -->
   <content type="PICK-LIST" >
     <crm type="ship-to">
-            <%shiptoname%>
-            <%shiptoaddress1%> 
-            <%shiptoaddress2%> 
-            <%shiptocity%>
-            <%shiptostate%>
-            <%shiptozipcode%>
-            <%shiptocountry%> 
-            <%shiptocontact%> 
-            <%shiptophone%> 
-            <%shiptofax%> 
-            <%shiptoemail%>
-          </crm>
-       
-          <data>
-<!--	  
-             Invoice # 
-             Order # 
-             Date 
-             Contact 
-             Warehouse 
-             Shipping Point 
-             Ship via 
--->	     
-             <%invnumber%> 
-             <%ordnumber%> 
+      <%shiptoname%>
+      <%shiptoaddress1%> 
+      <%shiptoaddress2%> 
+      <%shiptocity%> 
+      <%shiptostate%>
+      <%shiptozipcode%>
+      <%shiptocountry%>
+      <%shiptocontact%> 
+      <%shiptophone%> 
+      <%shiptofax%> 
+      <%shiptoemail%> 
+    </crm>
 
-             <%shippingdate%> 
-             <%transdate%> 
+<!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
 
-             <%employee%> 
-             <%warehouse%> 
-             <%shippingpoint%> 
-             <%shipvia%> 
+<!--
+     Invoice # 
+     Order # 
+     Date 
+     Contact 
+     Warehouse 
+     Shipping Point 
+     Ship via 
+-->
+    <%invnumber%> 
+    <%ordnumber%> 
+    <%orddate%> 
+    <%shippingdate%> 
+    <%transdate%> 
+    <%employee%> 
+    <%warehouse%> 
+    <%shippingpoint%> 
+    <%shipvia%> 
 
-<!--	  
-             Item 
-             Number 
-             Description 
-             Qty 
-             Ship 
-             Bin 
--->	     
 <%foreach number%>
-          <pick-item>
-             <%runningnumber%> 
-             <%number%> 
-             <%description%> 
-             <%qty%> 
-             <%unit%> 
-             <%bin%> 
-          </pick-item>
+    <pick-item>
+      <%runningnumber%> 
+      <%number%> 
+      <%description%> 
+      <%serialnumber%> 
+      <%qty%> 
+      <%unit%> 
+      <%bin%> 
+    </pick-item>
 <%end number%>
-    </data>
-    
-  </table>
-</body>
-</html>
+  </content>
+</sql-ledger-root>

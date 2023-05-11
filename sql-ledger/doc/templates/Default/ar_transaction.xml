@@ -29,121 +29,113 @@
       <%customertaxnumber%> 
     </crm>
 
-      <!-- Invoice # -->
-      <%invnumber%>
+<!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
 
-      <%invdate%>
-      <%duedate%>
+    <!-- Invoice # -->
+    <%invnumber%>
 
-      <!-- PO # -->
-      <%ponumber%>
+    <%invdate%>
+    <%duedate%>
 
-      <!-- Order # -->
-      <%ordnumber%>
-      <%employee%>
+    <!-- PO # -->
+    <%ponumber%>
+
+    <!-- Order # -->
+    <%ordnumber%>
+
+    <%employee%>
+
+<%if taxincluded%>
+    <taxincluded value="true" />
+<%end taxincluded%>
 
 <%foreach account%>
-        <account-item>    
-          <%accno%>
-          <%account%>
-          <%amount%>
-          <%description%>
-          <%projectnumber%>
-        </account-item>    
+    <transaction-account-item>    
+      <%accno%>
+      <%account%>
+      <%amount%>
+      <%description%>
+      <%projectnumber%>
+    </transaction-account-item>    
 <%end account%>
 
 <%foreach tax%>
-        <tax-info-line>
-          <%taxdescription%>
+    <tax-registration-item>
+      <%taxnumber%>
+      <%taxdescription%>
+      <%taxbase%>
+    
+      <taxrate-percentage>
+        <%taxrate%>
+      </taxrate-percentage>
           
-          <tax-rate-percentage>
-            <%taxrate%>
-          <tax-rate-percentage>
-          
-          <%tax%>
-        </tax-info-line>
+      <%tax%> 
+    </tax-registration-item>
 <%end tax%>
 
-      <summary-totals>
+    <summary-totals>
 <%if not taxincluded%>
-        <sans-tax-subtotal>
-          <%subtotal%>
-        </sans-tax-subtotal>
+      <sans-tax-subtotal>
+        <%subtotal%>
+      </sans-tax-subtotal>
 <%end taxincluded%>
 
-        <total>
-          <%invtotal%>
-        </total>
+      <total>
+        <%invtotal%>
+      </total>
 
-        <%text_amount%>
+      <%text_amount%>
       
-        <currency-decimal-value>
-          <%decimal%>
-        </currency-decimal-value>
-      </summary-totals>
+      <currency-decimal-value>
+        <%decimal%>
+      </currency-decimal-value>
+    </summary-totals>
 
-        <currency-info>
-          <%currency%>
-        </currency-info>
+    <currency-info>
+      <%currency%>
+    </currency-info>
 
-      <%notes%>
+    <%notes%>
     
 <%foreach payment%>
-        <payment-item>
-          <%paymentdate%>
-          <%paymentaccount%>
-          <%paymentsource%>
-          <%paymentmemo%>
-          <%payment%>
-        </payment-item>
+    <payment-item>
+      <%paymentdate%>
+      <%paymentaccount%>
+      <%paymentsource%>
+      <%paymentmemo%>
+      <%payment%>
+    </payment-item>
 <%end payment%>
-
-<%foreach tax%>
-        <tax-registration-item>
-	  <%taxnumber%>
-	  <%taxdescription%>
-	  <%taxbase%>
-	  
-	  <taxrate-percentage>
-            <%taxrate%>
-	  </taxrate-percentage>
-          
-	  <%tax%> 
-        </tax-registration-item>
-<%end tax%>
   
 <%if cd_amount%>
-      <discount-terms>
-        <within-days>
-          <%discountterms%>
-        </within-days>
-	
-        <discount-percentage>
-          <%cashdiscount%>
-        </discount-percentage>
+    <discount-terms>
+      <within-days>
+        <%discountterms%>
+      </within-days>
+    
+      <discount-percentage>
+        <%cashdiscount%>
+      </discount-percentage>
 
-        <%cd_amount%>
-      </discount-terms>
+      <%cd_amount%>
+    </discount-terms>
 <%end cd_amount%>
-
-    </data>    
-
-    <footer>    
-<%if taxincluded%>
-      <tax-included-msg>
-        Taxes shown are included in price.
-      </tax-included-msg>
-<%end taxincluded%>
-  
-<%if cd_amount%>
-      <discount-terms-msg>
-        If payment is received within <%discountterms%> days a discount of <%cashdiscount%> % applies for a total of <%cd_amount%>.
-      </discount-terms-msg>
-<%end cd_amount%>
-
-    </footer>    
 
     <%dcn%>
 
   </content>
+
+  <footer>    
+<%if taxincluded%>
+    <tax-included-msg>
+      Taxes shown are included in price.
+    </tax-included-msg>
+<%end taxincluded%>
+
+<%if cd_amount%>
+    <discount-terms-msg>
+      If payment is received within <%discountterms%> days a discount of <%cashdiscount%> % applies for a total of <%cd_amount%>.
+    </discount-terms-msg>
+<%end cd_amount%>
+  </footer>    
 </sql-ledger-root>

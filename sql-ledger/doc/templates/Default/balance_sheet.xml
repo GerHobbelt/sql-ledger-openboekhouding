@@ -13,86 +13,83 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="BALANCE-SHEET" >
-    <data>
-      <%company%>
 
-      <%address%>
+<!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
 
 <%if method eq 'cash'%>
-      <cash-method value="true" />
+    <cash-method value="true" />
 <%end method eq 'cash'%>
 
-      <reporting-period>
-        <%this_period%> 
-      </reporting-period>
+    <reporting-period>
+      <%this_period%> 
+    </reporting-period>
 
-<%if department%>
-      <%department%>
-<%end department%>
+    <%department%>
 
-      <%this_period%>
-      <%previous_period%>
+    <%this_period%>
+    <%previous_period%>
 
-      <assets>    
+    <assets>    
 <%foreach asset_account%>
-        <asset-item>    
-          <%asset_account%> 
-          <%asset_this_period%> 
+      <asset-item>    
+        <%asset_account%> 
+        <%asset_this_period%> 
         
-          <%asset_previous_period%> 
-        </asset-item>    
+        <%asset_previous_period%> 
+      </asset-item>    
 <%end asset_account%>
 
-        <%total_asset_this_period%>
-        <%total_asset_previous_period%>
-      </assets>    
+      <%total_asset_this_period%>
+      <%total_asset_previous_period%>
+    </assets>    
       
-      <liabilities>
+    <liabilities>
 <%foreach liability_account%>
-        <liability-item>
-          <%liability_account%> 
-          <%liability_this_period%> 
+      <liability-item>
+        <%liability_account%> 
+        <%liability_this_period%> 
         
-          <%liability_previous_period%> 
-        </liability-item>
+        <%liability_previous_period%> 
+      </liability-item>
 <%end liability_account%>
        
-        <%total_liability_this_period%>
-        <%total_liability_previous_period%>
-      <liabilities>
+      <%total_liability_this_period%>
+      <%total_liability_previous_period%>
+    <liabilities>
          
-      <shareholders-equity>
+    <shareholders-equity>
 <%foreach equity_account%>
-        <equity-item>
-          <%equity_account%> 
-	  <%equity_this_period%> 
-	  <%equity_previous_period%> 
-        </equity-item>
+      <equity-item>
+        <%equity_account%> 
+        <%equity_this_period%> 
+        <%equity_previous_period%> 
+      </equity-item>
 <%end equity_account%>
        
-        <%total_equity_this_period%>
-        <%total_equity_previous_period%>
-      <shareholders-equity>
+      <%total_equity_this_period%>
+      <%total_equity_previous_period%>
+    <shareholders-equity>
 
-      <summary>
-        <!-- TOTAL LIABILITIES & EQUITY-->
-        <%total_this_period%>
-        <%total_previous_period%>
-      </summary>
+    <summary-totals>
+      <!-- TOTAL LIABILITIES & EQUITY-->
+      <%total_this_period%>
+      <%total_previous_period%>
+    </summary-totals>
+      
+    <currency-info>
+      <%currency%>
+    </currency-info>
 
-      <%currency%> 
-<% if currency ne 'CAD' %>
-      <%exchangerate%>
-<% end currency ne 'CAD' %>
-
-    </data>    
-
-    <footer>    
-      <currency-msg>
-        All amounts in <%currency%>.
-	
-	<%if currency ne 'CAD'%> converted at <%exchangerate%><%end currency ne 'CAD'%>.
-      </currency-msg>
-    </footer>    
+<%if currency ne 'CAD'%> 
+    <%exchangerate%>
+<%end currency ne 'CAD'%>
   </content>
+
+  <footer>
+    <currency-msg>
+      All amounts in <%currency%>.
+    
+      <%if currency ne 'CAD'%> converted at <%exchangerate%><%end currency ne 'CAD'%>.
+    </currency-msg>
+  </footer>
 </sql-ledger-root>

@@ -14,136 +14,143 @@
 -->
   <content type="VENDOR-INVOICE" >
     <crm type="sold-to">
-            <%name%>
-            <%address1%> 
-            <%address2%> 
-            <%city%> 
-            <%state%> 
-            <%zipcode%> 
-            <%country%> 
-            <%contact%>
-            <%vendorphone%> 
-            <%vendorfax%> 
-            <%email%> 
-            <%vendortaxnumber%> 
+      <%name%>
+      <%address1%> 
+      <%address2%> 
+      <%city%> 
+      <%state%> 
+      <%zipcode%> 
+      <%country%> 
+      <%contact%>
+      <%vendorphone%> 
+      <%vendorfax%> 
+      <%email%> 
+      <%vendortaxnumber%> 
     </crm>
-             
 
     <crm type="ship-to">
-             
-            <%shiptoname%>
-            <%shiptoaddress1%> 
-            <%shiptoaddress2%> 
-            <%shiptocity%> 
-            <%shiptostate%> 
-            <%shiptozipcode%> 
-            <%shiptocountry%> 
-            <%shiptocontact%>
-            <%shiptophone%> 
-            <%shiptofax%> 
-            <%shiptoemail%> 
-          </crm>
-       
-        <data>
-<!--
-             Invoice # 
-             Date 
-             Due 
-             Order # 
-             Employee 
-             Shipping Point 
-             Ship via 
+      <%shiptoname%>
+      <%shiptoaddress1%> 
+      <%shiptoaddress2%> 
+      <%shiptocity%> 
+      <%shiptostate%> 
+      <%shiptozipcode%> 
+      <%shiptocountry%> 
+      <%shiptocontact%>
+      <%shiptophone%> 
+      <%shiptofax%> 
+      <%shiptoemail%> 
+    </crm>
+
+<!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
+    
+<!--      
+     Invoice # 
+     Date 
+     Due 
+     Order # 
+     Employee 
+     Shipping Point 
+     Ship via 
 -->
-             <%invnumber%> 
-             <%invdate%> 
-             <%duedate%> 
-             <%ordnumber%> 
-             <%employee%> 
-             <%shippingpoint%> 
-             <%shipvia%> 
-       
+    <%invnumber%> 
+    <%invdate%> 
+    <%duedate%> 
+    <%ordnumber%> 
+    <%employee%> 
+    <%shippingpoint%> 
+    <%shipvia%> 
+
+<%if taxincluded%>
+    <taxincluded value="true" />
+<%end taxincluded%>
+
 <!--
-             Item 
-             Number 
-             Description 
-             Qt'y 
-             Unit Price 
-             Disc % 
-             Extended 
+     Item 
+     Number 
+     Description 
+     Qt'y 
+     Unit Price 
+     Disc % 
+     Extended 
 -->
 <%foreach number%>
-          <vendor-invoice-line-item>
-             <%runningnumber%> 
-             <%number%> 
-             <%description%> 
-             <%deliverydate%> 
-             <%qty%> 
-             <%unit%> 
-             <%sellprice%> 
-             <%discountrate%> 
-             <%linetotal%> 
+    <vendor-invoice-line-item>
+      <%runningnumber%> 
+      <%number%> 
+      <%description%> 
+      <%deliverydate%> 
+      <%qty%> 
+      <%unit%> 
+      <%sellprice%> 
+      <%discountrate%> 
+      <%linetotal%> 
               
-             <%notes%> 
-          </vendor-invoice-line-item>
+      <%notes%> 
+    </vendor-invoice-line-item>
 <%end number%>
 
-<%if taxincluded%>
-             <%invtotal%> 
-<%end taxincluded%>
-
-<%if not taxincluded%>
-             <%subtotal%> 
-<%end taxincluded%>
-
 <%foreach tax%>
-          <tr>
-             <!-- Registration No. -->
-	     <%taxnumber%>
-             <%taxdescription%> 
-	     <%taxbase%> 
-	     <%taxrate%> 
-             <%tax%> 
-          </tr>
+    <tax-registration-item>
+      <!-- Registration No. -->
+      <%taxnumber%>
+      <%taxdescription%>
+      <%taxbase%>
+    
+      <taxrate-percentage>
+        <%taxrate%>
+      </taxrate-percentage>
+          
+      <%tax%> 
+    </tax-registration-item>
 <%end tax%>
 
+    <summary-totals>
 <%if not taxincluded%>
-             <%invtotal%> 
+      <sans-tax-subtotal>
+        <%subtotal%>
+      </sans-tax-subtotal>
 <%end taxincluded%>
 
-             <%paid%> 
+      <total>
+        <%invtotal%>
+      </total>
 
-             <!-- Balance -->
-             <%total%> 
+      <%paid%> 
 
-       
-             <%text_amount%>
-	     <%decimal%>
-             
-            <%currency%>
-             
-             <%notes%> 
+      <balance-due>
+        <%total%> 
+      </balance-due>
 
-              <payments>
+      <%text_amount%>
+      
+      <currency-decimal-value>
+        <%decimal%>
+      </currency-decimal-value>
+    </summary-totals>
+
+    <currency-info>
+      <%currency%>
+    </currency-info>
+
+    <%notes%> 
+
 <%foreach payment%>
-                      <tr>
-                         <%paymentdate%> 
-                         <%paymentaccount%> 
-                         <%paymentsource%> 
-                         <%payment%> 
-                      </tr>
+    <payment-item>
+      <%paymentdate%>
+      <%paymentaccount%>
+      <%paymentsource%>
+      <%paymentmemo%> 
+      <%payment%>
+    </payment-item>
 <%end payment%>
-              </payments>
-       
-    </data>
+  </content>
 
-
+  <footer>    
 <%if taxincluded%>
-          <tr>
-             Taxes included in price
-          </tr>
+    <tax-included-msg>
+      Taxes shown are included in price.
+    </tax-included-msg>
 <%end taxincluded%>
-
-    
-  </table>
-</body>
-</html>
+  </footer>
+</sql-ledger-root>

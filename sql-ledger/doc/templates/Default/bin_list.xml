@@ -15,16 +15,17 @@
   <content type="BIN-LIST" >
     <crm type="from">
       <%name%>
-      <%address1%> 
-      <%address2%> 
+      <%address1%>
+      <%address2%>
       <%city%> 
       <%state%> 
       <%zipcode%> 
       <%country%> 
-      <%contact%> 
-      <%vendorphone%> 
-      <%vendorfax%> 
-      <%email%> 
+      <%contact%>
+      <%vendorphone%>
+      <%vendorfax%>
+      <%email%>
+      <%vendortaxnumber%>
     </crm>
              
     <crm type="ship-to">
@@ -38,30 +39,45 @@
       <%shiptocontact%> 
       <%shiptophone%> 
       <%shiptofax%> 
+      <%shiptoemail%> 
     </crm>
-             
-    <data>
-      <%ordnumber%> 
-      <%shippingdate%> 
-      <%orddate%> 
-      <%employee%> 
-      <%warehouse%> 
-      <%shippingpoint%> 
-      <%shipvia%> 
+
+<!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
+
+<!--
+     Invoice # 
+     Order # 
+     Date 
+     Contact 
+     Warehouse 
+     Shipping Point 
+     Ship via 
+-->
+    <%invnumber%> 
+    <%ordnumber%> 
+    <%orddate%> 
+    <%shippingdate%> 
+    <%transdate%> 
+    <%employee%> 
+    <%warehouse%> 
+    <%shippingpoint%> 
+    <%shipvia%> 
 
 <%foreach number%>
-      <bin-list-item>
-        <%runningnumber%> 
-        <%number%> 
-        <%description%> 
-        <%serialnumber%> 
-        <%deliverydate%> 
-        <%qty%> 
-        <%ship%> 
-        <%unit%> 
-        <%bin%> 
-      </bin-list-item>
+    <bin-list-item>
+      <%runningnumber%> 
+      <%number%> 
+      <%description%> 
+      <%serialnumber%> 
+      <%deliverydate%> 
+      <%qty%> 
+      <%ship%> 
+      <%unit%> 
+      <%bin%> 
+    </bin-list-item>
 <%end number%>
-    </data>
+
+    <%notes%> 
+
   </content>
 </sql-ledger-root>

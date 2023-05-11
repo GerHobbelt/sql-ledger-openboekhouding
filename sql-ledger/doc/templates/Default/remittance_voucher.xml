@@ -14,19 +14,16 @@
 -->
   <content type="REMITTANCE-VOUCHER" >
     <crm>
-	  <%name%>
-	  <%address1%>
-	  <%address2%>
-	  <%city%> 
-	  <%state%> 
-	  <%zipcode%>
-	  <%country%>
-  </crm>
+      <%name%>
+      <%address1%>
+      <%address2%>
+      <%city%> 
+      <%state%> 
+      <%zipcode%>
+      <%country%>
+    </crm>
 
-  <data>
-
-    <%currency%> 
-    <%total%>
+<!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
 
 <!-- IBAN: -->
     <%bankiban%> 
@@ -35,8 +32,10 @@
 <!-- Bank: -->
     <%bankname%>
 
-<!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
-  </data>
+    <%total%>
 
-</body>
-</html>
+    <currency-info>
+      <%currency%>
+    </currency-info>
+  </content>
+</sql-ledger-root>

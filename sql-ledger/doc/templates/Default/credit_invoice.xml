@@ -15,8 +15,8 @@
   <content type="CREDIT-INVOICE" >
     <crm>
       <%name%>
-      <%address1%> 
-      <%address2%> 
+      <%address1%>
+      <%address2%>
       <%city%> 
       <%state%> 
       <%zipcode%> 
@@ -24,113 +24,121 @@
       <%contact%>
       <%customerphone%> 
       <%customerfax%> 
-      <%email%> 
+      <%email%>
       <%customertaxnumber%> 
     </crm>
-    
-    <data>
+
+<!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
+
 <!--
-             Invoice # 
-             Invoice Date 
-             Due Date 
-             Order # 
-             PO # 
-             Salesperson 
-             Shipping Point 
-             Ship via 
+     Invoice # 
+     Invoice Date 
+     Due Date 
+     Order # 
+     PO # 
+     Salesperson 
+     Shipping Point 
+     Ship via 
 -->
-      <%invnumber%> 
-      <%invdate%> 
-      <%duedate%> 
-      <%ordnumber%> 
-      <%ponumber%> 
-      <%employee%> 
-      <%shippingpoint%> 
-      <%shipvia%> 
+    <%invnumber%> 
+
+    <%invdate%> 
+    <%duedate%> 
+
+    <!-- PO # -->
+    <%ponumber%>
+
+    <!-- Order # -->
+    <%ordnumber%>
+
+    <%employee%> 
+    <%shippingpoint%> 
+    <%shipvia%> 
 
 <%if taxincluded%>
-      <taxincluded value="true" />
+    <taxincluded value="true" />
 <%end taxincluded%>
 
 <!--
-             Item 
-             Number 
-             Description 
-             Qt'y 
-             Unit Price 
-             Disc % 
-             Extended 
+     Item 
+     Number 
+     Description 
+     Qt'y 
+     Unit Price 
+     Disc % 
+     Extended 
 -->
 <%foreach number%>
-        <credit-item>
-          <%runningnumber%>
-          <%number%> 
-          <%description%> 
-          <%deliverydate%> 
-          <%qty%> 
-          <%unit%> 
-          <%sellprice%> 
-          <%discountrate%> 
-          <%linetotal%> 
+    <credit-item>
+      <%runningnumber%>
+      <%number%> 
+      <%description%> 
+      <%deliverydate%> 
+      <%qty%> 
+      <%unit%> 
+      <%sellprice%> 
+      <%discountrate%> 
+      <%linetotal%> 
               
-          <%notes%> 
-        </credit-item>
+      <%notes%> 
+    </credit-item>
 <%end number%>
 
-      <summary-totals>
+<%foreach tax%>
+    <tax-registration-item>
+      <!-- Registration No. -->
+      <%taxnumber%>
+      <%taxdescription%>
+      <%taxbase%>
+    
+      <taxrate-percentage>
+        <%taxrate%>
+      </taxrate-percentage>
+          
+      <%tax%> 
+    </tax-registration-item>
+<%end tax%>
+
+    <summary-totals>
 <%if not taxincluded%>
-        <sans-tax-subtotal>
-          <%subtotal%>
-        </sans-tax-subtotal>
+      <sans-tax-subtotal>
+        <%subtotal%>
+      </sans-tax-subtotal>
 <%end taxincluded%>
 
-        <total>
-          <%invtotal%>
-        </total>
+      <total>
+        <%invtotal%>
+      </total>
 
-        <%text_amount%>
+      <%text_amount%>
       
-        <currency-decimal-value>
-          <%decimal%>
-        </currency-decimal-value>
-      </summary-totals>
+      <currency-decimal-value>
+        <%decimal%>
+      </currency-decimal-value>
+    </summary-totals>
 
-      <currency-info>
-        <%currency%>
-      </currency-info>
+    <currency-info>
+      <%currency%>
+    </currency-info>
 
-      <%notes%> 
+    <%notes%> 
 
 <%foreach payment%>
-        <refund-item>
-          <%paymentdate%> 
-          <%paymentaccount%> 
-          <%paymentsource%> 
-          <%payment%> 
-        </refund-item>
+    <refund-item>
+      <%paymentdate%> 
+      <%paymentaccount%> 
+      <%paymentsource%> 
+      <%paymentmemo%>
+      <%payment%> 
+    </refund-item>
 <%end payment%>
-
-<%foreach tax%>
-        <tax-registration-item>
-	  <%taxnumber%>
-	  <%taxdescription%>
-	  <%taxbase%>
-	  
-	  <taxrate-percentage>
-            <%taxrate%>
-	  </taxrate-percentage>
-          
-	  <%tax%> 
-        </tax-registration-item>
-<%end tax%>
-    </data>
-
-    <footer>    
-<%if taxincluded%>
-      <tax-included-msg>
-        Taxes shown are included in price.
-      </tax-included-msg>
-<%end taxincluded%>
-    </footer>    
   </content>
+
+  <footer>    
+<%if taxincluded%>
+    <tax-included-msg>
+      Taxes shown are included in price.
+    </tax-included-msg>
+<%end taxincluded%>
+  </footer>
 </sql-ledger-root>

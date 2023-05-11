@@ -25,8 +25,9 @@
       <%customerphone%> 
       <%customerfax%> 
       <%email%> 
+      <%customertaxnumber%> 
     </crm>
-    
+
     <crm type="ship-to">
       <%shiptoname%>
       <%shiptoaddress1%> 
@@ -40,126 +41,135 @@
       <%shiptofax%> 
       <%shiptoemail%> 
     </crm>
+
+<!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
        
-    <data>
-      <%company%>
-
 <!--    
-             Invoice # 
-             Date 
-             Due 
-             Order # 
-             Salesperson 
-             Shipping Point 
-             Ship via 
--->	     
-      <%invnumber%> 
-      <%invdate%> 
-      <%duedate%> 
-      <%ordnumber%> 
-      <%employee%> 
-      <%shippingpoint%> 
-      <%shipvia%> 
+     Invoice # 
+     Date 
+     Due 
+     Order # 
+     Salesperson 
+     Shipping Point 
+     Ship via 
+-->         
+    <%invnumber%> 
 
-<!--    
-             Item 
-             Number 
-             Description 
-             Qt'y 
-             Unit Price 
-             Disc % 
-             Extended 
+    <%invdate%> 
+    <%duedate%> 
+
+    <!-- PO # -->
+    <%ponumber%>
+
+    <!-- Order # -->
+    <%ordnumber%>
+
+    <%employee%> 
+    <%shippingpoint%> 
+    <%shipvia%> 
+
+<%if taxincluded%>
+    <taxincluded value="true" />
+<%end taxincluded%>
+
+<!--
+     Item 
+     Number 
+     Description 
+     Qt'y 
+     Unit Price 
+     Disc % 
+     Extended 
 -->
 <%foreach number%>
-      <invoice-line-item>
-        <%runningnumber%>
-	<%number%> 
-        <%description%> 
-        <%deliverydate%> 
-        <%qty%> 
-        <%unit%> 
-        <%sellprice%> 
-        <%discountrate%> 
-        <%linetotal%> 
-      </invoice-line-item>
+    <invoice-line-item>
+      <%runningnumber%>
+      <%number%> 
+      <%description%> 
+      <%deliverydate%> 
+      <%qty%> 
+      <%unit%> 
+      <%sellprice%> 
+      <%discountrate%> 
+      <%linetotal%> 
+              
+      <%notes%> 
+    </invoice-line-item>
 <%end number%>
 
-<%if taxincluded%>
-      <%invtotal%> 
-<%end taxincluded%>
-
-<%if not taxincluded%>
-      <%subtotal%> 
-<%end taxincluded%>
-
 <%foreach tax%>
-          <tr>
-             <%taxdescription%> 
-	     <%taxbase%> 
-	     <%taxrate%>
-             <%tax%> 
-          </tr>
-<%end tax%>
-
-          <%paid%> 
-
-<!-- Balance Due -->
-             <%total%> 
-
-             <%notes%> 
-
-
-             <%text_amount%>
-	     <%decimal%>
-	     
-             <%currency%>
-       
-<!--    
-             Date 
-             Account 
-             Source 
-             Amount 
--->
-<%foreach payment%>
-          <payment-item>
-             <%paymentdate%> 
-             <%paymentaccount%> 
-             <%paymentsource%> 
-             <%payment%> 
-          </payment-item>
-<%end payment%>
-               
-             
-
-<%foreach tax%>
-    <tax>
-      <%taxdescription%> 
+    <tax-registration-item>
+      <!-- Registration No. -->
       <%taxnumber%>
-    </tr>
+      <%taxdescription%>
+      <%taxbase%>
+    
+      <taxrate-percentage>
+        <%taxrate%>
+      </taxrate-percentage>
+          
+      <%tax%> 
+    </tax-registration-item>
 <%end tax%>
 
-
-<%if taxincluded%>
-    <tr>
-      Taxes shown are included in price.
-    </tr>
+    <summary-totals>
+<%if not taxincluded%>
+      <sans-tax-subtotal>
+        <%subtotal%>
+      </sans-tax-subtotal>
 <%end taxincluded%>
 
+      <total>
+        <%invtotal%>
+      </total>
 
-    <tr>
-       Thank you for your valued business! 
-    </tr>
+      <%paid%> 
 
-        <payment-conditions-msg>
-                Payment due by <%duedate%>. 
-                Items returned are subject to a 10% restocking charge. 
-                A return authorization must be obtained from <%company%> before goods are returned. 
-                Returns must be shipped prepaid and properly insured. 
-                <%company%> will not be responsible for damages during transit.
-        </payment-conditions-msg>
-               
+      <balance-due>
+        <%total%> 
+      </balance-due>
 
+      <%text_amount%>
+      
+      <currency-decimal-value>
+        <%decimal%>
+      </currency-decimal-value>
+    </summary-totals>
 
-  </table>
-</body>
-</html>
+    <currency-info>
+      <%currency%>
+    </currency-info>
+
+    <%notes%> 
+
+<%foreach payment%>
+    <payment-item>
+      <%paymentdate%>
+      <%paymentaccount%>
+      <%paymentsource%>
+      <%paymentmemo%> 
+      <%payment%>
+    </payment-item>
+<%end payment%>
+  </content>
+
+  <footer>
+<%if taxincluded%>
+    <tax-included-msg>
+      Taxes shown are included in price.
+    </tax-included-msg>
+<%end taxincluded%>
+
+    <buyer-appreciation-msg>
+      Thank you for your valued business! 
+    </buyer-appreciation-msg>
+
+    <payment-conditions-msg>
+      Payment due by <%duedate%>. 
+      Items returned are subject to a 10% restocking charge. 
+      A return authorization must be obtained from <%company%> before goods are returned. 
+      Returns must be shipped prepaid and properly insured. 
+      <%company%> will not be responsible for damages during transit.
+    </payment-conditions-msg>
+  </footer>
+</sql-ledger-root>

@@ -13,42 +13,36 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="TIME-CARD" >
-    <crm type="from">
 
+<!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
 
+    <%employee%> 
+    <%employee_id%> 
 
+    <!-- Card ID -->
+    <%id%> 
 
-              <data>
-                   <%employee%> 
-                   <%employee_id%> 
+    <%transdate%> 
 
-<!-- Card ID -->
-                   <%id%> 
+    <%checkedin%> 
+    <%checkedout%> 
 
-                   <%transdate%> 
-
-                   <%checkedin%> 
-                   <%checkedout%> 
-
-<!-- Hours -->
-                   <%qty%> 
+    <!-- Hours -->
+    <%qty%> 
        
-                   <%projectnumber%> 
-                   <%projectdescription%> 
+    <%projectnumber%> 
+    <%projectdescription%> 
 
-<!-- Labor/Service Code -->
-                   <%partnumber%> 
+    <!-- Labor/Service Code -->
+    <%partnumber%> 
 
-                   <%description%> 
+    <%description%> 
 
-<!-- Rate -->
-                   <%sellprice%> 
+    <!-- Rate -->
+    <%sellprice%> 
 
-                   <%total%> 
+    <%total%> 
 
-       <%notes%> 
-    </data>
-
-  </table>
-</body>
-</html>
+    <%notes%> 
+  </content>
+</sql-ledger-root>

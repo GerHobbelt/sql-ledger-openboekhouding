@@ -13,63 +13,69 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="PAYSLIP" >
-      <crm>
-        <%name%>
-        <%address1%>
-        <%address2%>
-        <%city%>
-        <%state%>
-        <%zipcode%>
-        <%country%>
-      </crm>
-       
-      <data>
-        <%company%>
+    <crm>
+      <%name%>
+      <%address1%>
+      <%address2%>
+      <%city%>
+      <%state%>
+      <%zipcode%>
+      <%country%>
+    </crm>
 
-      <%text_amount%>
-        <%decimal%>
+<!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
        
-        <%datepaid%>
+    <%source%>
        
-            <%source%>
+    <%text_amount%>
 
-        <%memo%>
+    <currency-decimal-value>
+      <%decimal%>
+    </currency-decimal-value>
 
+    <%datepaid%> 
+
+<!--
+% different date format for datepaid
+% <%DD%><%MM%><%YYYY%>
+-->
+    
+    <%amount%>
+
+    <%memo%>
+    
 <!-- For Pay Period: -->
-	 <%dateto%>
+    <%dateto%>
 
-          <%regularpay%>
-         <%overtimepay%>
-         <%travelpay%>
-         <%holidaypay%>
+    <%regularpay%>
+    <%overtimepay%>
+    <%travelpay%>
+    <%holidaypay%>
        
-         <%gross%>
+    <%gross%>
        
 <%foreach deduction%>
     <deduction-item>
-        <%deduction%>
-        <%amount%>
+      <%deduction%>
+      <%amount%>
     </deduction-item>
 <%end deduction%>
 
-        <%withheld%>
+    <%withheld%>
        
-         <%benefits%>
+    <%benefits%>
        
-         <%net%>
+    <%net%>
        
-        <%regular%>
-        <%regularrate%>
+    <%regular%>
+    <%regularrate%>
        
-        <%overtime%>
-        <%overtimerate%>
+    <%overtime%>
+    <%overtimerate%>
        
-        <%travel%>
-        <%travelrate%>
+    <%travel%>
+    <%travelrate%>
        
-        <%holiday%>
-    </data>
-
-  </table>
-</body>
-</html>
+    <%holiday%>
+  </content>
+</sql-ledger-root>

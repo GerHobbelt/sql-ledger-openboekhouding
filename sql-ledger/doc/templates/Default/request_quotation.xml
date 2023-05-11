@@ -14,71 +14,72 @@
 -->
   <content type="REQUEST-FOR-QUOTATION" >
     <crm type="to">
-
-            <%name%>
-            <%address1%> 
-            <%address2%> 
-            <%city%> 
-            <%state%> 
-            <%zipcode%> 
-            <%country%> 
-            <%contact%> 
-            <%vendorphone%> 
-            <%vendorfax%> 
+      <%name%>
+      <%address1%> 
+      <%address2%> 
+      <%city%> 
+      <%state%> 
+      <%zipcode%> 
+      <%country%> 
+      <%contact%>
+      <%vendorphone%> 
+      <%vendorfax%> 
+      <%email%> 
+      <%vendortaxnumber%> 
     </crm>
-             
 
     <crm type="ship-to">
-             
-            <%shiptoname%>
-            <%shiptoaddress1%> 
-            <%shiptoaddress2%> 
-            <%shiptocity%> 
-            <%shiptostate%> 
-            <%shiptozipcode%> 
-            <%shiptocountry%> 
-            <%shiptocontact%> 
-            <%shiptophone%> 
-            <%shiptofax%> 
-             
-          </crm>
+      <%shiptoname%>
+      <%shiptoaddress1%> 
+      <%shiptoaddress2%> 
+      <%shiptocity%> 
+      <%shiptostate%> 
+      <%shiptozipcode%> 
+      <%shiptocountry%> 
+      <%shiptocontact%>
+      <%shiptophone%> 
+      <%shiptofax%> 
+      <%shiptoemail%> 
+    </crm>
 
-        <data>
-<!--	
-             RFQ # 
-             Date 
-             Required by 
-             Contact 
-             Shipping Point 
-             Ship via 
--->	     
-             <%quonumber%> 
-             <%quodate%> 
-             <%reqdate%> 
-             <%employee%> 
-             <%shippingpoint%> 
-             <%shipvia%> 
+<!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
+    
+<!--    
+     RFQ # 
+     Date 
+     Required by 
+     Contact 
+     Shipping Point 
+     Ship via 
+-->         
+    <%quonumber%> 
+    <%quodate%> 
+    <%reqdate%> 
+    <%employee%> 
+    <%shippingpoint%> 
+    <%shipvia%> 
 
 <!--
-             Item 
-             Number 
-             Description 
-             Qt'y 
-             Delivery 
-             Unit Price 
-             Extended 
+     Item 
+     Number 
+     Description 
+     Qt'y 
+     Delivery 
+     Unit Price 
+     Extended 
 -->
 <%foreach number%>
-          <request-quotation-item>
-             <%runningnumber%>
-             <%number%> 
-             <%description%> 
-             <%qty%> 
-             <%unit%> 
-          </request-quotation-item>
+    <request-quotation-item>
+      <%runningnumber%>
+      <%number%> 
+      <%description%> 
+      <%qty%> 
+      <%unit%> 
+              
+      <%notes%> 
+    </request-quotation-item>
 <%end number%>
 
-             <%notes%> 
-    </data>
+    <%notes%> 
   </content>
-</html>
+</sql-ledger-root>

@@ -14,73 +14,72 @@
 -->
   <content type="WORK-ORDER" >
     <crm type="to">
-            <%name%>
-            <%address1%> 
-            <%address2%> 
-            <%city%> 
-            <%state%> 
-            <%zipcode%> 
-            <%country%> 
-            <%contact%> 
-            <%customerphone%> 
-            <%customerfax%> 
-            <%email%> 
+      <%name%>
+      <%address1%>
+      <%address2%>
+      <%city%> 
+      <%state%> 
+      <%zipcode%> 
+      <%country%> 
+      <%contact%>
+      <%customerphone%> 
+      <%customerfax%> 
+      <%email%>
+      <%customertaxnumber%> 
     </crm>
 
     <crm type="ship-to">
-            <%shiptoname%>
-            <%shiptoaddress1%> 
-            <%shiptoaddress2%> 
-            <%shiptocity%> 
-            <%shiptostate%> 
-            <%shiptozipcode%> 
-            <%shiptocountry%> 
-            <%shiptocontact%>
-            <%shiptophone%> 
-            <%shiptofax%> 
-            <%shiptoemail%> 
-          </crm>
+      <%shiptoname%>
+      <%shiptoaddress1%> 
+      <%shiptoaddress2%> 
+      <%shiptocity%> 
+      <%shiptostate%> 
+      <%shiptozipcode%> 
+      <%shiptocountry%> 
+      <%shiptocontact%>
+      <%shiptophone%> 
+      <%shiptofax%> 
+      <%shiptoemail%> 
+    </crm>
 
-          <data>
-<!--	  
-             Order # 
-             Order Date 
-             Required by 
-             Salesperson 
-             Shipping Point 
-             Ship Via 
+<!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
+       
+<!--    
+     Order # 
+     Order Date 
+     Required by 
+     Salesperson 
+     Shipping Point 
+     Ship Via 
 -->
-             <%ordnumber%> 
-             <%orddate%> 
-             <%reqdate%> 
-             <%employee%> 
-             <%shippingpoint%> 
-             <%shipvia%> 
+    <%ordnumber%> 
+    <%orddate%> 
+    <%reqdate%> 
+    <%employee%> 
+    <%shippingpoint%> 
+    <%shipvia%> 
 
 <!--
-             Item 
-             Number 
-             Description 
-             Qt'y 
-             Bin 
-             Serial # 
+     Item 
+     Number 
+     Description 
+     Qt'y 
+     Bin 
+     Serial # 
 -->
 <%foreach number%>
-          <work-item>
-             <%runningnumber%>
-             <%number%> 
-             <%description%> 
-             <%qty%> 
-             <%unit%> 
-             <%bin%> 
-             <%serialnumber%> 
-          </work-item>
+    <work-item>
+      <%runningnumber%>
+      <%number%> 
+      <%description%> 
+      <%qty%> 
+      <%unit%> 
+      <%bin%> 
+      <%serialnumber%> 
+    </work-item>
 <%end number%>
 
-       <%notes%> 
+    <%notes%> 
 
-    </data>
-    
-  </table>
-</body>
-</html>
+  </content>
+</sql-ledger-root>

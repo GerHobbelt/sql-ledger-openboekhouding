@@ -14,115 +14,120 @@
 -->
   <content type="PURCHASE-ORDER" >
     <crm type="to">
-            <%name%>
-            <%address1%> 
-            <%address2%> 
-            <%city%> 
-            <%state%> 
-            <%zipcode%> 
-            <%country%> 
-            <%contact%> 
-            <%vendorphone%> 
-            <%vendorfax%> 
+      <%name%>
+      <%address1%> 
+      <%address2%> 
+      <%city%> 
+      <%state%> 
+      <%zipcode%> 
+      <%country%> 
+      <%contact%>
+      <%vendorphone%> 
+      <%vendorfax%> 
+      <%email%> 
+      <%vendortaxnumber%> 
     </crm>
 
     <crm type="ship-to">
-            <%shiptoname%>
-            <%shiptoaddress1%> 
-            <%shiptoaddress2%> 
-            <%shiptocity%> 
-            <%shiptostate%> 
-            <%shiptozipcode%> 
-            <%shiptocountry%> 
-            <%shiptocontact%>
-            <%shiptophone%> 
-            <%shiptofax%> 
-          </crm>
+      <%shiptoname%>
+      <%shiptoaddress1%> 
+      <%shiptoaddress2%> 
+      <%shiptocity%> 
+      <%shiptostate%> 
+      <%shiptozipcode%> 
+      <%shiptocountry%> 
+      <%shiptocontact%>
+      <%shiptophone%> 
+      <%shiptofax%> 
+      <%shiptoemail%> 
+    </crm>
 
-          <data>
-<!--	  
-             Order # 
-             Order Date 
-             Required by 
-             Contact 
-             Shipping Point 
-             Ship Via 
--->	     
-             <%ordnumber%> 
-             <%orddate%> 
-             <%reqdate%> 
-             <%employee%> 
-             <%shippingpoint%> 
-             <%shipvia%> 
+<!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
+    
+<!--      
+     Order # 
+     Order Date 
+     Required by 
+     Contact 
+     Shipping Point 
+     Ship Via 
+-->         
+    <%ordnumber%> 
+    <%orddate%> 
+    <%reqdate%> 
+    <%employee%> 
+    <%shippingpoint%> 
+    <%shipvia%> 
 
-<!--	  
-             Item 
-             Number 
-             Description 
-             Qt'y 
-             Price 
-             % 
-             Amount 
+<!--      
+     Item 
+     Number 
+     Description 
+     Qt'y 
+     Price 
+     % 
+     Amount 
 -->
-
 <%foreach number%>
-          <purchase-order-item>
-             <%runningnumber%>
-             <%number%> 
-             <%description%> 
-             <%qty%> 
-             <%unit%> 
-             <%sellprice%> 
-             <%discountrate%> 
-             <%linetotal%> 
-          </purchase-order-item>
+    <purchase-order-item>
+      <%runningnumber%>
+      <%number%> 
+      <%description%> 
+      <%qty%> 
+      <%unit%> 
+      <%sellprice%> 
+      <%discountrate%> 
+      <%linetotal%> 
+              
+      <%notes%> 
+    </purchase-order-item>
 <%end number%>
 
-<%if taxincluded%>
-             <%ordtotal%> 
-<%end taxincluded%>
-
-<%if not taxincluded%>
-             <%subtotal%> 
-<%end taxincluded%>
-
-
 <%foreach tax%>
-          <tr>
-             <%taxdescription%> 
-	     <%taxbase%>
-	     <%taxrate%> 
-             <%tax%> 
-          </tr>
+    <tax-registration-item>
+      <!-- Registration No. -->
+      <%taxnumber%>
+      <%taxdescription%>
+      <%taxbase%>
+    
+      <taxrate-percentage>
+        <%taxrate%>
+      </taxrate-percentage>
+          
+      <%tax%> 
+    </tax-registration-item>
 <%end tax%>
 
+    <summary-totals>
 <%if not taxincluded%>
-             <%ordtotal%> 
+      <sans-tax-subtotal>
+        <%subtotal%>
+      </sans-tax-subtotal>
 <%end taxincluded%>
 
-             <%terms%>
+      <%ordtotal%> 
+    </summary-totals>
 
-             <%currency%>
+    <currency-info>
+      <%currency%>
+    </currency-info>
 
+    <%terms%>
 
-             <%notes%> 
+    <%notes%> 
+  </content>
 
-       
-    </data>
-
+  <footer>    
 <%if taxincluded%>
-          <tr>
-             Tax included 
-          </tr>
+    <tax-included-msg>
+      Taxes shown are included in price.
+    </tax-included-msg>
 <%end taxincluded%>
 
 <%if ordtotal%>
-          <tr>
-             All prices in <b><%currency%></b> Funds 
-          </tr>
+    <currency-msg>
+      All amounts in <%currency%>.
+    </currency-msg>
 <%end ordtotal%>
-
-    
-  </table>
-</body>
-</html>
+  </footer>
+</sql-ledger-root>

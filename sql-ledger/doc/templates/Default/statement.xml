@@ -13,62 +13,63 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="STATEMENT" >
-    <crm type="from">
-       
-            <%name%>
-            <%address1%> 
-            <%address2%> 
-            <%city%> 
-            <%state%> 
-            <%zipcode%> 
-            <%country%> 
-            <%customerphone%> 
-            <%customerfax%> 
-            <%email%> 
-             
-          </crm>
-        
-    <data>
-    
-       <%statementdate%> 
+    <!-- when CONTENT has only a single CRM record, it is type-attribute-less and the addressee, implicitly -->
+    <crm>
+      <%name%>
+      <%address1%>
+      <%address2%>
+      <%city%> 
+      <%state%> 
+      <%zipcode%> 
+      <%country%> 
+      <%contact%>
+      <%customerphone%> 
+      <%customerfax%> 
+      <%email%>
+      <%customertaxnumber%> 
+    </crm>
+
+<!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
+
+    <%statementdate%> 
 
 <!--
-             Invoice # 
-             Order# 
-             Date 
-             Due 
-             Current 
-             30 
-             60 
-             90 
+     Invoice # 
+     Order# 
+     Date 
+     Due 
+     Current 
+     30 
+     60 
+     90 
 -->
 <%foreach invnumber%>
-          <statement-item>
-             <%invnumber%> 
-             <%ordnumber%> 
-             <%invdate%> 
-             <%duedate%> 
-             <%c0%> 
-             <%c30%> 
-             <%c60%> 
-             <%c90%> 
-          </statement-item>
+    <statement-item>
+      <%invnumber%> 
+      <%ordnumber%> 
+      <%invdate%> 
+      <%duedate%> 
+      <%c0%> 
+      <%c30%> 
+      <%c60%> 
+      <%c90%> 
+    </statement-item>
 <%end invnumber%>
 
-             <%c0total%> 
-             <%c30total%> 
-             <%c60total%> 
-             <%c90total%> 
+    <summary-totals>
+      <%c0total%> 
+      <%c30total%> 
+      <%c60total%> 
+      <%c90total%> 
 
+      <%total%> 
+    </summary-totals>
 
-             <%total%> 
-
+    <currency-info>
       <%currency%>
-       
-      <%company%>
-       
-    </data>
+    </currency-info>
+
+    <%notes%>
     
-  </table>
-</body>
-</html>
+  </content>
+</sql-ledger-root>

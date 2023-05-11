@@ -13,60 +13,44 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="RECEIPT" >
-    <crm type="from">
-        <%name%>
-        <%address1%>
-        <%address2%>
-        <%city%>
-        <%state%>
-        <%zipcode%>
-        <%country%>
+    <crm>
+      <%name%>
+      <%address1%>
+      <%address2%>
+      <%city%>
+      <%state%>
+      <%zipcode%>
+      <%country%>
     </crm>
 
+<!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
 
-    <data>
+    <%source%>
        
-        <%source%>
-       
-        <%text_amount%>
-       
-        <%decimal%>
-       
-          <%datepaid%>
-       
-        <%amount%>
+    <%text_amount%>
+
+    <currency-decimal-value>
+      <%decimal%>
+    </currency-decimal-value>
+
+    <%datepaid%> 
 
 <!--
 % different date format for datepaid
 % <%DD%><%MM%><%YYYY%>
 -->
+    
+    <%amount%>
 
-        <%memo%>
+    <%memo%>
        
-        <%company%>
-       
-        <%name%>
-       
-        <%datepaid%>
-       
-<!--       
-        Invoice No.
-        Invoice Date
-        Due
-        Applied
--->
-
 <%foreach invnumber%>
     <receipt-item>
-        <%invnumber%>
-        <%invdate%>
-        <%due%>
-        <%paid%>
+      <%invnumber%> 
+      <%invdate%>
+      <%due%> 
+      <%paid%>
     </receipt-item>
 <%end invnumber%>
-       
-    </data>
-    
-  </table>
-</body>
-</html>
+  </content>
+</sql-ledger-root>

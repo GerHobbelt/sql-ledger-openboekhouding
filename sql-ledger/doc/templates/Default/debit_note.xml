@@ -13,7 +13,7 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="DEBIT-NOTE" >
-    <crm type="from">
+    <crm>
       <%name%>
       <%address1%> 
       <%address2%> 
@@ -27,78 +27,87 @@
       <%email%> 
       <%vendortaxnumber%> 
     </crm>
+
+<!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
              
-    <data>
-<!-- Invoice # -->
-      <%invnumber%> 
-      <%invdate%> 
-      <%duedate%>
-      <%ponumber%> 
-      <%ordnumber%> 
-      <%employee%> 
+    <!-- Invoice # -->
+    <%invnumber%> 
+
+    <%invdate%> 
+    <%duedate%> 
+
+    <!-- PO # -->
+    <%ponumber%>
+
+    <!-- Order # -->
+    <%ordnumber%>
+
+    <%employee%> 
 
 <%foreach account%>
-        <account-item>    
-          <%accno%>
-          <%account%>
-          <%amount%>
-          <%description%>
-          <%projectnumber%>
-        </account-item>    
+    <account-item>    
+      <%accno%>
+      <%account%>
+      <%amount%>
+      <%description%>
+      <%projectnumber%>
+    </account-item>    
 <%end account%>
 
 <%foreach tax%>
-        <tax-info-line>
-          <%taxdescription%>
+    <tax-registration-item>
+      <%taxnumber%>
+      <%taxdescription%>
+      <%taxbase%>
+    
+      <taxrate-percentage>
+        <%taxrate%>
+      </taxrate-percentage>
           
-          <tax-rate-percentage>
-            <%taxrate%>
-          <tax-rate-percentage>
-          
-          <%tax%>
-        </tax-info-line>
+      <%tax%> 
+    </tax-registration-item>
 <%end tax%>
 
-      <summary-totals>
+    <summary-totals>
 <%if not taxincluded%>
-        <sans-tax-subtotal>
-          <%subtotal%>
-        </sans-tax-subtotal>
+      <sans-tax-subtotal>
+        <%subtotal%>
+      </sans-tax-subtotal>
 <%end taxincluded%>
 
-        <total>
-          <%invtotal%>
-        </total>
+      <total>
+        <%invtotal%>
+      </total>
 
-        <%text_amount%>
+      <%text_amount%>
       
-        <currency-decimal-value>
-          <%decimal%>
-        </currency-decimal-value>
-        <currency-info>
-          <%currency%>
-        </currency-info>
-      </summary-totals>
+      <currency-decimal-value>
+        <%decimal%>
+      </currency-decimal-value>
+    </summary-totals>
+      
+    <currency-info>
+      <%currency%>
+    </currency-info>
 
-      <%notes%>
+    <%notes%>
     
 <%foreach payment%>
-        <payment-item>
-          <%paymentdate%>
-          <%paymentaccount%>
-          <%paymentsource%>
-	  <%paymentmemo%> 
-          <%payment%>
-        </payment-item>
+    <payment-item>
+      <%paymentdate%>
+      <%paymentaccount%>
+      <%paymentsource%>
+      <%paymentmemo%> 
+      <%payment%>
+    </payment-item>
 <%end payment%>
-    </data>
-
-    <footer>    
-<%if taxincluded%>
-      <tax-included-msg>
-        Taxes shown are included in price.
-      </tax-included-msg>
-<%end taxincluded%>
-    </footer>    
   </content>
+
+  <footer>    
+<%if taxincluded%>
+    <tax-included-msg>
+      Taxes shown are included in price.
+    </tax-included-msg>
+<%end taxincluded%>
+  </footer>    
 </sql-ledger-root>

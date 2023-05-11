@@ -13,7 +13,7 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="PACKING-LIST" >
-    <crm type="ship to">
+    <crm type="ship-to">
       <%shiptoname%>
       <%shiptoaddress1%> 
       <%shiptoaddress2%> 
@@ -26,58 +26,60 @@
       <%shiptofax%> 
       <%shiptoemail%> 
     </crm>
+
+<!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
     
-    <data>
 <!--
-             Invoice # 
-             Order # 
-             Date 
-             Contact 
-             Warehouse 
-             Shipping Point 
-             Ship via 
+     Invoice # 
+     Order # 
+     Date 
+     Contact 
+     Warehouse 
+     Shipping Point 
+     Ship via 
 -->
-             <%invnumber%> 
-             <%ordnumber%> 
-             <%shippingdate%> 
-             <%transdate%> 
-             <%employee%> 
-             <%warehouse%> 
-             <%shippingpoint%> 
-             <%shipvia%> 
+    <%invnumber%> 
+    <%ordnumber%> 
+    <%orddate%> 
+    <%shippingdate%> 
+    <%transdate%> 
+    <%employee%> 
+    <%warehouse%> 
+    <%shippingpoint%> 
+    <%shipvia%> 
 
 <!--    
-             Item 
-             Number 
-             Description 
-             Serial # 
-             Qty 
-             Ship 
+     Item 
+     Number 
+     Description 
+     Serial # 
+     Qty 
+     Ship 
 -->
 <%foreach number%>
-          <packing-list-item>
-             <%runningnumber%> 
-             <%number%> 
-             <%description%> 
-             <%serialnumber%> 
-             <%deliverydate%> 
-             <%qty%> 
-             <%ship%> 
-             <%unit%> 
-          </packing-list-item>
+    <packing-list-item>
+      <%runningnumber%> 
+      <%number%> 
+      <%description%> 
+      <%serialnumber%> 
+      <%deliverydate%> 
+      <%qty%> 
+      <%ship%> 
+      <%unit%> 
+    </packing-list-item>
 <%end number%>
 
-             <%notes%> 
+    <%notes%> 
 
-    </data>
+  </content>
 
-          <payment-conditions-msg>
-            Items returned are subject to a 10% restocking charge. 
-            A return authorization must be obtained from <%company%> before goods are returned. 
-            Returns must be shipped prepaid and properly insured. 
-            <%company%> will not be responsible for damages during transit.
-          </payment-conditions-msg>
-       
-  </table>
-</body>
-</html>
+  <footer>
+    <payment-conditions-msg>
+      Payment due by <%duedate%>. 
+      Items returned are subject to a 10% restocking charge. 
+      A return authorization must be obtained from <%company%> before goods are returned. 
+      Returns must be shipped prepaid and properly insured. 
+      <%company%> will not be responsible for damages during transit.
+    </payment-conditions-msg>
+  </footer>
+</sql-ledger-root>

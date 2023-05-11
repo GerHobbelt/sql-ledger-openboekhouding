@@ -13,93 +13,104 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="QUOTATION" >
-    <crm type="from">
-            <%name%>
-            <%address1%> 
-            <%address2%> 
-            <%city%> 
-            <%state%> 
-            <%zipcode%> 
-            <%country%> 
-            <%contact%> 
-            <%customerphone%> 
-            <%customerfax%> 
-            <%email%> 
-          </crm>
+    <!-- when CONTENT has only a single CRM record, it is type-attribute-less and the addressee, implicitly -->
+    <crm>
+      <%name%>
+      <%address1%>
+      <%address2%>
+      <%city%> 
+      <%state%> 
+      <%zipcode%> 
+      <%country%> 
+      <%contact%>
+      <%customerphone%> 
+      <%customerfax%> 
+      <%email%>
+      <%customertaxnumber%> 
+    </crm>
 
-          <data>
-<!--	  
-             Number 
-             Date 
-             Valid until 
-             Contact 
-             Shipping Point 
-             Ship via 
+<!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
+
+<!--      
+     Number 
+     Date 
+     Valid until 
+     Contact 
+     Shipping Point 
+     Ship via 
 -->
-             <%quonumber%> 
-             <%quodate%> 
-             <%reqdate%> 
-             <%employee%> 
-             <%shippingpoint%> 
-             <%shipvia%> 
+    <%quonumber%> 
+    <%quodate%> 
+    <%reqdate%> 
+    <%employee%> 
+    <%shippingpoint%> 
+    <%shipvia%> 
 
-<!--	  
-             Item 
-             Number 
-             Description 
-             Qt'y 
-             Price 
-             Disc % 
-             Amount 
--->	     
+<!--      
+     Item 
+     Number 
+     Description 
+     Qt'y 
+     Price 
+     Disc % 
+     Amount 
+-->         
 <%foreach number%>
-          <sales-quotation-item>
-             <%runningnumber%> 
-             <%number%> 
-             <%description%> 
-             <%qty%> 
-             <%unit%> 
-             <%sellprice%> 
-             <%discountrate%> 
-             <%linetotal%> 
-          </sales-quotation-item>
+    <sales-quotation-item>
+      <%runningnumber%> 
+      <%number%> 
+      <%description%> 
+      <%qty%> 
+      <%unit%> 
+      <%sellprice%> 
+      <%discountrate%> 
+      <%linetotal%> 
+              
+      <%notes%> 
+    </sales-quotation-item>
 <%end number%>
 
-<%if taxincluded%>
-             <%invtotal%> 
-<%end taxincluded%>
-
-<%if not taxincluded%>
-             <%subtotal%> 
-<%end taxincluded%>
-
 <%foreach tax%>
-          <tr>
-             <%taxdescription%> 
-	     <%taxbase%> 
-	     <%taxrate%>
-             <%tax%> 
-          </tr>
+    <tax-registration-item>
+      <%taxnumber%>
+      <%taxdescription%>
+      <%taxbase%>
+    
+      <taxrate-percentage>
+        <%taxrate%>
+      </taxrate-percentage>
+          
+      <%tax%> 
+    </tax-registration-item>
 <%end tax%>
 
-              <%terms%>
-	      
-             <%quototal%> 
+    <summary-totals>
+<%if not taxincluded%>
+      <sans-tax-subtotal>
+        <%subtotal%>
+      </sans-tax-subtotal>
+<%end taxincluded%>
 
-             <%notes%> 
+      <total>
+        <%invtotal%>
+      </total>
 
-            
-            <%currency%>
-       
-    </data>
+      <%quototal%> 
+    </summary-totals>
 
-	    
-             
-              <payment-conditions-msg>
-                Special order items are subject to a 10% cancellation fee.
-              </payment-conditions-msg>
+    <currency-info>
+      <%currency%>
+    </currency-info>
 
-             
-  </table>
-</body>
-</html>
+    <%terms%>
+
+    <%notes%>
+    
+  </content>
+
+  <footer>    
+    <payment-conditions-msg>
+      Special order items are subject to a 10% order cancellation fee.
+    </payment-conditions-msg>
+  </footer>
+</sql-ledger-root>

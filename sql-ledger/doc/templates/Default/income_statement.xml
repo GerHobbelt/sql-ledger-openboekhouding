@@ -13,65 +13,67 @@
  the LETTERHEAD block above and FOOTER block further below.
 -->
   <content type="INCOME-STATEMENT" >
-    <data>
-      <%company%>
-      <%address%>
+
+<!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
 
 <%if method eq 'cash'%>
-      <cash-method value="true" />
+    <cash-method value="true" />
 <%end method eq 'cash'%>
      
-      <%period%> 
+    <%period%> 
 
-      <%department%>
+    <%department%>
 
-      <%projectnumber%>
+    <%projectnumber%>
       
-      <%this_period%> 
-      <%previous_period%> 
+    <%this_period%> 
+    <%previous_period%> 
 
-      <income>
+    <income>
 <%foreach income_account%>
-        <income_account-item>
-          <%income_account%> 
-          <%income_this_period%> 
-          <%income_previous_period%> 
-        </income_account-item>
+      <income_account-item>
+        <%income_account%> 
+        <%income_this_period%> 
+        <%income_previous_period%> 
+      </income_account-item>
 <%end income_account%>
 
-        <%total_income_this_period%>
-        <%total_income_previous_period%>
-      </income>
+      <%total_income_this_period%>
+      <%total_income_previous_period%>
+    </income>
       
-      <expense> 
+    <expense> 
 <%foreach expense_account%>
-        <expense-account-item>
-          <%expense_account%> 
-          <%expense_this_period%> 
-          <%expense_previous_period%> 
-        </expense-account-item>
+      <expense-account-item>
+        <%expense_account%> 
+        <%expense_this_period%> 
+        <%expense_previous_period%> 
+      </expense-account-item>
 <%end expense_account%>
        
-        <%total_expense_this_period%>
-        <%total_expense_previous_period%>
-      </expense>
+      <%total_expense_this_period%>
+      <%total_expense_previous_period%>
+    </expense>
 
-      <summary>
-        <%total_this_period%>
-        <%total_previous_period%>
-      </summary>
+    <summary-totals>
+      <%total_this_period%>
+      <%total_previous_period%>
+    </summary-totals>
+      
+    <currency-info>
+      <%currency%>
+    </currency-info>
 
-      <%currency%> 
 <%if currency ne 'CAD'%> 
-      <%exchangerate%>
+    <%exchangerate%>
 <%end currency ne 'CAD'%>
-    </data>
-
-    <footer>
-      <currency-msg>
-        All amounts in <%currency%> 
-        <%if currency ne 'CAD'%> converted at <%exchangerate%><%end currency ne 'CAD'%>.
-      </currency-msg>
-    </footer>
   </content>
-<sql-ledger-root>
+
+  <footer>
+    <currency-msg>
+      All amounts in <%currency%>.
+    
+      <%if currency ne 'CAD'%> converted at <%exchangerate%><%end currency ne 'CAD'%>.
+    </currency-msg>
+  </footer>
+</sql-ledger-root>

@@ -22,38 +22,35 @@
       <%zipcode%>
       <%country%>
     </crm>
-       
-    <data>
-      <%company%>
-      <%address%>
-  
-      <%source%>
-       
-      <%text_amount%>
 
-      <decimal-value>   
-        <%decimal%>
-      </decimal-value>   
+<!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
+       
+    <%source%>
+       
+    <%text_amount%>
 
-      <%datepaid%> 
-      <%amount%>
+    <currency-decimal-value>
+      <%decimal%>
+    </currency-decimal-value>
+
+    <%datepaid%> 
 
 <!--
 % different date format for datepaid
 % <%DD%><%MM%><%YYYY%>
 -->
+    
+    <%amount%>
 
-      <%memo%>
+    <%memo%>
        
 <%foreach invnumber%>
-        <cheque-item>
-          <%invnumber%> 
-          <%invdate%>
-          <%due%> 
-          <%paid%>
-        </cheque-item>
+    <cheque-item>
+      <%invnumber%> 
+      <%invdate%>
+      <%due%> 
+      <%paid%>
+    </cheque-item>
 <%end invnumber%>
-
-    </data>
   </content>
 </sql-ledger-root>
