@@ -3,7 +3,7 @@
   <letterhead>
     <title>CHEQUE</title>
 
-    <%include letterhead.xml%>
+    <%if include letterhead.xml%><include letterhead.xml><%include letterhead.xml%></include letterhead.xml><%end include letterhead.xml%>
     
   </letterhead>
 
@@ -14,42 +14,42 @@
 -->
   <content type="CHEQUE" >
     <crm>
-      <%name%>
-      <%address1%>
-      <%address2%>
-      <%city%>
-      <%state%>
-      <%zipcode%>
-      <%country%>
+      <%if name%><name><%name%></name><%end name%>
+      <%if address1%><address1><%address1%></address1><%end address1%>
+      <%if address2%><address2><%address2%></address2><%end address2%>
+      <%if city%><city><%city%></city><%end city%>
+      <%if state%><state><%state%></state><%end state%>
+      <%if zipcode%><zipcode><%zipcode%></zipcode><%end zipcode%>
+      <%if country%><country><%country%></country><%end country%>
     </crm>
 
 <!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
        
-    <%source%>
+    <%if source%><source><%source%></source><%end source%>
        
-    <%text_amount%>
+    <%if text_amount%><text_amount><%text_amount%></text_amount><%end text_amount%>
 
     <currency-decimal-value>
-      <%decimal%>
+      <%if decimal%><decimal><%decimal%></decimal><%end decimal%>
     </currency-decimal-value>
 
-    <%datepaid%> 
+    <%if datepaid%><datepaid><%datepaid%></datepaid><%end datepaid%> 
 
 <!--
 % different date format for datepaid
 % <%DD%><%MM%><%YYYY%>
 -->
     
-    <%amount%>
+    <%if amount%><amount><%amount%></amount><%end amount%>
 
-    <%memo%>
+    <%if memo%><memo><%memo%></memo><%end memo%>
        
 <%foreach invnumber%>
     <cheque-item>
-      <%invnumber%> 
-      <%invdate%>
-      <%due%> 
-      <%paid%>
+      <%if invnumber%><invnumber><%invnumber%></invnumber><%end invnumber%> 
+      <%if invdate%><invdate><%invdate%></invdate><%end invdate%>
+      <%if due%><due><%due%></due><%end due%> 
+      <%if paid%><paid><%paid%></paid><%end paid%>
     </cheque-item>
 <%end invnumber%>
   </content>

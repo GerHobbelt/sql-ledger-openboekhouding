@@ -3,7 +3,7 @@
   <letterhead>
     <title>BALANCE SHEET</title>
 
-    <%include letterhead.xml%>
+    <%if include letterhead.xml%><include letterhead.xml><%include letterhead.xml%></include letterhead.xml><%end include letterhead.xml%>
     
   </letterhead>
 
@@ -21,67 +21,67 @@
 <%end method eq 'cash'%>
 
     <reporting-period>
-      <%this_period%> 
+      <%if this_period%><this_period><%this_period%></this_period><%end this_period%> 
     </reporting-period>
 
-    <%department%>
+    <%if department%><department><%department%></department><%end department%>
 
-    <%this_period%>
-    <%previous_period%>
+    <%if this_period%><this_period><%this_period%></this_period><%end this_period%>
+    <%if previous_period%><previous_period><%previous_period%></previous_period><%end previous_period%>
 
     <assets>    
 <%foreach asset_account%>
       <asset-item>    
-        <%asset_account%> 
-        <%asset_this_period%> 
+        <%if asset_account%><asset_account><%asset_account%></asset_account><%end asset_account%> 
+        <%if asset_this_period%><asset_this_period><%asset_this_period%></asset_this_period><%end asset_this_period%> 
         
-        <%asset_previous_period%> 
+        <%if asset_previous_period%><asset_previous_period><%asset_previous_period%></asset_previous_period><%end asset_previous_period%> 
       </asset-item>    
 <%end asset_account%>
 
-      <%total_asset_this_period%>
-      <%total_asset_previous_period%>
+      <%if total_asset_this_period%><total_asset_this_period><%total_asset_this_period%></total_asset_this_period><%end total_asset_this_period%>
+      <%if total_asset_previous_period%><total_asset_previous_period><%total_asset_previous_period%></total_asset_previous_period><%end total_asset_previous_period%>
     </assets>    
       
     <liabilities>
 <%foreach liability_account%>
       <liability-item>
-        <%liability_account%> 
-        <%liability_this_period%> 
+        <%if liability_account%><liability_account><%liability_account%></liability_account><%end liability_account%> 
+        <%if liability_this_period%><liability_this_period><%liability_this_period%></liability_this_period><%end liability_this_period%> 
         
-        <%liability_previous_period%> 
+        <%if liability_previous_period%><liability_previous_period><%liability_previous_period%></liability_previous_period><%end liability_previous_period%> 
       </liability-item>
 <%end liability_account%>
        
-      <%total_liability_this_period%>
-      <%total_liability_previous_period%>
+      <%if total_liability_this_period%><total_liability_this_period><%total_liability_this_period%></total_liability_this_period><%end total_liability_this_period%>
+      <%if total_liability_previous_period%><total_liability_previous_period><%total_liability_previous_period%></total_liability_previous_period><%end total_liability_previous_period%>
     <liabilities>
          
     <shareholders-equity>
 <%foreach equity_account%>
       <equity-item>
-        <%equity_account%> 
-        <%equity_this_period%> 
-        <%equity_previous_period%> 
+        <%if equity_account%><equity_account><%equity_account%></equity_account><%end equity_account%> 
+        <%if equity_this_period%><equity_this_period><%equity_this_period%></equity_this_period><%end equity_this_period%> 
+        <%if equity_previous_period%><equity_previous_period><%equity_previous_period%></equity_previous_period><%end equity_previous_period%> 
       </equity-item>
 <%end equity_account%>
        
-      <%total_equity_this_period%>
-      <%total_equity_previous_period%>
+      <%if total_equity_this_period%><total_equity_this_period><%total_equity_this_period%></total_equity_this_period><%end total_equity_this_period%>
+      <%if total_equity_previous_period%><total_equity_previous_period><%total_equity_previous_period%></total_equity_previous_period><%end total_equity_previous_period%>
     <shareholders-equity>
 
     <summary-totals>
       <!-- TOTAL LIABILITIES & EQUITY-->
-      <%total_this_period%>
-      <%total_previous_period%>
+      <%if total_this_period%><total_this_period><%total_this_period%></total_this_period><%end total_this_period%>
+      <%if total_previous_period%><total_previous_period><%total_previous_period%></total_previous_period><%end total_previous_period%>
     </summary-totals>
       
     <currency-info>
-      <%currency%>
+      <%if currency%><currency><%currency%></currency><%end currency%>
     </currency-info>
 
 <%if currency ne 'CAD'%> 
-    <%exchangerate%>
+    <%if exchangerate%><exchangerate><%exchangerate%></exchangerate><%end exchangerate%>
 <%end currency ne 'CAD'%>
   </content>
 
@@ -89,7 +89,7 @@
     <currency-msg>
       All amounts in <%currency%>.
     
-      <%if currency ne 'CAD'%> converted at <%exchangerate%><%end currency ne 'CAD'%>.
+      <%if if currency ne 'CAD'%><if currency ne 'CAD'><%if currency ne 'CAD'%></if currency ne 'CAD'><%end if currency ne 'CAD'%> converted at <%exchangerate%><%end currency ne 'CAD'%>.
     </currency-msg>
   </footer>
 </sql-ledger-root>

@@ -1,9 +1,9 @@
 <!-- partial XML file, included in other template XML files -->
     <crm type="this-is-us">
-      <%company%>
-      <%address%>
-      <%tel%>
-      <%fax%>
-      <%companyemail%>
-      <%companywebsite%>
+      <%if company%><company><%company%></company><%end company%>
+      <%if address%><address><%address%></address><%end address%>
+      <%if tel%><tel><%tel%></tel><%end tel%>
+      <%if fax%><fax><%fax%></fax><%end fax%>
+      <%if companyemail%><companyemail><%companyemail%></companyemail><%end companyemail%>
+      <%if companywebsite%><companywebsite><%companywebsite%></companywebsite><%end companywebsite%>
     </crm>

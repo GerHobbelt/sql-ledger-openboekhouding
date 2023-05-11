@@ -3,7 +3,7 @@
   <letterhead>
     <title>PACKING LIST</title>
 
-    <%include letterhead.xml%>
+    <%if include letterhead.xml%><include letterhead.xml><%include letterhead.xml%></include letterhead.xml><%end include letterhead.xml%>
     
   </letterhead>
 
@@ -14,17 +14,17 @@
 -->
   <content type="PACKING-LIST" >
     <crm type="ship-to">
-      <%shiptoname%>
-      <%shiptoaddress1%> 
-      <%shiptoaddress2%> 
-      <%shiptocity%> 
-      <%shiptostate%> 
-      <%shiptozipcode%> 
-      <%shiptocountry%> 
-      <%shiptocontact%>
-      <%shiptophone%> 
-      <%shiptofax%> 
-      <%shiptoemail%> 
+      <%if shiptoname%><shiptoname><%shiptoname%></shiptoname><%end shiptoname%>
+      <%if shiptoaddress1%><shiptoaddress1><%shiptoaddress1%></shiptoaddress1><%end shiptoaddress1%> 
+      <%if shiptoaddress2%><shiptoaddress2><%shiptoaddress2%></shiptoaddress2><%end shiptoaddress2%> 
+      <%if shiptocity%><shiptocity><%shiptocity%></shiptocity><%end shiptocity%> 
+      <%if shiptostate%><shiptostate><%shiptostate%></shiptostate><%end shiptostate%> 
+      <%if shiptozipcode%><shiptozipcode><%shiptozipcode%></shiptozipcode><%end shiptozipcode%> 
+      <%if shiptocountry%><shiptocountry><%shiptocountry%></shiptocountry><%end shiptocountry%> 
+      <%if shiptocontact%><shiptocontact><%shiptocontact%></shiptocontact><%end shiptocontact%>
+      <%if shiptophone%><shiptophone><%shiptophone%></shiptophone><%end shiptophone%> 
+      <%if shiptofax%><shiptofax><%shiptofax%></shiptofax><%end shiptofax%> 
+      <%if shiptoemail%><shiptoemail><%shiptoemail%></shiptoemail><%end shiptoemail%> 
     </crm>
 
 <!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
@@ -38,15 +38,15 @@
      Shipping Point 
      Ship via 
 -->
-    <%invnumber%> 
-    <%ordnumber%> 
-    <%orddate%> 
-    <%shippingdate%> 
-    <%transdate%> 
-    <%employee%> 
-    <%warehouse%> 
-    <%shippingpoint%> 
-    <%shipvia%> 
+    <%if invnumber%><invnumber><%invnumber%></invnumber><%end invnumber%> 
+    <%if ordnumber%><ordnumber><%ordnumber%></ordnumber><%end ordnumber%> 
+    <%if orddate%><orddate><%orddate%></orddate><%end orddate%> 
+    <%if shippingdate%><shippingdate><%shippingdate%></shippingdate><%end shippingdate%> 
+    <%if transdate%><transdate><%transdate%></transdate><%end transdate%> 
+    <%if employee%><employee><%employee%></employee><%end employee%> 
+    <%if warehouse%><warehouse><%warehouse%></warehouse><%end warehouse%> 
+    <%if shippingpoint%><shippingpoint><%shippingpoint%></shippingpoint><%end shippingpoint%> 
+    <%if shipvia%><shipvia><%shipvia%></shipvia><%end shipvia%> 
 
 <!--    
      Item 
@@ -58,18 +58,18 @@
 -->
 <%foreach number%>
     <packing-list-item>
-      <%runningnumber%> 
-      <%number%> 
-      <%description%> 
-      <%serialnumber%> 
-      <%deliverydate%> 
-      <%qty%> 
-      <%ship%> 
-      <%unit%> 
+      <%if runningnumber%><runningnumber><%runningnumber%></runningnumber><%end runningnumber%> 
+      <%if number%><number><%number%></number><%end number%> 
+      <%if description%><description><%description%></description><%end description%> 
+      <%if serialnumber%><serialnumber><%serialnumber%></serialnumber><%end serialnumber%> 
+      <%if deliverydate%><deliverydate><%deliverydate%></deliverydate><%end deliverydate%> 
+      <%if qty%><qty><%qty%></qty><%end qty%> 
+      <%if ship%><ship><%ship%></ship><%end ship%> 
+      <%if unit%><unit><%unit%></unit><%end unit%> 
     </packing-list-item>
 <%end number%>
 
-    <%notes%> 
+    <%if notes%><notes><%notes%></notes><%end notes%> 
 
   </content>
 
@@ -79,7 +79,7 @@
       Items returned are subject to a 10% restocking charge. 
       A return authorization must be obtained from <%company%> before goods are returned. 
       Returns must be shipped prepaid and properly insured. 
-      <%company%> will not be responsible for damages during transit.
+      <%if company%><company><%company%></company><%end company%> will not be responsible for damages during transit.
     </payment-conditions-msg>
   </footer>
 </sql-ledger-root>

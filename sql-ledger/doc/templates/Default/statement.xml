@@ -3,7 +3,7 @@
   <letterhead>
     <title>STATEMENT</title>
 
-    <%include letterhead.xml%>
+    <%if include letterhead.xml%><include letterhead.xml><%include letterhead.xml%></include letterhead.xml><%end include letterhead.xml%>
     
   </letterhead>
 
@@ -15,23 +15,23 @@
   <content type="STATEMENT" >
     <!-- when CONTENT has only a single CRM record, it is type-attribute-less and the addressee, implicitly -->
     <crm>
-      <%name%>
-      <%address1%>
-      <%address2%>
-      <%city%> 
-      <%state%> 
-      <%zipcode%> 
-      <%country%> 
-      <%contact%>
-      <%customerphone%> 
-      <%customerfax%> 
-      <%email%>
-      <%customertaxnumber%> 
+      <%if name%><name><%name%></name><%end name%>
+      <%if address1%><address1><%address1%></address1><%end address1%>
+      <%if address2%><address2><%address2%></address2><%end address2%>
+      <%if city%><city><%city%></city><%end city%> 
+      <%if state%><state><%state%></state><%end state%> 
+      <%if zipcode%><zipcode><%zipcode%></zipcode><%end zipcode%> 
+      <%if country%><country><%country%></country><%end country%> 
+      <%if contact%><contact><%contact%></contact><%end contact%>
+      <%if customerphone%><customerphone><%customerphone%></customerphone><%end customerphone%> 
+      <%if customerfax%><customerfax><%customerfax%></customerfax><%end customerfax%> 
+      <%if email%><email><%email%></email><%end email%>
+      <%if customertaxnumber%><customertaxnumber><%customertaxnumber%></customertaxnumber><%end customertaxnumber%> 
     </crm>
 
 <!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
 
-    <%statementdate%> 
+    <%if statementdate%><statementdate><%statementdate%></statementdate><%end statementdate%> 
 
 <!--
      Invoice # 
@@ -45,31 +45,31 @@
 -->
 <%foreach invnumber%>
     <statement-item>
-      <%invnumber%> 
-      <%ordnumber%> 
-      <%invdate%> 
-      <%duedate%> 
-      <%c0%> 
-      <%c30%> 
-      <%c60%> 
-      <%c90%> 
+      <%if invnumber%><invnumber><%invnumber%></invnumber><%end invnumber%> 
+      <%if ordnumber%><ordnumber><%ordnumber%></ordnumber><%end ordnumber%> 
+      <%if invdate%><invdate><%invdate%></invdate><%end invdate%> 
+      <%if duedate%><duedate><%duedate%></duedate><%end duedate%> 
+      <%if c0%><c0><%c0%></c0><%end c0%> 
+      <%if c30%><c30><%c30%></c30><%end c30%> 
+      <%if c60%><c60><%c60%></c60><%end c60%> 
+      <%if c90%><c90><%c90%></c90><%end c90%> 
     </statement-item>
 <%end invnumber%>
 
     <summary-totals>
-      <%c0total%> 
-      <%c30total%> 
-      <%c60total%> 
-      <%c90total%> 
+      <%if c0total%><c0total><%c0total%></c0total><%end c0total%> 
+      <%if c30total%><c30total><%c30total%></c30total><%end c30total%> 
+      <%if c60total%><c60total><%c60total%></c60total><%end c60total%> 
+      <%if c90total%><c90total><%c90total%></c90total><%end c90total%> 
 
-      <%total%> 
+      <%if total%><total><%total%></total><%end total%> 
     </summary-totals>
 
     <currency-info>
-      <%currency%>
+      <%if currency%><currency><%currency%></currency><%end currency%>
     </currency-info>
 
-    <%notes%>
+    <%if notes%><notes><%notes%></notes><%end notes%>
     
   </content>
 </sql-ledger-root>

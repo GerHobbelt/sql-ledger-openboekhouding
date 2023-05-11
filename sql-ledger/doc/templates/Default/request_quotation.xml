@@ -3,7 +3,7 @@
   <letterhead>
     <title>REQUEST FOR QUOTATION</title>
 
-    <%include letterhead.xml%>
+    <%if include letterhead.xml%><include letterhead.xml><%include letterhead.xml%></include letterhead.xml><%end include letterhead.xml%>
     
   </letterhead>
 
@@ -14,32 +14,32 @@
 -->
   <content type="REQUEST-FOR-QUOTATION" >
     <crm type="to">
-      <%name%>
-      <%address1%> 
-      <%address2%> 
-      <%city%> 
-      <%state%> 
-      <%zipcode%> 
-      <%country%> 
-      <%contact%>
-      <%vendorphone%> 
-      <%vendorfax%> 
-      <%email%> 
-      <%vendortaxnumber%> 
+      <%if name%><name><%name%></name><%end name%>
+      <%if address1%><address1><%address1%></address1><%end address1%> 
+      <%if address2%><address2><%address2%></address2><%end address2%> 
+      <%if city%><city><%city%></city><%end city%> 
+      <%if state%><state><%state%></state><%end state%> 
+      <%if zipcode%><zipcode><%zipcode%></zipcode><%end zipcode%> 
+      <%if country%><country><%country%></country><%end country%> 
+      <%if contact%><contact><%contact%></contact><%end contact%>
+      <%if vendorphone%><vendorphone><%vendorphone%></vendorphone><%end vendorphone%> 
+      <%if vendorfax%><vendorfax><%vendorfax%></vendorfax><%end vendorfax%> 
+      <%if email%><email><%email%></email><%end email%> 
+      <%if vendortaxnumber%><vendortaxnumber><%vendortaxnumber%></vendortaxnumber><%end vendortaxnumber%> 
     </crm>
 
     <crm type="ship-to">
-      <%shiptoname%>
-      <%shiptoaddress1%> 
-      <%shiptoaddress2%> 
-      <%shiptocity%> 
-      <%shiptostate%> 
-      <%shiptozipcode%> 
-      <%shiptocountry%> 
-      <%shiptocontact%>
-      <%shiptophone%> 
-      <%shiptofax%> 
-      <%shiptoemail%> 
+      <%if shiptoname%><shiptoname><%shiptoname%></shiptoname><%end shiptoname%>
+      <%if shiptoaddress1%><shiptoaddress1><%shiptoaddress1%></shiptoaddress1><%end shiptoaddress1%> 
+      <%if shiptoaddress2%><shiptoaddress2><%shiptoaddress2%></shiptoaddress2><%end shiptoaddress2%> 
+      <%if shiptocity%><shiptocity><%shiptocity%></shiptocity><%end shiptocity%> 
+      <%if shiptostate%><shiptostate><%shiptostate%></shiptostate><%end shiptostate%> 
+      <%if shiptozipcode%><shiptozipcode><%shiptozipcode%></shiptozipcode><%end shiptozipcode%> 
+      <%if shiptocountry%><shiptocountry><%shiptocountry%></shiptocountry><%end shiptocountry%> 
+      <%if shiptocontact%><shiptocontact><%shiptocontact%></shiptocontact><%end shiptocontact%>
+      <%if shiptophone%><shiptophone><%shiptophone%></shiptophone><%end shiptophone%> 
+      <%if shiptofax%><shiptofax><%shiptofax%></shiptofax><%end shiptofax%> 
+      <%if shiptoemail%><shiptoemail><%shiptoemail%></shiptoemail><%end shiptoemail%> 
     </crm>
 
 <!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
@@ -52,12 +52,12 @@
      Shipping Point 
      Ship via 
 -->         
-    <%quonumber%> 
-    <%quodate%> 
-    <%reqdate%> 
-    <%employee%> 
-    <%shippingpoint%> 
-    <%shipvia%> 
+    <%if quonumber%><quonumber><%quonumber%></quonumber><%end quonumber%> 
+    <%if quodate%><quodate><%quodate%></quodate><%end quodate%> 
+    <%if reqdate%><reqdate><%reqdate%></reqdate><%end reqdate%> 
+    <%if employee%><employee><%employee%></employee><%end employee%> 
+    <%if shippingpoint%><shippingpoint><%shippingpoint%></shippingpoint><%end shippingpoint%> 
+    <%if shipvia%><shipvia><%shipvia%></shipvia><%end shipvia%> 
 
 <!--
      Item 
@@ -70,16 +70,16 @@
 -->
 <%foreach number%>
     <request-quotation-item>
-      <%runningnumber%>
-      <%number%> 
-      <%description%> 
-      <%qty%> 
-      <%unit%> 
+      <%if runningnumber%><runningnumber><%runningnumber%></runningnumber><%end runningnumber%>
+      <%if number%><number><%number%></number><%end number%> 
+      <%if description%><description><%description%></description><%end description%> 
+      <%if qty%><qty><%qty%></qty><%end qty%> 
+      <%if unit%><unit><%unit%></unit><%end unit%> 
               
-      <%notes%> 
+      <%if notes%><notes><%notes%></notes><%end notes%> 
     </request-quotation-item>
 <%end number%>
 
-    <%notes%> 
+    <%if notes%><notes><%notes%></notes><%end notes%> 
   </content>
 </sql-ledger-root>

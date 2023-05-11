@@ -3,7 +3,7 @@
   <letterhead>
     <title>INCOME STATEMENT</title>
 
-    <%include letterhead.xml%>
+    <%if include letterhead.xml%><include letterhead.xml><%include letterhead.xml%></include letterhead.xml><%end include letterhead.xml%>
     
   </letterhead>
 
@@ -20,52 +20,52 @@
     <cash-method value="true" />
 <%end method eq 'cash'%>
      
-    <%period%> 
+    <%if period%><period><%period%></period><%end period%> 
 
-    <%department%>
+    <%if department%><department><%department%></department><%end department%>
 
-    <%projectnumber%>
+    <%if projectnumber%><projectnumber><%projectnumber%></projectnumber><%end projectnumber%>
       
-    <%this_period%> 
-    <%previous_period%> 
+    <%if this_period%><this_period><%this_period%></this_period><%end this_period%> 
+    <%if previous_period%><previous_period><%previous_period%></previous_period><%end previous_period%> 
 
     <income>
 <%foreach income_account%>
       <income_account-item>
-        <%income_account%> 
-        <%income_this_period%> 
-        <%income_previous_period%> 
+        <%if income_account%><income_account><%income_account%></income_account><%end income_account%> 
+        <%if income_this_period%><income_this_period><%income_this_period%></income_this_period><%end income_this_period%> 
+        <%if income_previous_period%><income_previous_period><%income_previous_period%></income_previous_period><%end income_previous_period%> 
       </income_account-item>
 <%end income_account%>
 
-      <%total_income_this_period%>
-      <%total_income_previous_period%>
+      <%if total_income_this_period%><total_income_this_period><%total_income_this_period%></total_income_this_period><%end total_income_this_period%>
+      <%if total_income_previous_period%><total_income_previous_period><%total_income_previous_period%></total_income_previous_period><%end total_income_previous_period%>
     </income>
       
     <expense> 
 <%foreach expense_account%>
       <expense-account-item>
-        <%expense_account%> 
-        <%expense_this_period%> 
-        <%expense_previous_period%> 
+        <%if expense_account%><expense_account><%expense_account%></expense_account><%end expense_account%> 
+        <%if expense_this_period%><expense_this_period><%expense_this_period%></expense_this_period><%end expense_this_period%> 
+        <%if expense_previous_period%><expense_previous_period><%expense_previous_period%></expense_previous_period><%end expense_previous_period%> 
       </expense-account-item>
 <%end expense_account%>
        
-      <%total_expense_this_period%>
-      <%total_expense_previous_period%>
+      <%if total_expense_this_period%><total_expense_this_period><%total_expense_this_period%></total_expense_this_period><%end total_expense_this_period%>
+      <%if total_expense_previous_period%><total_expense_previous_period><%total_expense_previous_period%></total_expense_previous_period><%end total_expense_previous_period%>
     </expense>
 
     <summary-totals>
-      <%total_this_period%>
-      <%total_previous_period%>
+      <%if total_this_period%><total_this_period><%total_this_period%></total_this_period><%end total_this_period%>
+      <%if total_previous_period%><total_previous_period><%total_previous_period%></total_previous_period><%end total_previous_period%>
     </summary-totals>
       
     <currency-info>
-      <%currency%>
+      <%if currency%><currency><%currency%></currency><%end currency%>
     </currency-info>
 
 <%if currency ne 'CAD'%> 
-    <%exchangerate%>
+    <%if exchangerate%><exchangerate><%exchangerate%></exchangerate><%end exchangerate%>
 <%end currency ne 'CAD'%>
   </content>
 
@@ -73,7 +73,7 @@
     <currency-msg>
       All amounts in <%currency%>.
     
-      <%if currency ne 'CAD'%> converted at <%exchangerate%><%end currency ne 'CAD'%>.
+      <%if if currency ne 'CAD'%><if currency ne 'CAD'><%if currency ne 'CAD'%></if currency ne 'CAD'><%end if currency ne 'CAD'%> converted at <%exchangerate%><%end currency ne 'CAD'%>.
     </currency-msg>
   </footer>
 </sql-ledger-root>

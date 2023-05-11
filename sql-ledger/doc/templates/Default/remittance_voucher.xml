@@ -3,7 +3,7 @@
   <letterhead>
     <title>REMITTANCE VOUCHER</title>
 
-    <%include letterhead.xml%>
+    <%if include letterhead.xml%><include letterhead.xml><%include letterhead.xml%></include letterhead.xml><%end include letterhead.xml%>
     
   </letterhead>
 
@@ -14,28 +14,28 @@
 -->
   <content type="REMITTANCE-VOUCHER" >
     <crm>
-      <%name%>
-      <%address1%>
-      <%address2%>
-      <%city%> 
-      <%state%> 
-      <%zipcode%>
-      <%country%>
+      <%if name%><name><%name%></name><%end name%>
+      <%if address1%><address1><%address1%></address1><%end address1%>
+      <%if address2%><address2><%address2%></address2><%end address2%>
+      <%if city%><city><%city%></city><%end city%> 
+      <%if state%><state><%state%></state><%end state%> 
+      <%if zipcode%><zipcode><%zipcode%></zipcode><%end zipcode%>
+      <%if country%><country><%country%></country><%end country%>
     </crm>
 
 <!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
 
 <!-- IBAN: -->
-    <%bankiban%> 
+    <%if bankiban%><bankiban><%bankiban%></bankiban><%end bankiban%> 
 <!-- BIC: -->
-    <%bankbic%> 
+    <%if bankbic%><bankbic><%bankbic%></bankbic><%end bankbic%> 
 <!-- Bank: -->
-    <%bankname%>
+    <%if bankname%><bankname><%bankname%></bankname><%end bankname%>
 
-    <%total%>
+    <%if total%><total><%total%></total><%end total%>
 
     <currency-info>
-      <%currency%>
+      <%if currency%><currency><%currency%></currency><%end currency%>
     </currency-info>
   </content>
 </sql-ledger-root>

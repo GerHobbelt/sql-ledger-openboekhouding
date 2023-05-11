@@ -3,7 +3,7 @@
   <letterhead>
     <title>DEBIT INVOICE</title>
 
-    <%include letterhead.xml%>
+    <%if include letterhead.xml%><include letterhead.xml><%include letterhead.xml%></include letterhead.xml><%end include letterhead.xml%>
     
   </letterhead>
 
@@ -14,32 +14,32 @@
 -->
   <content type="DEBIT-INVOICE" >
     <crm type="to">
-      <%name%>
-      <%address1%> 
-      <%address2%> 
-      <%city%> 
-      <%state%> 
-      <%zipcode%> 
-      <%country%> 
-      <%contact%>
-      <%vendorphone%> 
-      <%vendorfax%> 
-      <%email%> 
-      <%vendortaxnumber%> 
+      <%if name%><name><%name%></name><%end name%>
+      <%if address1%><address1><%address1%></address1><%end address1%> 
+      <%if address2%><address2><%address2%></address2><%end address2%> 
+      <%if city%><city><%city%></city><%end city%> 
+      <%if state%><state><%state%></state><%end state%> 
+      <%if zipcode%><zipcode><%zipcode%></zipcode><%end zipcode%> 
+      <%if country%><country><%country%></country><%end country%> 
+      <%if contact%><contact><%contact%></contact><%end contact%>
+      <%if vendorphone%><vendorphone><%vendorphone%></vendorphone><%end vendorphone%> 
+      <%if vendorfax%><vendorfax><%vendorfax%></vendorfax><%end vendorfax%> 
+      <%if email%><email><%email%></email><%end email%> 
+      <%if vendortaxnumber%><vendortaxnumber><%vendortaxnumber%></vendortaxnumber><%end vendortaxnumber%> 
     </crm>
 
     <crm type="ship-to">
-      <%shiptoname%>
-      <%shiptoaddress1%> 
-      <%shiptoaddress2%> 
-      <%shiptocity%> 
-      <%shiptostate%> 
-      <%shiptozipcode%> 
-      <%shiptocountry%> 
-      <%shiptocontact%>
-      <%shiptophone%> 
-      <%shiptofax%> 
-      <%shiptoemail%> 
+      <%if shiptoname%><shiptoname><%shiptoname%></shiptoname><%end shiptoname%>
+      <%if shiptoaddress1%><shiptoaddress1><%shiptoaddress1%></shiptoaddress1><%end shiptoaddress1%> 
+      <%if shiptoaddress2%><shiptoaddress2><%shiptoaddress2%></shiptoaddress2><%end shiptoaddress2%> 
+      <%if shiptocity%><shiptocity><%shiptocity%></shiptocity><%end shiptocity%> 
+      <%if shiptostate%><shiptostate><%shiptostate%></shiptostate><%end shiptostate%> 
+      <%if shiptozipcode%><shiptozipcode><%shiptozipcode%></shiptozipcode><%end shiptozipcode%> 
+      <%if shiptocountry%><shiptocountry><%shiptocountry%></shiptocountry><%end shiptocountry%> 
+      <%if shiptocontact%><shiptocontact><%shiptocontact%></shiptocontact><%end shiptocontact%>
+      <%if shiptophone%><shiptophone><%shiptophone%></shiptophone><%end shiptophone%> 
+      <%if shiptofax%><shiptofax><%shiptofax%></shiptofax><%end shiptofax%> 
+      <%if shiptoemail%><shiptoemail><%shiptoemail%></shiptoemail><%end shiptoemail%> 
     </crm>
 
 <!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
@@ -54,20 +54,20 @@
      Shipping Point 
      Ship via 
 -->
-    <%invnumber%> 
+    <%if invnumber%><invnumber><%invnumber%></invnumber><%end invnumber%> 
 
-    <%invdate%> 
-    <%duedate%> 
+    <%if invdate%><invdate><%invdate%></invdate><%end invdate%> 
+    <%if duedate%><duedate><%duedate%></duedate><%end duedate%> 
 
     <!-- PO # -->
-    <%ponumber%>
+    <%if ponumber%><ponumber><%ponumber%></ponumber><%end ponumber%>
 
     <!-- Order # -->
-    <%ordnumber%>
+    <%if ordnumber%><ordnumber><%ordnumber%></ordnumber><%end ordnumber%>
 
-    <%employee%> 
-    <%shippingpoint%> 
-    <%shipvia%> 
+    <%if employee%><employee><%employee%></employee><%end employee%> 
+    <%if shippingpoint%><shippingpoint><%shippingpoint%></shippingpoint><%end shippingpoint%> 
+    <%if shipvia%><shipvia><%shipvia%></shipvia><%end shipvia%> 
 
 <%if taxincluded%>
     <taxincluded value="true" />
@@ -84,72 +84,72 @@
 -->
 <%foreach number%>
     <debit-item>
-      <%runningnumber%>
-      <%number%> 
-      <%description%> 
-      <%deliverydate%> 
-      <%qty%> 
-      <%unit%> 
-      <%sellprice%> 
-      <%discountrate%> 
-      <%linetotal%> 
+      <%if runningnumber%><runningnumber><%runningnumber%></runningnumber><%end runningnumber%>
+      <%if number%><number><%number%></number><%end number%> 
+      <%if description%><description><%description%></description><%end description%> 
+      <%if deliverydate%><deliverydate><%deliverydate%></deliverydate><%end deliverydate%> 
+      <%if qty%><qty><%qty%></qty><%end qty%> 
+      <%if unit%><unit><%unit%></unit><%end unit%> 
+      <%if sellprice%><sellprice><%sellprice%></sellprice><%end sellprice%> 
+      <%if discountrate%><discountrate><%discountrate%></discountrate><%end discountrate%> 
+      <%if linetotal%><linetotal><%linetotal%></linetotal><%end linetotal%> 
               
-      <%notes%> 
+      <%if notes%><notes><%notes%></notes><%end notes%> 
     </debit-item>
 <%end number%>
 
 <%foreach tax%>
     <tax-registration-item>
       <!-- Registration No. -->
-      <%taxnumber%>
-      <%taxdescription%>
-      <%taxbase%>
+      <%if taxnumber%><taxnumber><%taxnumber%></taxnumber><%end taxnumber%>
+      <%if taxdescription%><taxdescription><%taxdescription%></taxdescription><%end taxdescription%>
+      <%if taxbase%><taxbase><%taxbase%></taxbase><%end taxbase%>
     
       <taxrate-percentage>
-        <%taxrate%>
+        <%if taxrate%><taxrate><%taxrate%></taxrate><%end taxrate%>
       </taxrate-percentage>
           
-      <%tax%> 
+      <%if tax%><tax><%tax%></tax><%end tax%> 
     </tax-registration-item>
 <%end tax%>
 
     <summary-totals>
 <%if not taxincluded%>
       <sans-tax-subtotal>
-        <%subtotal%>
+        <%if subtotal%><subtotal><%subtotal%></subtotal><%end subtotal%>
       </sans-tax-subtotal>
 <%end taxincluded%>
 
       <total>
-        <%invtotal%>
+        <%if invtotal%><invtotal><%invtotal%></invtotal><%end invtotal%>
       </total>
 
-      <%paid%> 
+      <%if paid%><paid><%paid%></paid><%end paid%> 
 
       <balance-due>
-        <%total%> 
+        <%if total%><total><%total%></total><%end total%> 
       </balance-due>
 
-      <%text_amount%>
+      <%if text_amount%><text_amount><%text_amount%></text_amount><%end text_amount%>
       
       <currency-decimal-value>
-        <%decimal%>
+        <%if decimal%><decimal><%decimal%></decimal><%end decimal%>
       </currency-decimal-value>
     </summary-totals>
 
     <currency-info>
-      <%currency%>
+      <%if currency%><currency><%currency%></currency><%end currency%>
     </currency-info>
 
-    <%notes%> 
+    <%if notes%><notes><%notes%></notes><%end notes%> 
 
 <%foreach payment%>
     <payment-item>
-      <%paymentdate%>
-      <%paymentaccount%>
-      <%paymentsource%>
-      <%paymentmemo%> 
-      <%payment%>
+      <%if paymentdate%><paymentdate><%paymentdate%></paymentdate><%end paymentdate%>
+      <%if paymentaccount%><paymentaccount><%paymentaccount%></paymentaccount><%end paymentaccount%>
+      <%if paymentsource%><paymentsource><%paymentsource%></paymentsource><%end paymentsource%>
+      <%if paymentmemo%><paymentmemo><%paymentmemo%></paymentmemo><%end paymentmemo%> 
+      <%if payment%><payment><%payment%></payment><%end payment%>
     </payment-item>
 <%end payment%>
   </content>

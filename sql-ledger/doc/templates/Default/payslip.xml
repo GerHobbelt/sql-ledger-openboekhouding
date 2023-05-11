@@ -3,7 +3,7 @@
   <letterhead>
     <title>PAYSLIP</title>
 
-    <%include letterhead.xml%>
+    <%if include letterhead.xml%><include letterhead.xml><%include letterhead.xml%></include letterhead.xml><%end include letterhead.xml%>
     
   </letterhead>
 
@@ -14,68 +14,68 @@
 -->
   <content type="PAYSLIP" >
     <crm>
-      <%name%>
-      <%address1%>
-      <%address2%>
-      <%city%>
-      <%state%>
-      <%zipcode%>
-      <%country%>
+      <%if name%><name><%name%></name><%end name%>
+      <%if address1%><address1><%address1%></address1><%end address1%>
+      <%if address2%><address2><%address2%></address2><%end address2%>
+      <%if city%><city><%city%></city><%end city%>
+      <%if state%><state><%state%></state><%end state%>
+      <%if zipcode%><zipcode><%zipcode%></zipcode><%end zipcode%>
+      <%if country%><country><%country%></country><%end country%>
     </crm>
 
 <!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
        
-    <%source%>
+    <%if source%><source><%source%></source><%end source%>
        
-    <%text_amount%>
+    <%if text_amount%><text_amount><%text_amount%></text_amount><%end text_amount%>
 
     <currency-decimal-value>
-      <%decimal%>
+      <%if decimal%><decimal><%decimal%></decimal><%end decimal%>
     </currency-decimal-value>
 
-    <%datepaid%> 
+    <%if datepaid%><datepaid><%datepaid%></datepaid><%end datepaid%> 
 
 <!--
 % different date format for datepaid
 % <%DD%><%MM%><%YYYY%>
 -->
     
-    <%amount%>
+    <%if amount%><amount><%amount%></amount><%end amount%>
 
-    <%memo%>
+    <%if memo%><memo><%memo%></memo><%end memo%>
     
 <!-- For Pay Period: -->
-    <%dateto%>
+    <%if dateto%><dateto><%dateto%></dateto><%end dateto%>
 
-    <%regularpay%>
-    <%overtimepay%>
-    <%travelpay%>
-    <%holidaypay%>
+    <%if regularpay%><regularpay><%regularpay%></regularpay><%end regularpay%>
+    <%if overtimepay%><overtimepay><%overtimepay%></overtimepay><%end overtimepay%>
+    <%if travelpay%><travelpay><%travelpay%></travelpay><%end travelpay%>
+    <%if holidaypay%><holidaypay><%holidaypay%></holidaypay><%end holidaypay%>
        
-    <%gross%>
+    <%if gross%><gross><%gross%></gross><%end gross%>
        
 <%foreach deduction%>
     <deduction-item>
-      <%deduction%>
-      <%amount%>
+      <%if deduction%><deduction><%deduction%></deduction><%end deduction%>
+      <%if amount%><amount><%amount%></amount><%end amount%>
     </deduction-item>
 <%end deduction%>
 
-    <%withheld%>
+    <%if withheld%><withheld><%withheld%></withheld><%end withheld%>
        
-    <%benefits%>
+    <%if benefits%><benefits><%benefits%></benefits><%end benefits%>
        
-    <%net%>
+    <%if net%><net><%net%></net><%end net%>
        
-    <%regular%>
-    <%regularrate%>
+    <%if regular%><regular><%regular%></regular><%end regular%>
+    <%if regularrate%><regularrate><%regularrate%></regularrate><%end regularrate%>
        
-    <%overtime%>
-    <%overtimerate%>
+    <%if overtime%><overtime><%overtime%></overtime><%end overtime%>
+    <%if overtimerate%><overtimerate><%overtimerate%></overtimerate><%end overtimerate%>
        
-    <%travel%>
-    <%travelrate%>
+    <%if travel%><travel><%travel%></travel><%end travel%>
+    <%if travelrate%><travelrate><%travelrate%></travelrate><%end travelrate%>
        
-    <%holiday%>
+    <%if holiday%><holiday><%holiday%></holiday><%end holiday%>
   </content>
 </sql-ledger-root>

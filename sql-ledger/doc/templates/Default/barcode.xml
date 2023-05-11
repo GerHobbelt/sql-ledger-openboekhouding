@@ -3,7 +3,7 @@
   <letterhead>
     <title>BARCODES</title>
 
-    <%include letterhead.xml%>
+    <%if include letterhead.xml%><include letterhead.xml><%include letterhead.xml%></include letterhead.xml><%end include letterhead.xml%>
     
   </letterhead>
 
@@ -25,8 +25,8 @@ Current decision: NO. This is left to the receiver to generate.
           104<%sku%><%sell%>
       </code>
 
-      <%sku%>
-      <%sell%>
+      <%if sku%><sku><%sku%></sku><%end sku%>
+      <%if sell%><sell><%sell%></sell><%end sell%>
     </barcode-item>
 <%end number * ship%>
   </content>

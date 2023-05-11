@@ -3,7 +3,7 @@
   <letterhead>
     <title>TIME CARD</title>
 
-    <%include letterhead.xml%>
+    <%if include letterhead.xml%><include letterhead.xml><%include letterhead.xml%></include letterhead.xml><%end include letterhead.xml%>
     
   </letterhead>
 
@@ -16,33 +16,33 @@
 
 <!-- <%company%> + <%address%> are common values found in LETTERHEAD chunk, so they do not show up here (while they DO in the HTML template...) -->
 
-    <%employee%> 
-    <%employee_id%> 
+    <%if employee%><employee><%employee%></employee><%end employee%> 
+    <%if employee_id%><employee_id><%employee_id%></employee_id><%end employee_id%> 
 
     <!-- Card ID -->
-    <%id%> 
+    <%if id%><id><%id%></id><%end id%> 
 
-    <%transdate%> 
+    <%if transdate%><transdate><%transdate%></transdate><%end transdate%> 
 
-    <%checkedin%> 
-    <%checkedout%> 
+    <%if checkedin%><checkedin><%checkedin%></checkedin><%end checkedin%> 
+    <%if checkedout%><checkedout><%checkedout%></checkedout><%end checkedout%> 
 
     <!-- Hours -->
-    <%qty%> 
+    <%if qty%><qty><%qty%></qty><%end qty%> 
        
-    <%projectnumber%> 
-    <%projectdescription%> 
+    <%if projectnumber%><projectnumber><%projectnumber%></projectnumber><%end projectnumber%> 
+    <%if projectdescription%><projectdescription><%projectdescription%></projectdescription><%end projectdescription%> 
 
     <!-- Labor/Service Code -->
-    <%partnumber%> 
+    <%if partnumber%><partnumber><%partnumber%></partnumber><%end partnumber%> 
 
-    <%description%> 
+    <%if description%><description><%description%></description><%end description%> 
 
     <!-- Rate -->
-    <%sellprice%> 
+    <%if sellprice%><sellprice><%sellprice%></sellprice><%end sellprice%> 
 
-    <%total%> 
+    <%if total%><total><%total%></total><%end total%> 
 
-    <%notes%> 
+    <%if notes%><notes><%notes%></notes><%end notes%> 
   </content>
 </sql-ledger-root>
